@@ -6,11 +6,14 @@
         xmlns:local="clr-namespace:ProjectPCS"
         mc:Ignorable="d"
         Title="menuWindow" Height="450" Width="800">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="221*"/>
-            <ColumnDefinition Width="71*"/>
-        </Grid.ColumnDefinitions>
-
-    </Grid>
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem x:Name="menuTrans" Header="Transaksi" Click="menuTrans_Click" />
+            <MenuItem x:Name="menuKaryawan" Header="Karyawan" Click="menuKaryawan_Click" />
+            <MenuItem x:Name="menuLaporan" Header="Laporan" Click="menuLaporan_Click" />
+        </Menu>
+        <StackPanel>
+            
+        </StackPanel>
+    </DockPanel>
 </Window>

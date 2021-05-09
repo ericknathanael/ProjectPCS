@@ -20,7 +20,10 @@ namespace ProjectPCS
     /// </summary>
     public partial class loginWindow : Window
     {
-        OracleConnection conn; 
+        public static OracleConnection conn;
+        public static string user;
+        public static string pass;
+        public static string source;
         public loginWindow()
         {
             InitializeComponent();
@@ -34,6 +37,26 @@ namespace ProjectPCS
             this.Close();
             menu.ShowDialog();
             this.Hide();
+        }
+
+        private void btLogin_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                user = tbUser.Text;
+                pass = tbPass.Text;
+                source = tbSource.Text;
+                conn = new OracleConnection($"User ID={user};password ={pass};Data Source={source}");
+                menuWindow menu = new menuWindow();
+                this.Hide();
+                menu.ShowDialog();
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
         }
     }
 }
