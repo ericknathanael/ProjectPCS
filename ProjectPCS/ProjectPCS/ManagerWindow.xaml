@@ -16,14 +16,15 @@
 
             </StackPanel>
         </DockPanel>
-                <TextBox Height="23" TextWrapping="Wrap" Width="120" Margin="135,108,537,288"/>
+                <TextBox x:Name="tbNama" Height="23" TextWrapping="Wrap" Width="120" Margin="135,108,537,288"/>
         <Label Content="Jabatan :" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,37,0,0"/>
-        <ComboBox x:Name="cbJabatan" HorizontalAlignment="Left" Margin="91,37,0,0" VerticalAlignment="Top" Width="120" Height="26"/>
+        <ComboBox x:Name="cbJabatan" HorizontalAlignment="Left" Margin="91,37,0,0" VerticalAlignment="Top" Width="164" Height="26"/>
         <Label Content="Username :" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="47,149,0,0"/>
         <Label Content="Password :" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="51,202,0,0"/>
         <Label Content="Nama Lengkap :" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,104,0,0"/>
-        <TextBox Height="23" TextWrapping="Wrap" Width="120" Margin="135,152,537,244"/>
-        <TextBox Height="23" TextWrapping="Wrap" Width="120" Margin="135,205,537,191"/>
+        <TextBox x:Name="tbUsername" Height="23" TextWrapping="Wrap" Width="120" Margin="135,152,537,244"/>
+        <TextBox x:Name="tbPass" Height="23" TextWrapping="Wrap" Width="120" Margin="135,205,537,191"/>
+        <Button x:Name="btRegis" Content="Register" HorizontalAlignment="Left" Margin="91,256,0,0" VerticalAlignment="Top" Width="105" Click="btRegis_Click"/>
 
     </Grid>
 </Window>

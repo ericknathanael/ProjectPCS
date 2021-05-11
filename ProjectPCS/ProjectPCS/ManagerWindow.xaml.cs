@@ -19,6 +19,7 @@ namespace ProjectPCS
     /// </summary>
     public partial class ManagerWindow : Window
     {
+        string query;
         public ManagerWindow()
         {
             InitializeComponent();
@@ -71,6 +72,9 @@ namespace ProjectPCS
             if(nama == "" || user == "" || id_jabatan == 0)
             {
                 MessageBox.Show("Isi isian dengan benar");
+            }
+            else
+            {
             }
             
         }
