@@ -26,13 +26,18 @@ namespace ProjectPCS
         public MainWindow()
         {
             InitializeComponent();
+            
+        }
+
+        private void btLogin_Click(object sender, RoutedEventArgs e)
+        {
             try
             {
-                source = tbData.Text;
+                source = tbSource.Text;
                 userId = tbUser.Text;
                 pass = tbPass.Text;
                 conn = new OracleConnection("Data Source = " + source + "; User ID = " + userId + "; password = " + pass);
-                loginWindow menu = new loginWindow();
+                LoginWindow menu = new LoginWindow();
                 this.Hide();
                 menu.ShowDialog();
                 this.Close();
@@ -41,11 +46,6 @@ namespace ProjectPCS
             {
                 MessageBox.Show(ex.Message);
             }
-        }
-
-        private void btSubmit_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

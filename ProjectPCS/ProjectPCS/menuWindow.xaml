@@ -8,9 +8,9 @@
         Title="menuWindow" Height="450" Width="800">
     <DockPanel>
         <Menu DockPanel.Dock="Top">
-            <MenuItem x:Name="menuTrans" Header="Transaksi" Click="menuTrans_Click" />
-            <MenuItem x:Name="menuKaryawan" Header="Karyawan" Click="menuKaryawan_Click" />
-            <MenuItem x:Name="menuLaporan" Header="Laporan" Click="menuLaporan_Click" />
+            <MenuItem x:Name="menuTrans" Header="Menu 1" Click="menuTrans_Click" />
+            <MenuItem x:Name="menuKaryawan" Header="Menu 2" Click="menuKaryawan_Click" />
+            <MenuItem x:Name="menuLaporan" Header="Menu 3" Click="menuLaporan_Click" />
         </Menu>
         <StackPanel>
             
