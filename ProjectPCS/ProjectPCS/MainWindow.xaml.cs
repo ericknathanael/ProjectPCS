@@ -23,29 +23,32 @@ namespace ProjectPCS
     {
         public static OracleConnection conn;
         public static string source, userId, pass;
+        loginWindow menu;
         public MainWindow()
         {
             InitializeComponent();
-            
-        }
-
-        private void btLogin_Click(object sender, RoutedEventArgs e)
-        {
             try
             {
-                source = tbSource.Text;
+                source = tbData.Text;
                 userId = tbUser.Text;
                 pass = tbPass.Text;
                 conn = new OracleConnection("Data Source = " + source + "; User ID = " + userId + "; password = " + pass);
-                LoginWindow menu = new LoginWindow();
+                menu = new loginWindow();
                 this.Hide();
                 menu.ShowDialog();
+                conn.Close();
                 this.Close();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+                conn.Close();
             }
+        }
+
+        private void btSubmit_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

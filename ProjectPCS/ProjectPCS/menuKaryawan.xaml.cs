@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Data;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
@@ -12,46 +11,33 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Data;
 using Oracle.DataAccess.Client;
 
 namespace ProjectPCS
 {
     /// <summary>
-    /// Interaction logic for menuWindow.xaml
+    /// Interaction logic for menuKaryawan.xaml
     /// </summary>
-    public partial class menuWindow : Window
+    public partial class menuKaryawan : Window
     {
-        string pilihan = "Transaksi";
         OracleConnection conn;
-        DataTable dt;
-
-        public menuWindow()
+        public menuKaryawan()
         {
             InitializeComponent();
-            conn = MainWindow.conn;
+            conn = loginWindow.conn;
         }
 
         private void menuTrans_Click(object sender, RoutedEventArgs e)
         {
-            pilihan = "Transaksi";
             menuTransaksi trans = new menuTransaksi();
             this.Hide();
             trans.ShowDialog();
             this.Close();
         }
 
-        private void menuKaryawan_Click(object sender, RoutedEventArgs e)
-        {
-            pilihan = "Karyawan";
-            menuKaryawan karyawan = new menuKaryawan();
-            this.Hide();
-            karyawan.ShowDialog();
-            this.Close();
-        }
-
         private void menuLaporan_Click(object sender, RoutedEventArgs e)
-        {            
-            pilihan = "Laporan";
+        {
             menuLaporan laporan = new menuLaporan();
             this.Hide();
             laporan.ShowDialog();

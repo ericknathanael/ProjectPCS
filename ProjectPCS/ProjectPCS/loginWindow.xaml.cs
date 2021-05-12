@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Data;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,75 +16,47 @@ using Oracle.DataAccess.Client;
 namespace ProjectPCS
 {
     /// <summary>
-    /// Interaction logic for LoginWindow.xaml
+    /// Interaction logic for loginWindow.xaml
     /// </summary>
-    public partial class LoginWindow : Window
+    public partial class loginWindow : Window
     {
-        OracleConnection conn;
-        OracleCommand cmd;
-        OracleDataAdapter da;
-        OracleDataReader dr;
-        DataTable dt;
-
-        public static Karyawan loggedIn { get; set; }
-
-        string query;
-        string user;
-        string pass;
-        public LoginWindow()
+        public static OracleConnection conn;
+        public static string user;
+        public static string pass;
+        public static string source;
+        public loginWindow()
         {
             InitializeComponent();
+            conn = MainWindow.conn;
+        }
+
+        private void btRegis_Click(object sender, RoutedEventArgs e)
+        {
+
+            registerWindow menu = new registerWindow();
+            this.Close();
+            menu.ShowDialog();
+            this.Hide();
         }
 
         private void btLogin_Click(object sender, RoutedEventArgs e)
         {
-            if(tbPass.Text == "" || tbUser.Text == "")
+            try
             {
-                MessageBox.Show("Pastikan Username dan Password sudah terisi");
+                user = tbUser.Text;
+                pass = tbPass.Text;
+                source = tbSource.Text;
+                conn = new OracleConnection($"User ID={user};password ={pass};Data Source={source}");
+                menuWindow menu = new menuWindow();
+                this.Hide();
+                menu.ShowDialog();
+                this.Close();
             }
-            else
+            catch (Exception ex)
             {
-                try
-                {
-                    loggedIn = null;
-                    conn.Open();
-                    user = tbUser.Text;
-                    pass = tbPass.Text;
-                    query = $"select * from karyawan where username = '{user}' and pass = '{pass}'";
-                    cmd = new OracleCommand(query, conn);
-                    dr = cmd.ExecuteReader();
-                    while (dr.Read())
-                    {
-                        loggedIn = new Karyawan(Convert.ToInt32(dr[1].ToString()), dr[2].ToString(), dr[3].ToString(), dr[4].ToString());
-                        MessageBox.Show($"{loggedIn.username} - {loggedIn.pass}");
-                    }
-                    conn.Close();
-                    if(loggedIn == null)
-                    {
-                        MessageBox.Show("Username atau password salah");
-                    }
-                    else
-                    {
-                        if(loggedIn.id_jabatan == 1)
-                        {
-                            ManagerWindow menu = new ManagerWindow();
-                            this.Hide();
-                            menu.ShowDialog();
-                            this.Close();
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                    MessageBox.Show("Username atau Password salah");
-                }
+                MessageBox.Show(ex.Message);
             }
-        }
-
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            conn = MainWindow.conn;
+            
         }
     }
 }

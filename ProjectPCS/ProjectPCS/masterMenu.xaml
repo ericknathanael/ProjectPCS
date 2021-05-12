@@ -1,0 +1,46 @@
+﻿<Window x:Class="ProjectPCS.masterMenu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProjectPCS"
+        mc:Ignorable="d"
+        Title="masterMenu" Height="665.667" Width="929">
+    <Grid>
+        <Menu Margin="0,0,1,607.667">
+            <MenuItem x:Name="menuTrans" Header="Transaksi" Click="menuTrans_Click" />
+            <MenuItem x:Name="menuKaryawan" Header="Karyawan" Click="menuKaryawan_Click" />
+            <MenuItem x:Name="menuLaporan" Header="Laporan" Click="menuLaporan_Click" />
+            <MenuItem x:Name="masterMenu1" Header="Master Menu"/>
+        </Menu>
+        <DataGrid Name="dgMenu" HorizontalAlignment="Left" Height="285" Margin="30,79,0,0" VerticalAlignment="Top" Width="518" MouseDoubleClick="dgMenu_MouseDoubleClick"/>
+        <Label Content="Master Menu" HorizontalAlignment="Left" Margin="106,29,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
+        <Label Content="Nama Makanan :" HorizontalAlignment="Left" Margin="573,115,0,0" VerticalAlignment="Top"/>
+        <Label Content="Jenis Makanan :" HorizontalAlignment="Left" Margin="579,156,0,0" VerticalAlignment="Top"/>
+        <Label Content="Harga Makanan :" HorizontalAlignment="Left" Margin="573,229,0,0" VerticalAlignment="Top"/>
+        <Label Content="Diskon Makanan :" HorizontalAlignment="Left" Margin="569,267,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="textBoxNama" HorizontalAlignment="Left" Height="23" Margin="688,118,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="190"/>
+        <ComboBox Name="comboBoxJenis" HorizontalAlignment="Left" Margin="688,160,0,0" VerticalAlignment="Top" Width="190"/>
+        <TextBox Name="textBoxHarga" HorizontalAlignment="Left" Height="23" Margin="689,233,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="190"/>
+        <TextBox Name="textBoxDiskon" HorizontalAlignment="Left" Height="23" Margin="689,271,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="190"/>
+        <Button Name="buttonInsert" Content="Insert" HorizontalAlignment="Left" Margin="574,312,0,0" VerticalAlignment="Top" Width="75" Click="buttonInsert_Click"/>
+        <Button Name="buttonUpdate" Content="Update" HorizontalAlignment="Left" Margin="675,312,0,0" VerticalAlignment="Top" Width="75" Click="buttonUpdate_Click" IsEnabled="False"/>
+        <Button Name="buttonDelete" Content="Delete" HorizontalAlignment="Left" Margin="769,312,0,0" VerticalAlignment="Top" Width="75" Click="buttonDelete_Click" IsEnabled="False"/>
+        <Label Content="Master Jenis Makanan" HorizontalAlignment="Left" Margin="106,372,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
+        <DataGrid x:Name="dgJenis" HorizontalAlignment="Left" Height="187" Margin="30,426,0,0" VerticalAlignment="Top" Width="518" MouseDoubleClick="dgJenis_MouseDoubleClick"/>
+        <Label Content="Jenis Makanan :" HorizontalAlignment="Left" Margin="593,472,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="textBoxJenis" HorizontalAlignment="Left" Height="23" Margin="703,475,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="190"/>
+        <Button x:Name="buttonInsert2" Content="Insert" HorizontalAlignment="Left" Margin="588,525,0,0" VerticalAlignment="Top" Width="75" Click="buttonInsert2_Click"/>
+        <Button x:Name="buttonUpdate2" Content="Update" HorizontalAlignment="Left" Margin="689,525,0,0" VerticalAlignment="Top" Width="75" Click="buttonUpdate2_Click" IsEnabled="False"/>
+        <Button x:Name="buttonDelete2" Content="Delete" HorizontalAlignment="Left" Margin="783,525,0,0" VerticalAlignment="Top" Width="75" Click="buttonDelete2_Click" IsEnabled="False"/>
+        <Button x:Name="buttonClear" Content="Clear" HorizontalAlignment="Left" Margin="675,343,0,0" VerticalAlignment="Top" Width="75" Click="buttonClear_Click"/>
+        <Button x:Name="buttonClear2" Content="Clear" HorizontalAlignment="Left" Margin="689,560,0,0" VerticalAlignment="Top" Width="75" Click="buttonClear2_Click"/>
+        <Label Content="Kode Menu :" HorizontalAlignment="Left" Margin="595,79,0,0" VerticalAlignment="Top"/>
+        <Label Name="labelKode" Content="-" HorizontalAlignment="Left" Margin="688,79,0,0" VerticalAlignment="Top"/>
+        <Label Content="Kode Jenis Makanan :" HorizontalAlignment="Left" Margin="563,426,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="labelKode2" Content="-" HorizontalAlignment="Left" Margin="703,426,0,0" VerticalAlignment="Top"/>
+        <Label Content="Status Makanan :" HorizontalAlignment="Left" Margin="572,198,0,0" VerticalAlignment="Top"/>
+        <RadioButton Name="radioButton1" Content="Available" HorizontalAlignment="Left" Margin="689,205,0,0" VerticalAlignment="Top" IsChecked="True"/>
+        <RadioButton Name="radioButton2" Content="Not Available" HorizontalAlignment="Left" Margin="793,205,0,0" VerticalAlignment="Top"/>
+    </Grid>
+</Window>

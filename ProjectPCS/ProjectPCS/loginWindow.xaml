@@ -1,17 +1,19 @@
-﻿<Window x:Class="ProjectPCS.LoginWindow"
+﻿<Window x:Class="ProjectPCS.loginWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjectPCS"
         mc:Ignorable="d"
-        Title="LoginWindow" Height="300" Width="400" Loaded="Window_Loaded">
+        Title="loginWindow" Height="300" Width="400">
     <Grid>
-        <Label Content="Username :" HorizontalAlignment="Left" Margin="16,68,0,0" VerticalAlignment="Top"/>
-        <Label Content="Password :" HorizontalAlignment="Left" Margin="20,124,0,0" VerticalAlignment="Top"/>
-        <Label Content="Login" HorizontalAlignment="Left" Margin="160,10,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
-        <TextBox x:Name="tbUser" HorizontalAlignment="Left" Height="23" Margin="90,71,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="285"/>
-        <TextBox x:Name="tbPass" HorizontalAlignment="Left" Height="23" Margin="90,124,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="285"/>
-        <Button x:Name="btLogin" Content="Login" HorizontalAlignment="Left" Margin="65,185,0,0" VerticalAlignment="Top" Width="264" Height="33" Click="btLogin_Click"/>
+        <TextBox x:Name="tbUser" HorizontalAlignment="Left" Height="23" Margin="108,111,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="252"/>
+        <TextBox x:Name="tbPass" HorizontalAlignment="Left" Height="23" Margin="108,158,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="252"/>
+        <Label Content="Username :" HorizontalAlignment="Left" Margin="16,108,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.928,0.538"/>
+        <Label Content="Password :" HorizontalAlignment="Left" Margin="22,155,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btLogin" Content="Login" HorizontalAlignment="Left" Margin="22,198,0,0" VerticalAlignment="Top" Width="338" Height="30" Click="btLogin_Click"/>
+        <Label Content="Data Connection And Source Settings" HorizontalAlignment="Left" Margin="85,20,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbSource" HorizontalAlignment="Left" Height="23" Margin="108,65,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="252"/>
+        <Label Content="Source :" HorizontalAlignment="Left" Margin="33,62,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>
