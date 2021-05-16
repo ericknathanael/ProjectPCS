@@ -33,9 +33,9 @@ namespace ProjectPCS
         private void btRegis_Click(object sender, RoutedEventArgs e)
         {
 
-            registerWindow menu = new registerWindow();
+            //registerWindow menu = new registerWindow();
             this.Close();
-            menu.ShowDialog();
+            //menu.ShowDialog();
             this.Hide();
         }
 

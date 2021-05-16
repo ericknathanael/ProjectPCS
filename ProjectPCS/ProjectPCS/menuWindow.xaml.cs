@@ -21,7 +21,6 @@ namespace ProjectPCS
     /// </summary>
     public partial class menuWindow : Window
     {
-        string pilihan = "Transaksi";
         OracleConnection conn;
         DataTable dt;
 
@@ -33,8 +32,7 @@ namespace ProjectPCS
 
         private void menuTrans_Click(object sender, RoutedEventArgs e)
         {
-            pilihan = "Transaksi";
-            menuTransaksi trans = new menuTransaksi();
+            transaksiWindow trans = new transaksiWindow();
             this.Hide();
             trans.ShowDialog();
             this.Close();
@@ -42,27 +40,25 @@ namespace ProjectPCS
 
         private void menuKaryawan_Click(object sender, RoutedEventArgs e)
         {
-            pilihan = "Karyawan";
-            menuKaryawan karyawan = new menuKaryawan();
+            //menuKaryawan karyawan = new menuKaryawan();
             this.Hide();
-            karyawan.ShowDialog();
+            //karyawan.ShowDialog();
             this.Close();
         }
 
         private void menuLaporan_Click(object sender, RoutedEventArgs e)
         {            
-            pilihan = "Laporan";
-            menuLaporan laporan = new menuLaporan();
+            //menuLaporan laporan = new menuLaporan();
             this.Hide();
-            laporan.ShowDialog();
+            //laporan.ShowDialog();
             this.Close();
         }
 
         private void masterMenu_Click(object sender, RoutedEventArgs e)
         {
-            masterMenu menu = new masterMenu();
+            //masterMenu menu = new masterMenu();
             this.Hide();
-            menu.ShowDialog();
+            //menu.ShowDialog();
             this.Close();
         }
     }

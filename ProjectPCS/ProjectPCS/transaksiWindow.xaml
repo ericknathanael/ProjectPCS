@@ -1,0 +1,28 @@
+﻿<Window x:Class="ProjectPCS.transaksiWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProjectPCS"
+        mc:Ignorable="d"
+        Title="transaksiWindow" Height="600" Width="800">
+    <Grid>
+        <Label Content="Nomor Nota :" HorizontalAlignment="Left" Margin="18,16,0,0" VerticalAlignment="Top"/>
+        <Label Content="ID Pelanggan :" HorizontalAlignment="Left" Margin="15,57,0,0" VerticalAlignment="Top"/>
+        <Label Content="No Meja :" HorizontalAlignment="Left" Margin="431,16,0,0" VerticalAlignment="Top"/>
+        <Label Content="Metode Pembayaran :" HorizontalAlignment="Left" Margin="366,57,0,0" VerticalAlignment="Top"/>
+        <Label Content="Total :" HorizontalAlignment="Left" Margin="593,483,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" RenderTransformOrigin="-0.638,-0.578"/>
+        <Label Content="0" HorizontalAlignment="Left" Margin="660,483,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18"/>
+        <Button x:Name="btBayar" Content="Bayar" HorizontalAlignment="Left" Height="37" Margin="431,522,0,0" VerticalAlignment="Top" Width="351"/>
+        <Button x:Name="btTambah" Content="Tambah Item" HorizontalAlignment="Left" Height="37" Margin="441,291,0,0" VerticalAlignment="Top" Width="166" Click="btTambah_Click"/>
+        <Button x:Name="btHapus" Content="Hapus" HorizontalAlignment="Left" Height="37" Margin="617,291,0,0" VerticalAlignment="Top" Width="165"/>
+        <TextBox x:Name="tbKode" HorizontalAlignment="Left" Height="23" Margin="489,263,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="293" TextChanged="tbKode_TextChanged"/>
+        <Label Content="Kode :" HorizontalAlignment="Left" Margin="441,260,0,0" VerticalAlignment="Top"/>
+        <DataGrid x:Name="dgMenu" HorizontalAlignment="Left" Height="245" Margin="54,236,0,0" VerticalAlignment="Top" Width="341"/>
+        <Label x:Name="lbNota" Content="" HorizontalAlignment="Left" Margin="106,16,0,0" VerticalAlignment="Top"/>
+        <ComboBox HorizontalAlignment="Left" Margin="497,20,0,0" VerticalAlignment="Top" Width="158"/>
+        <ComboBox x:Name="cbMetode" HorizontalAlignment="Left" Margin="497,61,0,0" VerticalAlignment="Top" Width="158"/>
+        <Label x:Name="lbPelanggan" Content="" HorizontalAlignment="Left" Margin="106,57,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>

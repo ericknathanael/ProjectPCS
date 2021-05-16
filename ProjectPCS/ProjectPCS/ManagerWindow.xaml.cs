@@ -75,8 +75,14 @@ namespace ProjectPCS
             }
             else
             {
+
             }
             
+        }
+
+        private void mnLaporan_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
