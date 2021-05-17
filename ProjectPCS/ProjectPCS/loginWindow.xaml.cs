@@ -21,6 +21,7 @@ namespace ProjectPCS
     public partial class loginWindow : Window
     {
         public static OracleConnection conn;
+        public OracleCommand cmd;
         public static string user;
         public static string pass;
         public static string source;
@@ -30,23 +31,38 @@ namespace ProjectPCS
             conn = MainWindow.conn;
         }
 
-        private void btRegis_Click(object sender, RoutedEventArgs e)
-        {
-
-            //registerWindow menu = new registerWindow();
-            this.Close();
-            //menu.ShowDialog();
-            this.Hide();
-        }
-
         private void btLogin_Click(object sender, RoutedEventArgs e)
         {
             try
             {
+                conn.Open();
                 user = tbUser.Text;
                 pass = tbPass.Text;
-                source = tbSource.Text;
-                conn = new OracleConnection($"User ID={user};password ={pass};Data Source={source}");
+                string query = $"select id_jabatan from karyawan where username = '{user.ToUpper()}' and pass = '{pass}' and (id_jabatan = 4 or id_jabatan = 1)";
+                cmd = new OracleCommand(query, conn);
+                OracleDataReader dr = cmd.ExecuteReader();
+                int jabatan = -1;
+                while (dr.Read())
+                {
+                    jabatan = int.Parse(dr[0].ToString());
+                    MessageBox.Show(jabatan + "");
+                }
+                
+                conn.Close();
+                if (jabatan == -1)
+                {
+                    MessageBox.Show("username atau password salah");
+                }
+                else if (jabatan == 1)
+                {
+                    //apabila masuk ke menu manager(Register karyawan,tambah menu, update absensi,laporan)
+                }
+                else if(jabatan == 4)
+                {
+                    //apabila masuk ke menu kasir(transaksi reservation,print nota);
+                }
+
+                //sementara menggunakan ini agar tidak perlu login menggunakan karyawan dsb
                 menuWindow menu = new menuWindow();
                 this.Hide();
                 menu.ShowDialog();

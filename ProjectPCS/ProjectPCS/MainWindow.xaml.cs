@@ -27,6 +27,11 @@ namespace ProjectPCS
         public MainWindow()
         {
             InitializeComponent();
+            
+        }
+
+        private void btSubmit_Click(object sender, RoutedEventArgs e)
+        {
             try
             {
                 source = tbData.Text;
@@ -44,11 +49,6 @@ namespace ProjectPCS
                 MessageBox.Show(ex.Message);
                 conn.Close();
             }
-        }
-
-        private void btSubmit_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }
