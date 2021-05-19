@@ -63,6 +63,7 @@
     <Compile Include="LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Meja.cs" />
     <Compile Include="Menu.cs" />
     <Compile Include="transaksiWindow.xaml.cs">
       <DependentUpon>transaksiWindow.xaml</DependentUpon>

@@ -23,6 +23,7 @@ namespace ProjectPCS
         public static OracleConnection conn;
         public OracleCommand cmd;
         public static string user;
+        public static string name;
         public static string pass;
         public static string source;
         public loginWindow()
@@ -56,13 +57,21 @@ namespace ProjectPCS
                 else if (jabatan == 1)
                 {
                     //apabila masuk ke menu manager(Register karyawan,tambah menu, update absensi,laporan)
-                }
+                }                               
                 else if(jabatan == 4)
                 {
                     //apabila masuk ke menu kasir(transaksi reservation,print nota);
                 }
 
-                //sementara menggunakan ini agar tidak perlu login menggunakan karyawan dsb
+                //sementara menggunakan ini agar tida   k perlu login menggunakan karyawan dsb
+
+                conn.Open();
+                query = $"select nama_karyawan from karyawan where username = '{user.ToUpper()}' and pass = '{pass}' and (id_jabatan = 4 or id_jabatan = 1)";
+                cmd = new OracleCommand(query, conn);
+                name = cmd.ExecuteScalar().ToString();
+                MessageBox.Show(name);
+                conn.Close();
+
                 menuWindow menu = new menuWindow();
                 this.Hide();
                 menu.ShowDialog();

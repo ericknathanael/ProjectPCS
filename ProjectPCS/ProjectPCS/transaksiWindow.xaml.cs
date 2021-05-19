@@ -28,16 +28,17 @@ namespace ProjectPCS
         OracleDataAdapter da;
         OracleDataReader dr;
         DataTable tableMenu;
-        DataTable tableTrans;
         
         List<Menu> listPesanan;
+        List<Meja> listMeja;
         string query;
         string kode;
+        int noMeja = -1;
 
         public transaksiWindow()
         {
             InitializeComponent();
-
+            listMeja = new List<Meja>();
             DispatcherTimer timer = new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, delegate
             {
                 this.dateText.Text = DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss");
@@ -125,7 +126,6 @@ namespace ProjectPCS
 
             isiMenu();
 
-            tableTrans = new DataTable();
             dgTrans.ItemsSource = listPesanan;
         }
 
@@ -141,7 +141,7 @@ namespace ProjectPCS
                 bool kembar = false;
                 foreach(Menu pesanan in listPesanan)
                 {
-                    if(pesanan.namaMenu == temp[2].ToString())
+                    if(pesanan.namaMenu == temp[1].ToString())
                     {
                         pesanan.tambahMenu();
                         kembar = true;
@@ -150,8 +150,7 @@ namespace ProjectPCS
                 }
                 if (!kembar)
                 {
-                    listPesanan.Add(new Menu(listPesanan.Count + 1,temp[1].ToString(),temp[0].ToString(),temp[2].ToString(),1,Convert.ToInt32(temp[3].ToString()),
-                        Convert.ToInt32(temp[4].ToString()),1));
+                    listPesanan.Add(new Menu(listPesanan.Count + 1,temp[0].ToString(),temp[1].ToString(),Convert.ToInt32(temp[2].ToString()),Convert.ToInt32(temp[3].ToString()),1));
                 }
                 
                 dgTrans.ItemsSource = null;
@@ -162,6 +161,14 @@ namespace ProjectPCS
 
         private void cbMeja_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            
+            if(listPesanan != null)
+            {
+                ComboBoxItem tmp = (ComboBoxItem)cbMeja.SelectedItem;
+                noMeja = Convert.ToInt32(tmp.Name.Substring(1));
+                listPesanan = listMeja[noMeja].Pesanan;
+            }
+            
             //apabila meja dipilih dilihat terlebih dahulu apakah meja tersebut sudah dibooking atau belum, apabila sudah dibooking maka ia akan mengisi ID pelanggan
         }
 
@@ -169,7 +176,7 @@ namespace ProjectPCS
         {
             tableMenu = new DataTable();
             conn.Open();
-            query = "select m.kode_menu,jm.nama_jenis,m.Nama_Menu,m.harga,m.diskon from menu m left join jenis_menu jm on jm.id = m.id_jenis_menu where status != 0";
+            query = "select m.kode_menu,m.Nama_Menu,m.harga,m.diskon from menu m where status != 0";
             cmd = new OracleCommand(query, conn);
             cmd.ExecuteNonQuery();
             da = new OracleDataAdapter(cmd);
@@ -207,7 +214,6 @@ namespace ProjectPCS
             dgMenu.Columns[1].Width = DataGridLength.Auto;
             dgMenu.Columns[2].Width = DataGridLength.Auto;
             dgMenu.Columns[3].Width = DataGridLength.Auto;
-            dgMenu.Columns[4].Width = DataGridLength.Auto;
             dgTrans.Columns[0].Width = 30;
             dgTrans.Columns[1].Width = DataGridLength.Auto;
             dgTrans.Columns[2].Width = DataGridLength.Auto;
@@ -224,8 +230,7 @@ namespace ProjectPCS
         private void isiMenu()
         {
             conn.Open();
-            query = "select m.kode_menu,jm.nama_jenis,m.Nama_Menu,m.harga,m.diskon from menu m left join jenis_menu jm on jm.id = m.id_jenis_menu where status != 0";
-            
+            query = "select m.kode_menu,m.Nama_Menu,m.harga,m.diskon from menu m where status != 0";
             cmd = new OracleCommand(query, conn);
             cmd.ExecuteNonQuery();
             da = new OracleDataAdapter(cmd);
@@ -233,6 +238,61 @@ namespace ProjectPCS
             dgMenu.ItemsSource = null;
             dgMenu.Items.Clear();
             dgMenu.ItemsSource = tableMenu.DefaultView;
+            conn.Close();
+        }
+
+        private void btHapus_Click(object sender, RoutedEventArgs e)
+        {
+            listPesanan.RemoveAt(dgTrans.SelectedIndex);
+            if(noMeja != -1)
+            {
+                listMeja[noMeja].Pesanan = listPesanan;
+            }
+
+        }
+
+        private void btBayar_Click(object sender, RoutedEventArgs e)
+        {
+            conn.Open();
+            using(OracleTransaction tr = conn.BeginTransaction())
+            {
+                cmd.Transaction = tr;
+                try
+                {
+                    ComboBoxItem temp;
+                    string nota = lbNota.Content.ToString();
+                    string nama;
+                    string metode;
+                    int idPelanggan = Convert.ToInt32(lbPelanggan.Content.ToString());
+                    int idMeja;
+                    int total;
+                    int potongan;
+                    int setelahDipotong;
+
+                    temp = (ComboBoxItem)cbMeja.SelectedItem;
+                    idMeja = Convert.ToInt32(temp.Name.Substring(1));
+                    
+                    nama = loginWindow.name;
+                    
+                    temp = (ComboBoxItem)cbMetode.SelectedItem;
+                    metode = temp.Name;
+
+                    setelahDipotong = Convert.ToInt32(lbTotal.Content.ToString());
+                    potongan = listMeja[noMeja].totalPotongan();
+                    total = listMeja[noMeja].totalKotor();
+
+                    query = $"insert into transaksi values('{nota}',{idPelanggan},{idMeja},'{nama}','{metode}',{total},{potongan},{setelahDipotong},sysdate)";
+                    cmd = new OracleCommand(query,conn);
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    tr.Rollback();
+
+                    MessageBox.Show(ex.Message);
+                    MessageBox.Show("Transaksi Gagal");
+                }
+            }
             conn.Close();
         }
     }

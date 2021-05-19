@@ -56,9 +56,9 @@ namespace ProjectPCS
 
         private void masterMenu_Click(object sender, RoutedEventArgs e)
         {
-            //masterMenu menu = new masterMenu();
+            masterMenu menu = new masterMenu();
             this.Hide();
-            //menu.ShowDialog();
+            menu.ShowDialog();
             this.Close();
         }
     }
