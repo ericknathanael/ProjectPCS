@@ -9,7 +9,7 @@
     <DockPanel>
         <Menu DockPanel.Dock="Top">
             <MenuItem x:Name="menuTrans" Header="Transaksi" Click="menuTrans_Click" />
-            <MenuItem x:Name="menuKaryawan" Header="Karyawan" Click="menuKaryawan_Click" />
+            <MenuItem x:Name="menuManager" Header="Manager" Click="menuKaryawan_Click" />
             <MenuItem x:Name="menuLaporan" Header="Laporan" Click="menuLaporan_Click" />
             <MenuItem x:Name="masterMenu" Header="Master Menu" Click="masterMenu_Click" />
         </Menu>

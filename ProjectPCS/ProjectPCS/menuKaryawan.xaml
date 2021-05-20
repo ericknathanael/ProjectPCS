@@ -8,12 +8,23 @@
         Title="menuKaryawan" Height="450" Width="800">
     <Grid>
         <Menu Margin="0,0,0.333,391.667">
-            <MenuItem x:Name="menuTrans" Header="Transaksi" Click="menuTrans_Click"/>
-            <MenuItem x:Name="menuKaryawan1" Header="Karyawan"/>
-            <MenuItem x:Name="menuLaporan" Header="Laporan" Click="menuLaporan_Click"/>
-            <MenuItem x:Name="masterMenu" Header="Master Menu" Click="masterMenu_Click"/>
+            <MenuItem x:Name="menuTrans" Header="Register Karyawan" Click="menuTrans_Click"/>
+            <MenuItem x:Name="menuKaryawan1" Header="Tambah Menu"/>
+            <MenuItem x:Name="menuLaporan" Header="Absensi" Click="menuLaporan_Click"/>
+            <MenuItem x:Name="masterMenu" Header="Laporan" Click="masterMenu_Click"/>
         </Menu>
-        <Label Content="Karyawan" HorizontalAlignment="Left" Margin="106,29,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
+        <Label Content="Register Karyawan Baru" HorizontalAlignment="Left" Margin="274,32,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+        <Label Content="Nama :" HorizontalAlignment="Left" Margin="45,82,0,0" VerticalAlignment="Top"/>
+        <Label Content="Username :" HorizontalAlignment="Left" Margin="23,113,0,0" VerticalAlignment="Top"/>
+        <Label Content="Password :" HorizontalAlignment="Left" Margin="27,145,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbNama" HorizontalAlignment="Left" Height="23" Margin="97,86,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="308"/>
+        <TextBox x:Name="tbUser" HorizontalAlignment="Left" Height="23" Margin="97,117,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="308"/>
+        <PasswordBox HorizontalAlignment="Left" Margin="97,147,0,0" VerticalAlignment="Top" Width="308" Height="23"/>
+        <RadioButton x:Name="rbManager" Content="Manager" HorizontalAlignment="Left" Margin="97,182,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="rbKoki" Content="Koki" HorizontalAlignment="Left" Margin="178,182,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="rbPelayan" Content="Pelayan" HorizontalAlignment="Left" Margin="240,182,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="rbKasir" Content="Kasir" HorizontalAlignment="Left" Margin="320,182,0,0" VerticalAlignment="Top"/>
+        <Label Content="Jabatan :" HorizontalAlignment="Left" Margin="36,176,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

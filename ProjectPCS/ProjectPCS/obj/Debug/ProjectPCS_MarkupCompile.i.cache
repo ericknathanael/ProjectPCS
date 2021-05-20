@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\edyef\Desktop\ProjectPCS\ProjectPCS\ProjectPCS\ProjectPCS\App.xaml
-6940774953
+81186636423
 
-14-386315950
+16-1871415335
 141443024088
-LoginWindow.xaml;MainWindow.xaml;ManagerWindow.xaml;masterMenu.xaml;menuWindow.xaml;transaksiWindow.xaml;
+LoginWindow.xaml;MainWindow.xaml;ManagerWindow.xaml;masterMenu.xaml;menuKaryawan.xaml;menuLaporan.xaml;menuWindow.xaml;transaksiWindow.xaml;
 
-False
+True
 

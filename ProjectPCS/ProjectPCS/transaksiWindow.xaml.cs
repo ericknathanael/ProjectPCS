@@ -253,6 +253,7 @@ namespace ProjectPCS
 
         private void btBayar_Click(object sender, RoutedEventArgs e)
         {
+            //kurang print bill / nota pembayaran
             conn.Open();
             using(OracleTransaction tr = conn.BeginTransaction())
             {
@@ -263,7 +264,7 @@ namespace ProjectPCS
                     string nota = lbNota.Content.ToString();
                     string nama;
                     string metode;
-                    int idPelanggan = Convert.ToInt32(lbPelanggan.Content.ToString());
+                    string idPelanggan = lbPelanggan.Content.ToString();
                     int idMeja;
                     int total;
                     int potongan;
@@ -280,10 +281,24 @@ namespace ProjectPCS
                     setelahDipotong = Convert.ToInt32(lbTotal.Content.ToString());
                     potongan = listMeja[noMeja].totalPotongan();
                     total = listMeja[noMeja].totalKotor();
+                    
+                    if(idPelanggan == "")
+                    {
+                        idPelanggan = "null";
+                    }
+
 
                     query = $"insert into transaksi values('{nota}',{idPelanggan},{idMeja},'{nama}','{metode}',{total},{potongan},{setelahDipotong},sysdate)";
                     cmd = new OracleCommand(query,conn);
                     cmd.ExecuteNonQuery();
+                    query = $"select count(id) + 1 from d_transaksi";
+                    cmd = new OracleCommand(query, conn);
+                    int id = Convert.ToInt32(cmd.ExecuteScalar().ToString());
+                    foreach (Menu item in listMeja[noMeja].Pesanan)
+                    {
+                        query = $"insert into d_transaksi values({id},{item.ID},'{item.namaMenu}','{item.jumlah}',{item.harga},{item.potongan()},{item.hargaTotal})";
+                        id++;
+                    }
                 }
                 catch (Exception ex)
                 {

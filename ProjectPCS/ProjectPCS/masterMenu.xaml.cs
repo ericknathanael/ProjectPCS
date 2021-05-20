@@ -141,25 +141,25 @@ namespace ProjectPCS
 
         private void menuTrans_Click(object sender, RoutedEventArgs e)
         {
-            menuTransaksi trans = new menuTransaksi();
+            //menuTransaksi trans = new menuTransaksi();
             this.Hide();
-            trans.ShowDialog();
+            //trans.ShowDialog();
             this.Close();
         }
 
         private void menuKaryawan_Click(object sender, RoutedEventArgs e)
         {
-            menuKaryawan karyawan = new menuKaryawan();
+            //menuKaryawan karyawan = new menuKaryawan();
             this.Hide();
-            karyawan.ShowDialog();
+            //karyawan.ShowDialog();
             this.Close();
         }
 
         private void menuLaporan_Click(object sender, RoutedEventArgs e)
         {
-            menuLaporan laporan = new menuLaporan();
+            //menuLaporan laporan = new menuLaporan();
             this.Hide();
-            laporan.ShowDialog();
+            //laporan.ShowDialog();
             this.Close();
         }
 

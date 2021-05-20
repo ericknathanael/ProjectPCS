@@ -63,8 +63,17 @@
     <Compile Include="LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="masterMenu.xaml.cs">
+      <DependentUpon>masterMenu.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Meja.cs" />
     <Compile Include="Menu.cs" />
+    <Compile Include="menuKaryawan.xaml.cs">
+      <DependentUpon>menuKaryawan.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="menuLaporan.xaml.cs">
+      <DependentUpon>menuLaporan.xaml</DependentUpon>
+    </Compile>
     <Compile Include="transaksiWindow.xaml.cs">
       <DependentUpon>transaksiWindow.xaml</DependentUpon>
     </Compile>
@@ -87,6 +96,18 @@
     <Page Include="ManagerWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="masterMenu.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="menuKaryawan.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="menuLaporan.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="menuWindow.xaml">
       <SubType>Designer</SubType>

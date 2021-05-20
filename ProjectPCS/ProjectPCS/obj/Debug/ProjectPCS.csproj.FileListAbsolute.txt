@@ -21,3 +21,11 @@ C:\Users\edyef\Desktop\ProjectPCS\ProjectPCS\ProjectPCS\ProjectPCS\obj\Debug\Man
 C:\Users\edyef\Desktop\ProjectPCS\ProjectPCS\ProjectPCS\ProjectPCS\obj\Debug\ManagerWindow.baml
 C:\Users\edyef\Desktop\ProjectPCS\ProjectPCS\ProjectPCS\ProjectPCS\obj\Debug\transaksiWindow.g.cs
 C:\Users\edyef\Desktop\ProjectPCS\ProjectPCS\ProjectPCS\ProjectPCS\obj\Debug\transaksiWindow.baml
+C:\Users\edyef\Desktop\ProjectPCS\ProjectPCS\ProjectPCS\ProjectPCS\obj\Debug\masterMenu.g.cs
+C:\Users\edyef\Desktop\ProjectPCS\ProjectPCS\ProjectPCS\ProjectPCS\obj\Debug\masterMenu.baml
+C:\Users\edyef\Desktop\ProjectPCS\ProjectPCS\ProjectPCS\ProjectPCS\obj\Debug\menuKaryawan.g.cs
+C:\Users\edyef\Desktop\ProjectPCS\ProjectPCS\ProjectPCS\ProjectPCS\obj\Debug\menuLaporan.g.cs
+C:\Users\edyef\Desktop\ProjectPCS\ProjectPCS\ProjectPCS\ProjectPCS\obj\Debug\menuTransaksi.g.cs
+C:\Users\edyef\Desktop\ProjectPCS\ProjectPCS\ProjectPCS\ProjectPCS\obj\Debug\menuKaryawan.baml
+C:\Users\edyef\Desktop\ProjectPCS\ProjectPCS\ProjectPCS\ProjectPCS\obj\Debug\menuLaporan.baml
+C:\Users\edyef\Desktop\ProjectPCS\ProjectPCS\ProjectPCS\ProjectPCS\obj\Debug\menuTransaksi.baml

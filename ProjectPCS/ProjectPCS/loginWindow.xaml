@@ -7,11 +7,11 @@
         mc:Ignorable="d"
         Title="loginWindow" Height="200" Width="400">
     <Grid>
-        <TextBox x:Name="tbUser" HorizontalAlignment="Left" Height="23" Margin="92,59,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="284"/>
-        <TextBox x:Name="tbPass" HorizontalAlignment="Left" Height="23" Margin="92,90,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="284"/>
+        <TextBox x:Name="tbUser" HorizontalAlignment="Left" Height="23" Margin="95,59,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="284"/>
+        <TextBox x:Name="tbPass" HorizontalAlignment="Left" Height="23" Margin="95,90,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="284"/>
         <Label Content="Username :" HorizontalAlignment="Left" Margin="12,58,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.928,0.538" Width="71"/>
         <Label Content="Password :" HorizontalAlignment="Left" Margin="16,89,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="btLogin" Content="Login" HorizontalAlignment="Left" Margin="10,120,0,0" VerticalAlignment="Top" Width="372" Height="30" Click="btLogin_Click"/>
+        <Button x:Name="btLogin" Content="Login" HorizontalAlignment="Left" Margin="15,120,0,0" VerticalAlignment="Top" Width="364" Height="30" Click="btLogin_Click"/>
         <Label Content="Login " HorizontalAlignment="Left" Margin="175,26,0,0" VerticalAlignment="Top"/>
         <Label Content="login menggunakan username dan password dari karyawan" HorizontalAlignment="Left" Margin="39,10,0,0" VerticalAlignment="Top"/>
     </Grid>

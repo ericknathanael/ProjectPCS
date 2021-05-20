@@ -57,31 +57,45 @@ namespace ProjectPCS
                 else if (jabatan == 1)
                 {
                     //apabila masuk ke menu manager(Register karyawan,tambah menu, update absensi,laporan)
+                    name = namaUser();
+                    menuKaryawan menu = new menuKaryawan();
+                    this.Hide();
+                    menu.ShowDialog();
+                    this.Close();
                 }                               
                 else if(jabatan == 4)
                 {
                     //apabila masuk ke menu kasir(transaksi reservation,print nota);
+                    name = namaUser();
+                    transaksiWindow trans = new transaksiWindow();
+                    this.Hide();
+                    trans.ShowDialog();
+                    this.Close();
                 }
-
-                //sementara menggunakan ini agar tida   k perlu login menggunakan karyawan dsb
-
-                conn.Open();
-                query = $"select nama_karyawan from karyawan where username = '{user.ToUpper()}' and pass = '{pass}' and (id_jabatan = 4 or id_jabatan = 1)";
-                cmd = new OracleCommand(query, conn);
-                name = cmd.ExecuteScalar().ToString();
-                MessageBox.Show(name);
-                conn.Close();
-
-                menuWindow menu = new menuWindow();
-                this.Hide();
-                menu.ShowDialog();
-                this.Close();
+                
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
             
+        }
+
+        private string namaUser()
+        {
+            string nama = "";
+            conn.Open();
+            string query = $"select nama_karyawan from karyawan where username = '{user.ToUpper()}' and pass = '{pass}' and (id_jabatan = 4 or id_jabatan = 1)";
+            cmd = new OracleCommand(query, conn);
+            name = cmd.ExecuteScalar().ToString();
+            MessageBox.Show(name);
+            conn.Close();
+     
+            menuWindow menu = new menuWindow();
+            this.Hide();
+            menu.ShowDialog();
+            this.Close();
+            return nama;
         }
     }
 }
