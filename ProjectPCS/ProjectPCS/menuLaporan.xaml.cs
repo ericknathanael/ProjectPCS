@@ -30,7 +30,7 @@ namespace ProjectPCS
 
         private void menuTrans_Click(object sender, RoutedEventArgs e)
         {
-            menuTransaksi trans = new menuTransaksi();
+            transaksiWindow trans = new transaksiWindow();
             this.Hide();
             trans.ShowDialog();
             this.Close();

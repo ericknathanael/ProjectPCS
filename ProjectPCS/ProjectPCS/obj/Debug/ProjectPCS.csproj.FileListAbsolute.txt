@@ -25,7 +25,5 @@ C:\Users\edyef\Desktop\ProjectPCS\ProjectPCS\ProjectPCS\ProjectPCS\obj\Debug\mas
 C:\Users\edyef\Desktop\ProjectPCS\ProjectPCS\ProjectPCS\ProjectPCS\obj\Debug\masterMenu.baml
 C:\Users\edyef\Desktop\ProjectPCS\ProjectPCS\ProjectPCS\ProjectPCS\obj\Debug\menuKaryawan.g.cs
 C:\Users\edyef\Desktop\ProjectPCS\ProjectPCS\ProjectPCS\ProjectPCS\obj\Debug\menuLaporan.g.cs
-C:\Users\edyef\Desktop\ProjectPCS\ProjectPCS\ProjectPCS\ProjectPCS\obj\Debug\menuTransaksi.g.cs
 C:\Users\edyef\Desktop\ProjectPCS\ProjectPCS\ProjectPCS\ProjectPCS\obj\Debug\menuKaryawan.baml
 C:\Users\edyef\Desktop\ProjectPCS\ProjectPCS\ProjectPCS\ProjectPCS\obj\Debug\menuLaporan.baml
-C:\Users\edyef\Desktop\ProjectPCS\ProjectPCS\ProjectPCS\ProjectPCS\obj\Debug\menuTransaksi.baml

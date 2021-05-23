@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjectPCS"
         mc:Ignorable="d"
-        Title="menuKaryawan" Height="450" Width="800">
+        Title="menuKaryawan" Height="450" Width="800" Loaded="Window_Loaded">
     <Grid>
         <Menu Margin="0,0,0.333,391.667">
             <MenuItem x:Name="menuTrans" Header="Register Karyawan" Click="menuTrans_Click"/>
@@ -14,17 +14,21 @@
             <MenuItem x:Name="masterMenu" Header="Laporan" Click="masterMenu_Click"/>
         </Menu>
         <Label Content="Register Karyawan Baru" HorizontalAlignment="Left" Margin="274,32,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
-        <Label Content="Nama :" HorizontalAlignment="Left" Margin="45,82,0,0" VerticalAlignment="Top"/>
-        <Label Content="Username :" HorizontalAlignment="Left" Margin="23,113,0,0" VerticalAlignment="Top"/>
-        <Label Content="Password :" HorizontalAlignment="Left" Margin="27,145,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="tbNama" HorizontalAlignment="Left" Height="23" Margin="97,86,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="308"/>
-        <TextBox x:Name="tbUser" HorizontalAlignment="Left" Height="23" Margin="97,117,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="308"/>
-        <PasswordBox HorizontalAlignment="Left" Margin="97,147,0,0" VerticalAlignment="Top" Width="308" Height="23"/>
-        <RadioButton x:Name="rbManager" Content="Manager" HorizontalAlignment="Left" Margin="97,182,0,0" VerticalAlignment="Top"/>
-        <RadioButton x:Name="rbKoki" Content="Koki" HorizontalAlignment="Left" Margin="178,182,0,0" VerticalAlignment="Top"/>
-        <RadioButton x:Name="rbPelayan" Content="Pelayan" HorizontalAlignment="Left" Margin="240,182,0,0" VerticalAlignment="Top"/>
-        <RadioButton x:Name="rbKasir" Content="Kasir" HorizontalAlignment="Left" Margin="320,182,0,0" VerticalAlignment="Top"/>
-        <Label Content="Jabatan :" HorizontalAlignment="Left" Margin="36,176,0,0" VerticalAlignment="Top"/>
+        <Label Content="Nama :" HorizontalAlignment="Left" Margin="38,279,0,0" VerticalAlignment="Top"/>
+        <Label Content="Username :" HorizontalAlignment="Left" Margin="16,310,0,0" VerticalAlignment="Top"/>
+        <Label Content="Password :" HorizontalAlignment="Left" Margin="20,342,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbNama" HorizontalAlignment="Left" Height="23" Margin="90,283,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="308"/>
+        <TextBox x:Name="tbUser" HorizontalAlignment="Left" Height="23" Margin="90,314,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="308"/>
+        <PasswordBox x:Name="passBox" HorizontalAlignment="Left" Margin="90,344,0,0" VerticalAlignment="Top" Width="308" Height="23"/>
+        <RadioButton x:Name="rbManager" Content="Manager" HorizontalAlignment="Left" Margin="90,379,0,0" VerticalAlignment="Top" Checked="rbManager_Checked"/>
+        <RadioButton x:Name="rbKoki" Content="Koki" HorizontalAlignment="Left" Margin="171,379,0,0" VerticalAlignment="Top" Checked="rbKoki_Checked"/>
+        <RadioButton x:Name="rbPelayan" Content="Pelayan" HorizontalAlignment="Left" Margin="233,379,0,0" VerticalAlignment="Top" Checked="rbPelayan_Checked"/>
+        <RadioButton x:Name="rbKasir" Content="Kasir" HorizontalAlignment="Left" Margin="313,379,0,0" VerticalAlignment="Top" Checked="rbKasir_Checked"/>
+        <Label Content="Jabatan :" HorizontalAlignment="Left" Margin="29,373,0,0" VerticalAlignment="Top"/>
+        <DataGrid x:Name="dgKaryawan" HorizontalAlignment="Left" Height="194" Margin="10,71,0,0" VerticalAlignment="Top" Width="772" SelectionChanged="dgKaryawan_SelectionChanged"/>
+        <Button x:Name="btRegis" Content="Register" HorizontalAlignment="Left" Margin="672,371,0,0" VerticalAlignment="Top" Width="110" Height="35" Click="btRegis_Click"/>
+        <Button x:Name="btDelete" Content="Delete" HorizontalAlignment="Left" Margin="557,370,0,0" VerticalAlignment="Top" Width="110" Height="36"/>
+        <Button x:Name="btUpdate" Content="Update" HorizontalAlignment="Left" Margin="442,371,0,0" VerticalAlignment="Top" Width="110" Height="36"/>
 
     </Grid>
 </Window>
