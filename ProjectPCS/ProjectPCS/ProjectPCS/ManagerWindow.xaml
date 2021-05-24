@@ -1,0 +1,30 @@
+﻿<Window x:Class="ProjectPCS.ManagerWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProjectPCS"
+        mc:Ignorable="d"
+        Title="ManagerWindow" Height="450" Width="800" Loaded="Window_Loaded">
+    <Grid>
+        <DockPanel Grid.ColumnSpan="2">
+            <Menu DockPanel.Dock="Top">
+                <MenuItem x:Name="mnRegister" Header="Register" Click="mnRegister_Click" />
+                <MenuItem x:Name="mnLaporan" Header="Laporan" Click="mnLaporan_Click" />
+            </Menu>
+            <StackPanel>
+
+            </StackPanel>
+        </DockPanel>
+                <TextBox x:Name="tbNama" Height="23" TextWrapping="Wrap" Width="120" Margin="135,108,537,288"/>
+        <Label Content="Jabatan :" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,37,0,0"/>
+        <ComboBox x:Name="cbJabatan" HorizontalAlignment="Left" Margin="91,37,0,0" VerticalAlignment="Top" Width="164" Height="26"/>
+        <Label Content="Username :" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="47,149,0,0"/>
+        <Label Content="Password :" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="51,202,0,0"/>
+        <Label Content="Nama Lengkap :" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,104,0,0"/>
+        <TextBox x:Name="tbUsername" Height="23" TextWrapping="Wrap" Width="120" Margin="135,152,537,244"/>
+        <TextBox x:Name="tbPass" Height="23" TextWrapping="Wrap" Width="120" Margin="135,205,537,191"/>
+        <Button x:Name="btRegis" Content="Register" HorizontalAlignment="Left" Margin="91,256,0,0" VerticalAlignment="Top" Width="105" Click="btRegis_Click"/>
+
+    </Grid>
+</Window>

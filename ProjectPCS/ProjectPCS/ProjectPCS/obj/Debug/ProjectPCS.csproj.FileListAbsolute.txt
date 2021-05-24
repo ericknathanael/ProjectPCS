@@ -1,0 +1,58 @@
+C:\Users\edyef\Desktop\ProjectPCS\ProjectPCS\ProjectPCS\ProjectPCS\bin\Debug\ProjectPCS.exe.config
+C:\Users\edyef\Desktop\ProjectPCS\ProjectPCS\ProjectPCS\ProjectPCS\bin\Debug\ProjectPCS.exe
+C:\Users\edyef\Desktop\ProjectPCS\ProjectPCS\ProjectPCS\ProjectPCS\bin\Debug\ProjectPCS.pdb
+C:\Users\edyef\Desktop\ProjectPCS\ProjectPCS\ProjectPCS\ProjectPCS\obj\Debug\ProjectPCS.csprojAssemblyReference.cache
+C:\Users\edyef\Desktop\ProjectPCS\ProjectPCS\ProjectPCS\ProjectPCS\obj\Debug\loginWindow.g.cs
+C:\Users\edyef\Desktop\ProjectPCS\ProjectPCS\ProjectPCS\ProjectPCS\obj\Debug\MainWindow.g.cs
+C:\Users\edyef\Desktop\ProjectPCS\ProjectPCS\ProjectPCS\ProjectPCS\obj\Debug\menuWindow.g.cs
+C:\Users\edyef\Desktop\ProjectPCS\ProjectPCS\ProjectPCS\ProjectPCS\obj\Debug\App.g.cs
+C:\Users\edyef\Desktop\ProjectPCS\ProjectPCS\ProjectPCS\ProjectPCS\obj\Debug\ProjectPCS_MarkupCompile.cache
+C:\Users\edyef\Desktop\ProjectPCS\ProjectPCS\ProjectPCS\ProjectPCS\obj\Debug\ProjectPCS_MarkupCompile.lref
+C:\Users\edyef\Desktop\ProjectPCS\ProjectPCS\ProjectPCS\ProjectPCS\obj\Debug\loginWindow.baml
+C:\Users\edyef\Desktop\ProjectPCS\ProjectPCS\ProjectPCS\ProjectPCS\obj\Debug\MainWindow.baml
+C:\Users\edyef\Desktop\ProjectPCS\ProjectPCS\ProjectPCS\ProjectPCS\obj\Debug\menuWindow.baml
+C:\Users\edyef\Desktop\ProjectPCS\ProjectPCS\ProjectPCS\ProjectPCS\obj\Debug\ProjectPCS.g.resources
+C:\Users\edyef\Desktop\ProjectPCS\ProjectPCS\ProjectPCS\ProjectPCS\obj\Debug\ProjectPCS.Properties.Resources.resources
+C:\Users\edyef\Desktop\ProjectPCS\ProjectPCS\ProjectPCS\ProjectPCS\obj\Debug\ProjectPCS.csproj.GenerateResource.cache
+C:\Users\edyef\Desktop\ProjectPCS\ProjectPCS\ProjectPCS\ProjectPCS\obj\Debug\ProjectPCS.csproj.CoreCompileInputs.cache
+C:\Users\edyef\Desktop\ProjectPCS\ProjectPCS\ProjectPCS\ProjectPCS\obj\Debug\ProjectPCS.exe
+C:\Users\edyef\Desktop\ProjectPCS\ProjectPCS\ProjectPCS\ProjectPCS\obj\Debug\ProjectPCS.pdb
+C:\Users\edyef\Desktop\ProjectPCS\ProjectPCS\ProjectPCS\ProjectPCS\obj\Debug\ManagerWindow.g.cs
+C:\Users\edyef\Desktop\ProjectPCS\ProjectPCS\ProjectPCS\ProjectPCS\obj\Debug\ManagerWindow.baml
+C:\Users\edyef\Desktop\ProjectPCS\ProjectPCS\ProjectPCS\ProjectPCS\obj\Debug\transaksiWindow.g.cs
+C:\Users\edyef\Desktop\ProjectPCS\ProjectPCS\ProjectPCS\ProjectPCS\obj\Debug\transaksiWindow.baml
+C:\Users\edyef\Desktop\ProjectPCS\ProjectPCS\ProjectPCS\ProjectPCS\obj\Debug\masterMenu.g.cs
+C:\Users\edyef\Desktop\ProjectPCS\ProjectPCS\ProjectPCS\ProjectPCS\obj\Debug\masterMenu.baml
+C:\Users\edyef\Desktop\ProjectPCS\ProjectPCS\ProjectPCS\ProjectPCS\obj\Debug\menuKaryawan.g.cs
+C:\Users\edyef\Desktop\ProjectPCS\ProjectPCS\ProjectPCS\ProjectPCS\obj\Debug\menuLaporan.g.cs
+C:\Users\edyef\Desktop\ProjectPCS\ProjectPCS\ProjectPCS\ProjectPCS\obj\Debug\menuKaryawan.baml
+C:\Users\edyef\Desktop\ProjectPCS\ProjectPCS\ProjectPCS\ProjectPCS\obj\Debug\menuLaporan.baml
+E:\Pemrograman Client Server\2021 Genap\Proyek\ProjectPCS-main\ProjectPCS\ProjectPCS\bin\Debug\ProjectPCS.exe.config
+E:\Pemrograman Client Server\2021 Genap\Proyek\ProjectPCS-main\ProjectPCS\ProjectPCS\bin\Debug\ProjectPCS.exe
+E:\Pemrograman Client Server\2021 Genap\Proyek\ProjectPCS-main\ProjectPCS\ProjectPCS\bin\Debug\ProjectPCS.pdb
+E:\Pemrograman Client Server\2021 Genap\Proyek\ProjectPCS-main\ProjectPCS\ProjectPCS\obj\Debug\ProjectPCS.csprojAssemblyReference.cache
+E:\Pemrograman Client Server\2021 Genap\Proyek\ProjectPCS-main\ProjectPCS\ProjectPCS\obj\Debug\LoginWindow.g.cs
+E:\Pemrograman Client Server\2021 Genap\Proyek\ProjectPCS-main\ProjectPCS\ProjectPCS\obj\Debug\MainWindow.g.cs
+E:\Pemrograman Client Server\2021 Genap\Proyek\ProjectPCS-main\ProjectPCS\ProjectPCS\obj\Debug\ManagerWindow.g.cs
+E:\Pemrograman Client Server\2021 Genap\Proyek\ProjectPCS-main\ProjectPCS\ProjectPCS\obj\Debug\masterMenu.g.cs
+E:\Pemrograman Client Server\2021 Genap\Proyek\ProjectPCS-main\ProjectPCS\ProjectPCS\obj\Debug\menuKaryawan.g.cs
+E:\Pemrograman Client Server\2021 Genap\Proyek\ProjectPCS-main\ProjectPCS\ProjectPCS\obj\Debug\menuLaporan.g.cs
+E:\Pemrograman Client Server\2021 Genap\Proyek\ProjectPCS-main\ProjectPCS\ProjectPCS\obj\Debug\menuWindow.g.cs
+E:\Pemrograman Client Server\2021 Genap\Proyek\ProjectPCS-main\ProjectPCS\ProjectPCS\obj\Debug\transaksiWindow.g.cs
+E:\Pemrograman Client Server\2021 Genap\Proyek\ProjectPCS-main\ProjectPCS\ProjectPCS\obj\Debug\App.g.cs
+E:\Pemrograman Client Server\2021 Genap\Proyek\ProjectPCS-main\ProjectPCS\ProjectPCS\obj\Debug\ProjectPCS_MarkupCompile.cache
+E:\Pemrograman Client Server\2021 Genap\Proyek\ProjectPCS-main\ProjectPCS\ProjectPCS\obj\Debug\ProjectPCS_MarkupCompile.lref
+E:\Pemrograman Client Server\2021 Genap\Proyek\ProjectPCS-main\ProjectPCS\ProjectPCS\obj\Debug\LoginWindow.baml
+E:\Pemrograman Client Server\2021 Genap\Proyek\ProjectPCS-main\ProjectPCS\ProjectPCS\obj\Debug\MainWindow.baml
+E:\Pemrograman Client Server\2021 Genap\Proyek\ProjectPCS-main\ProjectPCS\ProjectPCS\obj\Debug\ManagerWindow.baml
+E:\Pemrograman Client Server\2021 Genap\Proyek\ProjectPCS-main\ProjectPCS\ProjectPCS\obj\Debug\masterMenu.baml
+E:\Pemrograman Client Server\2021 Genap\Proyek\ProjectPCS-main\ProjectPCS\ProjectPCS\obj\Debug\menuKaryawan.baml
+E:\Pemrograman Client Server\2021 Genap\Proyek\ProjectPCS-main\ProjectPCS\ProjectPCS\obj\Debug\menuLaporan.baml
+E:\Pemrograman Client Server\2021 Genap\Proyek\ProjectPCS-main\ProjectPCS\ProjectPCS\obj\Debug\menuWindow.baml
+E:\Pemrograman Client Server\2021 Genap\Proyek\ProjectPCS-main\ProjectPCS\ProjectPCS\obj\Debug\transaksiWindow.baml
+E:\Pemrograman Client Server\2021 Genap\Proyek\ProjectPCS-main\ProjectPCS\ProjectPCS\obj\Debug\ProjectPCS.g.resources
+E:\Pemrograman Client Server\2021 Genap\Proyek\ProjectPCS-main\ProjectPCS\ProjectPCS\obj\Debug\ProjectPCS.Properties.Resources.resources
+E:\Pemrograman Client Server\2021 Genap\Proyek\ProjectPCS-main\ProjectPCS\ProjectPCS\obj\Debug\ProjectPCS.csproj.GenerateResource.cache
+E:\Pemrograman Client Server\2021 Genap\Proyek\ProjectPCS-main\ProjectPCS\ProjectPCS\obj\Debug\ProjectPCS.csproj.CoreCompileInputs.cache
+E:\Pemrograman Client Server\2021 Genap\Proyek\ProjectPCS-main\ProjectPCS\ProjectPCS\obj\Debug\ProjectPCS.exe
+E:\Pemrograman Client Server\2021 Genap\Proyek\ProjectPCS-main\ProjectPCS\ProjectPCS\obj\Debug\ProjectPCS.pdb
