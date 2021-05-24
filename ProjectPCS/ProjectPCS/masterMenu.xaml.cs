@@ -38,9 +38,9 @@ namespace ProjectPCS
             conn.Close();
             conn.Open();
             string qry = "SELECT M.ID AS \"No\", M.KODE_MENU AS \"Kode Menu\", M.NAMA_MENU AS \"Nama Makanan\", " +
-                    "J.NAMA_JENIS AS \"Jenis Makanan\", CASE WHEN M.STATUS = 1 THEN 'AVAILABLE' ELSE 'NOT AVAILABLE' END AS \"Status\"," +
-                    " M.HARGA AS \"Harga\", M.DISKON AS \"Diskon\" " +
-                    "FROM MENU M, JENIS_MENU J WHERE M.ID_JENIS_MENU = J.ID ORDER BY M.ID";
+                   "J.NAMA_JENIS AS \"Jenis Makanan\", CASE WHEN M.STATUS = 1 THEN 'AVAILABLE' ELSE 'NOT AVAILABLE' END AS \"Status\"," +
+                   " M.HARGA AS \"Harga\", M.DISKON AS \"Diskon\", M.HARGA_AKHIR AS \"Harga Akhir\" " +
+                   "FROM MENU M, JENIS_MENU J WHERE M.ID_JENIS_MENU = J.ID ORDER BY M.ID";
             OracleCommand cmd = new OracleCommand(qry, conn);
             cmd.ExecuteReader();
             OracleDataAdapter da = new OracleDataAdapter(cmd);
@@ -304,7 +304,7 @@ namespace ProjectPCS
                     cmd = new OracleCommand(qry, conn);
                     int id = Convert.ToInt32(cmd.ExecuteScalar().ToString()) + 1;
                     generateKodeMenu();
-                    qry = "insert into menu values(:ID,:ID_JENIS,:KODE_MENU,:NAMA_MENU,:STATUS,:HARGA,:DISKON)";
+                    qry = "insert into menu values(:ID,:ID_JENIS,:KODE_MENU,:NAMA_MENU,:STATUS,:HARGA,:DISKON,:HARGA_AKHIR)";
                     try
                     {
                         cmd = new OracleCommand(qry, conn);
@@ -322,6 +322,8 @@ namespace ProjectPCS
                         }
                         cmd.Parameters.Add("HARGA", OracleDbType.Int32).Value = textBoxHarga.Text;
                         cmd.Parameters.Add("DISKON", OracleDbType.Int32).Value = textBoxDiskon.Text;
+                        int hargaAkhir = Convert.ToInt32(textBoxHarga.Text) - (Convert.ToInt32(textBoxHarga.Text) * Convert.ToInt32(textBoxDiskon.Text) / 100);
+                        cmd.Parameters.Add("HARGA_AKHIR", OracleDbType.Int32).Value = hargaAkhir;
                         cmd.ExecuteNonQuery();
                         MessageBox.Show("Insert Menu Makanan Berhasil");
                         refreshMenu();
@@ -370,6 +372,12 @@ namespace ProjectPCS
                     cmd.Parameters.Add("DISKON", OracleDbType.Int32).Value = textBoxDiskon.Text;
                     cmd.Parameters.Add("KODE", OracleDbType.Varchar2).Value = labelKode.Content;
                     cmd.ExecuteNonQuery();
+                    int harga = Convert.ToInt32(textBoxHarga.Text);
+                    int diskon = (Convert.ToInt32(textBoxHarga.Text) * Convert.ToInt32(textBoxDiskon.Text) / 100);
+                    int hargaAkhir = harga - diskon;
+                    qry = "UPDATE MENU SET HARGA_AKHIR = '" + hargaAkhir + "' WHERE KODE_MENU = '" + labelKode.Content + "'";
+                    cmd = new OracleCommand(qry, conn);
+                    cmd.ExecuteNonQuery();
                     MessageBox.Show("Update Menu Makanan Berhasil");
                     refreshMenu();
                     clear();
@@ -413,7 +421,47 @@ namespace ProjectPCS
         {
             clear2();
         }
+        private void buttonReset_Click(object sender, RoutedEventArgs e)
+        {
+            textBoxFilter.Text = "";
+            refreshMenu();
+        }
+        private void buttonReset2_Click(object sender, RoutedEventArgs e)
+        {
+            textBoxFilter2.Text = "";
+            refreshJenis();
+        }
 
+        private void buttonFilter_Click(object sender, RoutedEventArgs e)
+        {
+            conn.Close();
+            conn.Open();
+            string qry = "SELECT M.ID AS \"No\", M.KODE_MENU AS \"Kode Menu\", M.NAMA_MENU AS \"Nama Makanan\", " +
+                    "J.NAMA_JENIS AS \"Jenis Makanan\", CASE WHEN M.STATUS = 1 THEN 'AVAILABLE' ELSE 'NOT AVAILABLE' END AS \"Status\"," +
+                    " M.HARGA AS \"Harga\", M.DISKON AS \"Diskon\", M.HARGA_AKHIR AS \"Harga Akhir\" " +
+                    "FROM MENU M, JENIS_MENU J WHERE M.ID_JENIS_MENU = J.ID AND M.NAMA_MENU LIKE '%" + textBoxFilter.Text + "%' ORDER BY M.ID";
+            OracleCommand cmd = new OracleCommand(qry, conn);
+            cmd.ExecuteReader();
+            OracleDataAdapter da = new OracleDataAdapter(cmd);
+            ds = new DataSet();
+            da.Fill(ds);
+            dgMenu.ItemsSource = ds.Tables[0].DefaultView;
+            conn.Close();
+        }
+        private void buttonFilter2_Click(object sender, RoutedEventArgs e)
+        {
+            conn.Close();
+            conn.Open();
+            string qry = "SELECT ID AS \"No\", KODE_JENIS AS \"Kode Jenis Makanan\", NAMA_JENIS AS \"Jenis Makanan\" " +
+                "FROM JENIS_MENU WHERE NAMA_JENIS LIKE '%" + textBoxFilter2.Text + "%' ORDER BY ID";
+            OracleCommand cmd = new OracleCommand(qry, conn);
+            cmd.ExecuteReader();
+            OracleDataAdapter da = new OracleDataAdapter(cmd);
+            ds2 = new DataSet();
+            da.Fill(ds2);
+            dgJenis.ItemsSource = ds2.Tables[0].DefaultView;
+            conn.Close();
+        }
         private void dgMenu_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             conn.Close();
