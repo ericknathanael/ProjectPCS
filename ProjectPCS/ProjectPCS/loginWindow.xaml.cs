@@ -58,7 +58,7 @@ namespace ProjectPCS
                 {
                     //apabila masuk ke menu manager(Register karyawan,tambah menu, update absensi,laporan)
                     name = namaUser();
-                    menuKaryawan menu = new menuKaryawan();
+                    ManagerWindow menu = new ManagerWindow();
                     this.Hide();
                     menu.ShowDialog();
                     this.Close();
@@ -71,6 +71,10 @@ namespace ProjectPCS
                     this.Hide();
                     trans.ShowDialog();
                     this.Close();
+                }
+                else
+                {
+
                 }
                 
             }

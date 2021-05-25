@@ -40,7 +40,7 @@ namespace ProjectPCS
 
         private void menuKaryawan_Click(object sender, RoutedEventArgs e)
         {
-            menuKaryawan karyawan = new menuKaryawan();
+            ManagerWindow karyawan = new ManagerWindow();
             this.Hide();
             karyawan.ShowDialog();
             this.Close();

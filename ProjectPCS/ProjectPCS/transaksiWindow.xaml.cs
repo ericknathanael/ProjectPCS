@@ -176,9 +176,10 @@ namespace ProjectPCS
         {
             tableMenu = new DataTable();
             conn.Open();
-            query = "select m.kode_menu,m.Nama_Menu,m.harga,m.diskon from menu m where status != 0";
+            string namamenu = tbNama.Text;
+            //query = $"select m.kode_menu,m.Nama_Menu,m.harga,m.diskon from menu m where status != 0 and m.namamenu like '{namamenu}%'";
             cmd = new OracleCommand(query, conn);
-            cmd.ExecuteNonQuery();
+            //cmd.ExecuteNonQuery();
             da = new OracleDataAdapter(cmd);
             da.Fill(tableMenu);
             dgMenu.ItemsSource = tableMenu.DefaultView;

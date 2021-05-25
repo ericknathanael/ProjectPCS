@@ -9,7 +9,7 @@
     <Grid>
         <Menu Margin="0,0,1,652.333">
             <MenuItem x:Name="menuTrans" Header="Transaksi" Click="menuTrans_Click" />
-            <MenuItem x:Name="menuKaryawan" Header="Karyawan" Click="menuKaryawan_Click" />
+            <MenuItem x:Name="managerWindow" Header="Manager" Click="menuKaryawan_Click" />
             <MenuItem x:Name="menuLaporan" Header="Laporan" Click="menuLaporan_Click" />
             <MenuItem x:Name="masterMenu1" Header="Master Menu"/>
         </Menu>

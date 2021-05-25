@@ -59,6 +59,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="absensiWindow.xaml.cs">
+      <DependentUpon>absensiWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Karyawan.cs" />
     <Compile Include="LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
@@ -68,8 +71,8 @@
     </Compile>
     <Compile Include="Meja.cs" />
     <Compile Include="Menu.cs" />
-    <Compile Include="menuKaryawan.xaml.cs">
-      <DependentUpon>menuKaryawan.xaml</DependentUpon>
+    <Compile Include="registerWindow.xaml.cs">
+      <DependentUpon>registerWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="menuLaporan.xaml.cs">
       <DependentUpon>menuLaporan.xaml</DependentUpon>
@@ -77,6 +80,10 @@
     <Compile Include="transaksiWindow.xaml.cs">
       <DependentUpon>transaksiWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="absensiWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="LoginWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -101,7 +108,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="menuKaryawan.xaml">
+    <Page Include="registerWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -149,6 +156,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ManagerMenu.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

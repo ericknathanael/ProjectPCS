@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Oracle.DataAccess.Client;
 
 namespace ProjectPCS
 {
@@ -19,70 +20,114 @@ namespace ProjectPCS
     /// </summary>
     public partial class ManagerWindow : Window
     {
+        OracleConnection conn;
+        OracleCommand cmd;
+        
+        string nama;
         string query;
+
+        private static string kode;
+        
         public ManagerWindow()
         {
             InitializeComponent();
-        }
-
-        private void mnRegister_Click(object sender, RoutedEventArgs e)
-        {
-
+            conn = MainWindow.conn;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            cbJabatan.Items.Add(new ComboBoxItem()
-            {
-                Name = "1",
-                Content = "Manager"
-            });
-            cbJabatan.Items.Add(new ComboBoxItem()
-            {
-                Name = "2",
-                Content = "Koki"
-            });
-            cbJabatan.Items.Add(new ComboBoxItem()
-            {
-                Name = "3",
-                Content = "Pelayan"
-            });
-            cbJabatan.Items.Add(new ComboBoxItem()
-            {
-                Name = "4",
-                Content = "Kasir"
-            });
-            cbJabatan.Items.Add(new ComboBoxItem()
-            {
-                Name = "5",
-                Content = "Resepsionis"
-            });
-            cbJabatan.SelectedIndex = 0;
+            nama = loginWindow.name;
+            lbWelcome.Content = $"Welcome, {nama}";
+        }
+
+        private void btLogout_Click(object sender, RoutedEventArgs e)
+        {
+            loginWindow.user = "";
+            loginWindow.name = "";
+            loginWindow.pass = "";
+            
+            loginWindow login = new loginWindow();
+            this.Hide();
+            login.ShowDialog();
+            this.Close();
+
         }
 
         private void btRegis_Click(object sender, RoutedEventArgs e)
         {
-            string nama = tbNama.Text;
-            string user = tbUsername.Text;
-            string pass = tbPass.Text;
-            int id_jabatan = 0;
-            ComboBoxItem temp = (ComboBoxItem)cbJabatan.SelectedItem;
-            id_jabatan = Convert.ToInt32(temp.Name.ToString());
+            registerWindow regis = new registerWindow();
 
-            if(nama == "" || user == "" || id_jabatan == 0)
+            this.Hide();
+            regis.ShowDialog();
+            this.Close();
+        }
+
+        private void btLaporan_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("belom");
+        }
+
+        private void btMenu_Click(object sender, RoutedEventArgs e)
+        {
+            masterMenu menu = new masterMenu();
+            this.Hide();
+            menu.ShowDialog();
+            this.Close();
+        }
+
+        private void btAbsensi_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("belom");
+        }
+
+        private void btGenerate_Click(object sender, RoutedEventArgs e)
+        {
+            string ketemu = "":
+            int id = 0;
+
+            kode = randomHuruf().ToUpper();
+            lbKode.Content = kode;
+            query = $"select kode_absen from absensi where tgl_absen = sysdate";
+            conn.Open();
+            cmd = new OracleCommand(query, conn);
+            ketemu = cmd.ExecuteScalar().ToString();
+            if(ketemu == "")
             {
-                MessageBox.Show("Isi isian dengan benar");
+                try
+                {
+                    query = $"select count(*) + 1 from absensi";
+                    cmd = new OracleCommand(query, conn);
+                    id = Convert.ToInt32(cmd.ExecuteScalar().ToString());
+                    query = $"insert into absensi values({id},'{kode}',sysdate)";
+                    cmd.CommandText = query;
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                
             }
             else
             {
 
             }
-            
+            conn.Close();
         }
 
-        private void mnLaporan_Click(object sender, RoutedEventArgs e)
+        public string randomHuruf()
         {
-
+            Random r = new Random();
+            string huruf = "";
+            string[] az = new string[] { "b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", 
+                "p", "q", "r", "s", "t", "v", "w", "x", "y", "z", "a", 
+                "e", "i", "o", "u", "1", "2", "3", "4", "5", "6", "7",
+                "8", "9", "0"};
+            for (int i = 0; i < 3; i++)
+            {
+                huruf += az[r.Next(0,25)];
+            }
+            return huruf + DateTime.UtcNow.ToString("dd");
         }
     }
 }

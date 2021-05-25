@@ -141,17 +141,17 @@ namespace ProjectPCS
 
         private void menuTrans_Click(object sender, RoutedEventArgs e)
         {
-            //menuTransaksi trans = new menuTransaksi();
+            transaksiWindow trans = new transaksiWindow();
             this.Hide();
-            //trans.ShowDialog();
+            trans.ShowDialog();
             this.Close();
         }
 
         private void menuKaryawan_Click(object sender, RoutedEventArgs e)
         {
-            //menuKaryawan karyawan = new menuKaryawan();
+            ManagerWindow manager = new ManagerWindow();
             this.Hide();
-            //karyawan.ShowDialog();
+            manager.ShowDialog();
             this.Close();
         }
 
