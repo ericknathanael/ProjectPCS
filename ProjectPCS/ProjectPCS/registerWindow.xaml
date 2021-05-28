@@ -13,7 +13,7 @@
             <MenuItem x:Name="menuLaporan" Header="Absensi" Click="menuLaporan_Click"/>
             <MenuItem x:Name="masterMenu" Header="Laporan" Click="masterMenu_Click"/>
         </Menu>
-        <Label Content="Register Karyawan Baru" HorizontalAlignment="Left" Margin="274,32,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+        <Label Content="Master Karyawan" HorizontalAlignment="Left" Margin="274,32,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
         <Label Content="Nama :" HorizontalAlignment="Left" Margin="38,279,0,0" VerticalAlignment="Top"/>
         <Label Content="Username :" HorizontalAlignment="Left" Margin="16,310,0,0" VerticalAlignment="Top"/>
         <Label Content="Password :" HorizontalAlignment="Left" Margin="20,342,0,0" VerticalAlignment="Top"/>
