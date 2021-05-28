@@ -82,7 +82,7 @@ namespace ProjectPCS
 
         private void btGenerate_Click(object sender, RoutedEventArgs e)
         {
-            string ketemu = "":
+            string ketemu = "";
             int id = 0;
 
             kode = randomHuruf().ToUpper();
@@ -90,8 +90,11 @@ namespace ProjectPCS
             query = $"select kode_absen from absensi where tgl_absen = sysdate";
             conn.Open();
             cmd = new OracleCommand(query, conn);
-            ketemu = cmd.ExecuteScalar().ToString();
-            if(ketemu == "")
+            if(cmd.ExecuteScalar() != null)
+            {
+                ketemu = cmd.ExecuteScalar().ToString();
+            }
+            else
             {
                 try
                 {
@@ -106,11 +109,6 @@ namespace ProjectPCS
                 {
                     MessageBox.Show(ex.Message);
                 }
-                
-            }
-            else
-            {
-
             }
             conn.Close();
         }

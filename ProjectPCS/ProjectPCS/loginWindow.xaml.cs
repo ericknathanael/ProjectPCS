@@ -39,7 +39,7 @@ namespace ProjectPCS
                 conn.Open();
                 user = tbUser.Text;
                 pass = tbPass.Text;
-                string query = $"select id_jabatan from karyawan where username = '{user.ToUpper()}' and pass = '{pass}' and (id_jabatan = 4 or id_jabatan = 1)";
+                string query = $"select id_jabatan from karyawan where username = '{user.ToUpper()}' and pass = '{pass}'";
                 cmd = new OracleCommand(query, conn);
                 OracleDataReader dr = cmd.ExecuteReader();
                 int jabatan = -1;
@@ -58,7 +58,7 @@ namespace ProjectPCS
                 {
                     //apabila masuk ke menu manager(Register karyawan,tambah menu, update absensi,laporan)
                     name = namaUser();
-                    ManagerWindow menu = new ManagerWindow();
+                    ManagerWindow menu = new ManagerWindow(); 
                     this.Hide();
                     menu.ShowDialog();
                     this.Close();

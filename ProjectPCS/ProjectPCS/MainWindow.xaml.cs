@@ -38,10 +38,11 @@ namespace ProjectPCS
                 userId = tbUser.Text;
                 pass = tbPass.Text;
                 conn = new OracleConnection("Data Source = " + source + "; User ID = " + userId + "; password = " + pass);
+                conn.Open();
+                conn.Close();
                 menu = new loginWindow();
                 this.Hide();
                 menu.ShowDialog();
-                conn.Close();
                 this.Close();
             }
             catch (Exception ex)
