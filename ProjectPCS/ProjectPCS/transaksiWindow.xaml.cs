@@ -28,7 +28,8 @@ namespace ProjectPCS
         OracleDataAdapter da;
         OracleDataReader dr;
         DataTable tableMenu;
-        
+        Karyawan karyawan;
+
         List<Menu> listPesanan;
         List<Meja> listMeja;
         string query;
@@ -44,6 +45,7 @@ namespace ProjectPCS
                 this.dateText.Text = DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss");
             }, this.Dispatcher);
             conn = MainWindow.conn;
+            karyawan = loginWindow.karyawan;
             tableMenu = new DataTable();
             da = new OracleDataAdapter();
             
@@ -263,7 +265,7 @@ namespace ProjectPCS
                 {
                     ComboBoxItem temp;
                     string nota = lbNota.Content.ToString();
-                    string nama;
+                    //string nama;
                     string metode;
                     string idPelanggan = lbPelanggan.Content.ToString();
                     int idMeja;
@@ -274,7 +276,7 @@ namespace ProjectPCS
                     temp = (ComboBoxItem)cbMeja.SelectedItem;
                     idMeja = Convert.ToInt32(temp.Name.Substring(1));
                     
-                    nama = loginWindow.name;
+                    //nama = loginWindow.name;
                     
                     temp = (ComboBoxItem)cbMetode.SelectedItem;
                     metode = temp.Name;
@@ -289,7 +291,7 @@ namespace ProjectPCS
                     }
 
 
-                    query = $"insert into transaksi values('{nota}',{idPelanggan},{idMeja},'{nama}','{metode}',{total},{potongan},{setelahDipotong},sysdate)";
+                    query = $"insert into transaksi values('{nota}',{idPelanggan},{idMeja},'{karyawan.nama}','{metode}',{total},{potongan},{setelahDipotong},sysdate)";
                     cmd = new OracleCommand(query,conn);
                     cmd.ExecuteNonQuery();
                     query = $"select count(id) + 1 from d_transaksi";

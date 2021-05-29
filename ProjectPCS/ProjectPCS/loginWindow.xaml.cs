@@ -21,11 +21,15 @@ namespace ProjectPCS
     public partial class loginWindow : Window
     {
         public static OracleConnection conn;
+        public static Karyawan karyawan;
         public OracleCommand cmd;
-        public static string user;
-        public static string name;
-        public static string pass;
-        public static string source;
+        public OracleDataReader dr;        
+        //public static string user;
+        //public static string name;
+        //public static string pass;
+        //public static string source;
+
+
         public loginWindow()
         {
             InitializeComponent();
@@ -34,72 +38,97 @@ namespace ProjectPCS
 
         private void btLogin_Click(object sender, RoutedEventArgs e)
         {
-            try
+            if (tbUser.Text.Length <= 0 && tbPass.Text.Length <= 0)
             {
-                conn.Open();
-                user = tbUser.Text;
-                pass = tbPass.Text;
-                string query = $"select id_jabatan from karyawan where username = '{user.ToUpper()}' and pass = '{pass}'";
-                cmd = new OracleCommand(query, conn);
-                OracleDataReader dr = cmd.ExecuteReader();
-                int jabatan = -1;
-                while (dr.Read())
-                {
-                    jabatan = int.Parse(dr[0].ToString());
-                    MessageBox.Show(jabatan + "");
-                }
-                
-                conn.Close();
-                if (jabatan == -1)
-                {
-                    MessageBox.Show("username atau password salah");
-                }
-                else if (jabatan == 1)
-                {
-                    //apabila masuk ke menu manager(Register karyawan,tambah menu, update absensi,laporan)
-                    name = namaUser();
-                    ManagerWindow menu = new ManagerWindow(); 
-                    this.Hide();
-                    menu.ShowDialog();
-                    this.Close();
-                }                               
-                else if(jabatan == 4)
-                {
-                    //apabila masuk ke menu kasir(transaksi reservation,print nota);
-                    name = namaUser();
-                    transaksiWindow trans = new transaksiWindow();
-                    this.Hide();
-                    trans.ShowDialog();
-                    this.Close();
-                }
-                else
-                {
-
-                }
-                
+                MessageBox.Show("username dan password karyawan tidak boleh kosong");
             }
-            catch (Exception ex)
+            else if (tbUser.Text.Length <= 0)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("username karyawan tidak boleh kosong");
+            }
+            else if (tbPass.Text.Length <= 0)
+            {
+                MessageBox.Show("password karyawan tidak boleh kosong");
+            }
+            else
+            {
+                try
+                {
+                    conn.Open();
+                    //user = tbUser.Text;
+                    //pass = tbPass.Text;
+                    string query = $"select id from karyawan where username = '{tbUser.Text.ToUpper()}'";
+                    cmd = new OracleCommand(query, conn);
+                    dr = cmd.ExecuteReader();                    
+                    if (!dr.HasRows)
+                    {
+                        MessageBox.Show("username karyawan tidak terdaftar");
+                        dr.Close();
+                        conn.Close();
+                    }
+                    else
+                    {
+                        dr.Close();
+                        query = $"select * from karyawan where username = '{tbUser.Text.ToUpper()}' and pass = '{tbPass.Text}'";
+                        cmd = new OracleCommand(query, conn);
+                        dr = cmd.ExecuteReader();
+                        if (!dr.HasRows)
+                        {
+                            MessageBox.Show("password karyawan salah");
+                        }
+                        else
+                        {
+                            while (dr.Read())
+                            {
+                                karyawan = new Karyawan(int.Parse(dr[0].ToString()), int.Parse(dr[1].ToString()), dr[2].ToString(), dr[3].ToString(), dr[4].ToString());
+                            }
+                            dr.Close();
+                            conn.Close();
+                            Window window = null;
+                            if (karyawan.id_jabatan == 1)
+                            {
+                                // apabila masuk ke menu manager(Register karyawan, tambah menu, update absensi)
+                                window = new ManagerWindow();
+                            }
+                            else if (karyawan.id_jabatan == 4)
+                            {
+                                // apabila masuk ke menu kasir(transaksi reservation, print nota)
+                                window = new transaksiWindow();
+                            }
+                            this.Hide();
+                            window.ShowDialog();
+                            this.Close();
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    dr.Close();
+                    conn.Close();
+                }
             }
             
         }
 
-        private string namaUser()
-        {
-            string nama = "";
-            conn.Open();
-            string query = $"select nama_karyawan from karyawan where username = '{user.ToUpper()}' and pass = '{pass}' and (id_jabatan = 4 or id_jabatan = 1)";
-            cmd = new OracleCommand(query, conn);
-            name = cmd.ExecuteScalar().ToString();
-            MessageBox.Show(name);
-            conn.Close();
+        //private string namaUser()
+        //{
+        //    string nama = "";
+        //    conn.Open();
+        //    string query = $"select nama_karyawan from karyawan where username = '{user.ToUpper()}' and pass = '{pass}'";
+        //    cmd = new OracleCommand(query, conn);
+        //    name = cmd.ExecuteScalar().ToString();
+        //    MessageBox.Show(name);
+        //    conn.Close();
      
-            menuWindow menu = new menuWindow();
-            this.Hide();
-            menu.ShowDialog();
-            this.Close();
-            return nama;
-        }
+        //    menuWindow menu = new menuWindow();
+        //    this.Hide();
+        //    menu.ShowDialog();
+        //    this.Close();
+        //    return nama;
+        //}
     }
 }

@@ -8,7 +8,7 @@
         Title="ManagerWindow" Height="450" Width="800" Loaded="Window_Loaded">
     <Grid>
         <Image HorizontalAlignment="Left" Height="419" VerticalAlignment="Top" Width="240" Source="ManagerMenu.jpg"/>
-        <Button x:Name="btRegis" Content="Register" HorizontalAlignment="Left" Margin="286,70,0,0" VerticalAlignment="Top" Width="176" Height="63" Click="btRegis_Click"/>
+        <Button x:Name="btRegis" Content="Master Karyawan" HorizontalAlignment="Left" Margin="286,70,0,0" VerticalAlignment="Top" Width="176" Height="63" Click="btRegis_Click"/>
         <Button x:Name="btMenu" Content="Tambah Menu" HorizontalAlignment="Left" Margin="558,70,0,0" VerticalAlignment="Top" Width="176" Height="63" Click="btMenu_Click"/>
         <Button x:Name="btLaporan" Content="Cetak Laporan" HorizontalAlignment="Left" Margin="286,166,0,0" VerticalAlignment="Top" Width="176" Height="63" Click="btLaporan_Click"/>
         <Button x:Name="btAbsensi" Content="Absensi" HorizontalAlignment="Left" Margin="558,166,0,0" VerticalAlignment="Top" Width="176" Height="63" Click="btAbsensi_Click"/>

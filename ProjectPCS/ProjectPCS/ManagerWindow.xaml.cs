@@ -22,8 +22,9 @@ namespace ProjectPCS
     {
         OracleConnection conn;
         OracleCommand cmd;
+        Karyawan karyawan;
         
-        string nama;
+        //string nama;
         string query;
 
         private static string kode;
@@ -32,19 +33,21 @@ namespace ProjectPCS
         {
             InitializeComponent();
             conn = MainWindow.conn;
+            karyawan = loginWindow.karyawan;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            nama = loginWindow.name;
-            lbWelcome.Content = $"Welcome, {nama}";
+            //nama = loginWindow.name;
+            //lbWelcome.Content = $"Welcome, {nama}";
+            lbWelcome.Content = $"Welcome, {karyawan.nama}";
         }
 
         private void btLogout_Click(object sender, RoutedEventArgs e)
         {
-            loginWindow.user = "";
-            loginWindow.name = "";
-            loginWindow.pass = "";
+            //loginWindow.user = "";
+            //loginWindow.name = "";
+            //loginWindow.pass = "";
             
             loginWindow login = new loginWindow();
             this.Hide();
@@ -77,7 +80,18 @@ namespace ProjectPCS
 
         private void btAbsensi_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("belom");
+            Window window = null;
+            if (karyawan.id_jabatan != 1)
+            {
+                window = new absensiWindow();
+            }
+            else
+            {
+                window = new masterAbsensi();
+            }
+            this.Hide();
+            window.ShowDialog();
+            this.Close();
         }
 
         private void btGenerate_Click(object sender, RoutedEventArgs e)
