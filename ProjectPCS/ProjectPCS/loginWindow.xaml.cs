@@ -29,7 +29,6 @@ namespace ProjectPCS
         //public static string pass;
         //public static string source;
 
-
         public loginWindow()
         {
             InitializeComponent();
@@ -93,7 +92,8 @@ namespace ProjectPCS
                             else if (karyawan.id_jabatan == 4)
                             {
                                 // apabila masuk ke menu kasir(transaksi reservation, print nota)
-                                window = new transaksiWindow();
+                                //window = new transaksiWindow();
+                                window = new ManagerWindow();
                             }
                             this.Hide();
                             window.ShowDialog();

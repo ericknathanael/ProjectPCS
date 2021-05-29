@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjectPCS"
         mc:Ignorable="d"
-        Title="absensiWindow" Height="440" Width="800">
+        Title="absensiWindow" Height="450" Width="380">
     <Grid>
         <Menu Margin="0,0,0.333,391.667">
             <MenuItem x:Name="menuTrans" Header="Master Karyawan" Click="menuTrans_Click"/>
@@ -13,13 +13,12 @@
             <MenuItem x:Name="menuLaporan" Header="Absensi" Click="menuLaporan_Click"/>
             <MenuItem x:Name="masterMenu" Header="Laporan" Click="masterMenu_Click"/>
         </Menu>
-        <Label Content="Absensi Karyawan" HorizontalAlignment="Left" Margin="300,37,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
-        <Label x:Name="label" Content="Kode Absen :" HorizontalAlignment="Left" Margin="235,359,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtKodeAbsen" HorizontalAlignment="Left" Height="22" Margin="319,363,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="btnAbsen" Content="Absen" HorizontalAlignment="Left" Margin="468,361,0,0" VerticalAlignment="Top" Width="92" Height="22" Click="BtnAbsen_Click"/>
-        <Label x:Name="labelDate" Content="Date" HorizontalAlignment="Left" Margin="273,297,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
-        <Label x:Name="labelTime" Content="Time" HorizontalAlignment="Left" Margin="436,297,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
-        <Calendar HorizontalAlignment="Left" Margin="300,108,0,0" VerticalAlignment="Top"/>
+        <Label Content="Absensi Karyawan" HorizontalAlignment="Left" Margin="99,88,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
+        <Label x:Name="label" Content="Kode Absen :" HorizontalAlignment="Left" Margin="23,374,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtKodeAbsen" HorizontalAlignment="Left" Height="22" Margin="107,378,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="btnAbsen" Content="Absen" HorizontalAlignment="Left" Margin="257,376,0,0" VerticalAlignment="Top" Width="92" Height="22" Click="BtnAbsen_Click"/>
+        <Label x:Name="labelDateTime" Content="DateTime" HorizontalAlignment="Left" Margin="60,327,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
+        <Calendar HorizontalAlignment="Left" Margin="99,141,0,0" VerticalAlignment="Top"/>
     </Grid>
 
 </Window>

@@ -53,13 +53,11 @@ namespace ProjectPCS
             this.Hide();
             login.ShowDialog();
             this.Close();
-
         }
 
         private void btRegis_Click(object sender, RoutedEventArgs e)
         {
             registerWindow regis = new registerWindow();
-
             this.Hide();
             regis.ShowDialog();
             this.Close();
@@ -131,7 +129,7 @@ namespace ProjectPCS
         {
             Random r = new Random();
             string huruf = "";
-            string[] az = new string[] { "b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", 
+            string[] az = new string[] {"b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", 
                 "p", "q", "r", "s", "t", "v", "w", "x", "y", "z", "a", 
                 "e", "i", "o", "u", "1", "2", "3", "4", "5", "6", "7",
                 "8", "9", "0"};

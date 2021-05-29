@@ -12,6 +12,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Threading;
 using System.Windows.Shapes;
 using Oracle.DataAccess.Client;
 
@@ -27,19 +28,26 @@ namespace ProjectPCS
         OracleCommand cmd;
         OracleDataAdapter da;
         DataTable dt;
+        Karyawan karyawan;
 
         public absensiWindow()
         {
             InitializeComponent();
             conn = loginWindow.conn;
+            karyawan = loginWindow.karyawan;
             displayPage();
         }
 
         private void displayPage()
         {
-            CultureInfo ci = new CultureInfo("id-ID");
-            labelDate.Content = DateTime.Now.ToString("D", ci);
-            labelTime.Content = DateTime.Now.ToString("T");
+            DispatcherTimer dispatcherTimer = new DispatcherTimer();
+            dispatcherTimer.Tick += new EventHandler(dispatcherTimer_Tick);
+            dispatcherTimer.Start();
+        }
+
+        private void dispatcherTimer_Tick(object sender, EventArgs e)
+        {
+            labelDateTime.Content = DateTime.Now.ToString("D", new CultureInfo("id-ID")) + "\t" + DateTime.Now.ToString("T");
         }
 
         private void menuTrans_Click(object sender, RoutedEventArgs e)
