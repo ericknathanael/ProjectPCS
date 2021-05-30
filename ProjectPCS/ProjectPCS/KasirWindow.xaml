@@ -1,0 +1,15 @@
+﻿<Window x:Class="ProjectPCS.KasirWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProjectPCS"
+        mc:Ignorable="d"
+        Title="KasirWindow" Height="450" Width="800">
+    <Grid>
+        <Button x:Name="btLogout" Content="Logout" HorizontalAlignment="Left" Margin="692,379,0,0" VerticalAlignment="Top" Width="90" Click="btLogout_Click" Height="30"/>
+        <Image HorizontalAlignment="Left" Height="280" Margin="10,62,0,0" VerticalAlignment="Top" Width="280" Source="Cashier.jpg" Stretch="Fill"/>
+        <Image x:Name="picTrans" HorizontalAlignment="Left" Height="180" Margin="440,21,0,0" VerticalAlignment="Top" Width="200" Source="bill.jpg" Stretch="Fill" MouseDown="Image_MouseDown"/>
+        <Image x:Name="picPesan" HorizontalAlignment="Left" Height="157" Margin="450,206,0,0" VerticalAlignment="Top" Width="180" Source="reservation.png" Stretch="Fill" MouseDown="picPesan_MouseDown"/>
+    </Grid>
+</Window>

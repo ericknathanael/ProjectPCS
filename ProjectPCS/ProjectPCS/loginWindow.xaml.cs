@@ -91,9 +91,8 @@ namespace ProjectPCS
                             }
                             else if (karyawan.id_jabatan == 4)
                             {
-                                // apabila masuk ke menu kasir(transaksi reservation, print nota)
-                                //window = new transaksiWindow();
-                                window = new ManagerWindow();
+                                // apabila masuk ke menu kasir(transaksi reservation, print nota)                                
+                                window = new KasirWindow();
                             }
                             this.Hide();
                             window.ShowDialog();

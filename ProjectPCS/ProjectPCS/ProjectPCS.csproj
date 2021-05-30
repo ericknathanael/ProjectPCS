@@ -63,6 +63,9 @@
       <DependentUpon>absensiWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Karyawan.cs" />
+    <Compile Include="KasirWindow.xaml.cs">
+      <DependentUpon>KasirWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
@@ -84,6 +87,10 @@
       <DependentUpon>transaksiWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="absensiWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="KasirWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -166,6 +173,18 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="ManagerMenu.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Cashier.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="bill.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Reservation.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

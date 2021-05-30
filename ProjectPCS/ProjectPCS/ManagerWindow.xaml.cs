@@ -45,10 +45,6 @@ namespace ProjectPCS
 
         private void btLogout_Click(object sender, RoutedEventArgs e)
         {
-            //loginWindow.user = "";
-            //loginWindow.name = "";
-            //loginWindow.pass = "";
-            
             loginWindow login = new loginWindow();
             this.Hide();
             login.ShowDialog();

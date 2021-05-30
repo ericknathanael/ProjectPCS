@@ -47,6 +47,14 @@ namespace ProjectPCS
             dgKaryawan.ItemsSource = dt.DefaultView;
         }
 
+        private void btLogout_Click(object sender, RoutedEventArgs e)
+        {
+            loginWindow login = new loginWindow();
+            this.Hide();
+            login.ShowDialog();
+            this.Close();
+        }
+
         private void menuTrans_Click(object sender, RoutedEventArgs e)
         {
             transaksiWindow trans = new transaksiWindow();
@@ -223,6 +231,14 @@ namespace ProjectPCS
             btUpdate.IsEnabled = false;
             btDelete.IsEnabled = false;
             btRegis.IsEnabled = true;
+        }
+
+        private void Image_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ManagerWindow home = new ManagerWindow();
+            this.Hide();
+            home.ShowDialog();
+            this.Close();
         }
     }
 }

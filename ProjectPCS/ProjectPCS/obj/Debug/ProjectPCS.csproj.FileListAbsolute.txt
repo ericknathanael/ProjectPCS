@@ -62,3 +62,7 @@ C:\Users\hp\OneDrive\Dokumen\GitHub\ProjectPCS\ProjectPCS\ProjectPCS\obj\Debug\P
 C:\Users\hp\OneDrive\Dokumen\GitHub\ProjectPCS\ProjectPCS\ProjectPCS\obj\Debug\ProjectPCS.pdb
 C:\Users\hp\OneDrive\Dokumen\GitHub\ProjectPCS\ProjectPCS\ProjectPCS\obj\Debug\masterAbsensi.g.cs
 C:\Users\hp\OneDrive\Dokumen\GitHub\ProjectPCS\ProjectPCS\ProjectPCS\obj\Debug\masterAbsensi.baml
+C:\Users\edyef\Desktop\ProjectPCS\ProjectPCS\ProjectPCS\ProjectPCS\obj\Debug\masterAbsensi.g.cs
+C:\Users\edyef\Desktop\ProjectPCS\ProjectPCS\ProjectPCS\ProjectPCS\obj\Debug\masterAbsensi.baml
+C:\Users\edyef\Desktop\ProjectPCS\ProjectPCS\ProjectPCS\ProjectPCS\obj\Debug\KasirWindow.g.cs
+C:\Users\edyef\Desktop\ProjectPCS\ProjectPCS\ProjectPCS\ProjectPCS\obj\Debug\KasirWindow.baml

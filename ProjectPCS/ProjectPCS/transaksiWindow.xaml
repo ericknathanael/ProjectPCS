@@ -7,10 +7,6 @@
         mc:Ignorable="d"
         Title="transaksiWindow" Height="610" Width="900" Loaded="Window_Loaded">
     <Grid>
-        <Menu Margin="0,0,0.333,560">
-            <MenuItem x:Name="menuTrans" Header="Transaksi"/>
-            <MenuItem x:Name="menuLaporan" Header="Reservasi"/>
-        </Menu>
         <TextBlock Name="dateText" VerticalAlignment="Top" Margin="640,28,10,0"/>
         <Label Content="Nomor Nota :" HorizontalAlignment="Left" Margin="18,48,0,0" VerticalAlignment="Top"/>
         <Label Content="ID Pelanggan :" HorizontalAlignment="Left" Margin="16,76,0,0" VerticalAlignment="Top"/>
@@ -34,6 +30,7 @@
             <Grid Background="#FFE5E5E5" Height="100" Width="100"/>
         </Popup>
         <Button x:Name="btReset" Content="Reset" HorizontalAlignment="Left" Margin="488,346,0,0" VerticalAlignment="Top" Width="192" Height="38" Click="btReset_Click"/>
+        <Image x:Name="picHome" HorizontalAlignment="Left" Height="40" Margin="9,9,0,0" VerticalAlignment="Top" Width="40" Stretch="Fill" Source="home.png" MouseDown="picHome_MouseDown"/>
 
     </Grid>
 </Window>

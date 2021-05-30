@@ -313,5 +313,13 @@ namespace ProjectPCS
             }
             conn.Close();
         }
+
+        private void picHome_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            KasirWindow kasir = new KasirWindow();
+            this.Hide();
+            kasir.ShowDialog();
+            this.Close();
+        }
     }
 }
