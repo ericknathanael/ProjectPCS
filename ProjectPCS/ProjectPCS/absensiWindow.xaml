@@ -5,20 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjectPCS"
         mc:Ignorable="d"
-        Title="absensiWindow" Height="450" Width="380">
+        Title="absensiWindow" Height="400" Width="380" Loaded="Window_Loaded">
     <Grid>
-        <Menu Margin="0,0,0.333,391.667">
-            <MenuItem x:Name="menuTrans" Header="Master Karyawan" Click="menuTrans_Click"/>
-            <MenuItem x:Name="menuKaryawan1" Header="Tambah Menu"/>
-            <MenuItem x:Name="menuLaporan" Header="Absensi" Click="menuLaporan_Click"/>
-            <MenuItem x:Name="masterMenu" Header="Laporan" Click="masterMenu_Click"/>
-        </Menu>
-        <Label Content="Absensi Karyawan" HorizontalAlignment="Left" Margin="99,88,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
-        <Label x:Name="label" Content="Kode Absen :" HorizontalAlignment="Left" Margin="23,374,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtKodeAbsen" HorizontalAlignment="Left" Height="22" Margin="107,378,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="btnAbsen" Content="Absen" HorizontalAlignment="Left" Margin="257,376,0,0" VerticalAlignment="Top" Width="92" Height="22" Click="BtnAbsen_Click"/>
-        <Label x:Name="labelDateTime" Content="DateTime" HorizontalAlignment="Left" Margin="60,327,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
-        <Calendar HorizontalAlignment="Left" Margin="99,141,0,0" VerticalAlignment="Top"/>
+
+        <Label Content="Absensi Karyawan" HorizontalAlignment="Left" Margin="95,10,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
+        <Label x:Name="label" Content="Kode Absen :" HorizontalAlignment="Left" Margin="146,257,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbKode" HorizontalAlignment="Left" Height="22" Margin="125,288,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="btAbsen" Content="Absen Masuk" HorizontalAlignment="Left" Margin="138,315,0,0" VerticalAlignment="Top" Width="92" Height="37" Click="BtAbsen_Click"/>
+        <Label x:Name="labelDateTime" Content="DateTime" HorizontalAlignment="Left" Margin="60,50,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
+        <TextBlock x:Name="dateText" VerticalAlignment="Top" Margin="65,52,65,0"/>
+        <Label x:Name="lbAbsen" Content="Jumlah absen bulan ini sudah" HorizontalAlignment="Left" Margin="85,220,0,0" VerticalAlignment="Top" Width="168"/>
+        <Image HorizontalAlignment="Left" Height="100" Margin="135,80,0,0" VerticalAlignment="Top" Width="100" Source="user.png"/>
+        <Label x:Name="lbNama" Content="Nama" HorizontalAlignment="Left" Margin="110,185,0,0" VerticalAlignment="Top" Width="150"/>
     </Grid>
 
 </Window>

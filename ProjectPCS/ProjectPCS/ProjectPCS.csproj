@@ -186,5 +186,11 @@
   <ItemGroup>
     <Resource Include="Reservation.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="absen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="user.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

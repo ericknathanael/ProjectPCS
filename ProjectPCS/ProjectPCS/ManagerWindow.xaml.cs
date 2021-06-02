@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,7 +28,7 @@ namespace ProjectPCS
         //string nama;
         string query;
 
-        private static string kode;
+        public static string kode;
         
         public ManagerWindow()
         {
@@ -38,9 +39,22 @@ namespace ProjectPCS
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            //nama = loginWindow.name;
-            //lbWelcome.Content = $"Welcome, {nama}";
             lbWelcome.Content = $"Welcome, {karyawan.nama}";
+            conn.Open();
+
+            query = $"select kode_absen from absensi where to_char(tgl_absen,'dd-mm-yyyy') = to_char(sysdate,'dd-mm-yyyy')";
+            cmd = new OracleCommand(query, conn);
+            if(cmd.ExecuteScalar() != null)
+            {
+                lbKode.Content = cmd.ExecuteScalar().ToString();
+                kode = lbKode.Content + "";
+            }
+            if(lbKode.Content != "")
+            {
+                btGenerate.IsEnabled = false;
+            }
+
+            conn.Close();
         }
 
         private void btLogout_Click(object sender, RoutedEventArgs e)
@@ -93,32 +107,42 @@ namespace ProjectPCS
             string ketemu = "";
             int id = 0;
 
-            kode = randomHuruf().ToUpper();
-            lbKode.Content = kode;
-            query = $"select kode_absen from absensi where tgl_absen = sysdate";
+            query = $"select kode_absen from absensi where to_char(tgl_absen,'dd-mm-yyyy') = to_char(sysdate,'dd-mm-yyyy')";
             conn.Open();
             cmd = new OracleCommand(query, conn);
             if(cmd.ExecuteScalar() != null)
             {
                 ketemu = cmd.ExecuteScalar().ToString();
+                
             }
             else
             {
-                try
+                using (OracleTransaction trans = conn.BeginTransaction(IsolationLevel.ReadCommitted))
                 {
-                    query = $"select count(*) + 1 from absensi";
-                    cmd = new OracleCommand(query, conn);
-                    id = Convert.ToInt32(cmd.ExecuteScalar().ToString());
-                    query = $"insert into absensi values({id},'{kode}',sysdate)";
-                    cmd.CommandText = query;
-                    cmd.ExecuteNonQuery();
+                    cmd.Transaction = trans;
+                    try
+                    {
+                        kode = randomHuruf().ToUpper();
+                        lbKode.Content = kode;
+
+                        query = $"select count(*) + 1 from absensi";
+                        cmd = new OracleCommand(query, conn);
+                        id = Convert.ToInt32(cmd.ExecuteScalar().ToString());
+                        query = $"insert into absensi values({id},'{kode}',sysdate)";
+                        cmd.CommandText = query;
+                        cmd.ExecuteNonQuery();
+                        trans.Commit();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                        trans.Rollback();
+                    }
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
+                
             }
             conn.Close();
+            btGenerate.IsEnabled = false;
         }
 
         public string randomHuruf()
@@ -134,6 +158,14 @@ namespace ProjectPCS
                 huruf += az[r.Next(0,25)];
             }
             return huruf + DateTime.UtcNow.ToString("dd");
+        }
+
+        private void btVoucher_Click(object sender, RoutedEventArgs e)
+        {
+            VoucherWindow voucher = new VoucherWindow();
+            this.Hide();
+            voucher.ShowDialog();
+            this.Close();
         }
     }
 }

@@ -39,7 +39,7 @@ namespace ProjectPCS
 
         private void loadData()
         {
-            query = "select * from karyawan";
+            query = "select id,username,nama_karyawan,tgl_daftar from karyawan";
             da = new OracleDataAdapter(query, conn);
             builder = new OracleCommandBuilder(da);
             dt = new DataTable();

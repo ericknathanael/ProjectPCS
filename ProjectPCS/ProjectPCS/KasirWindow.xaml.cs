@@ -22,11 +22,13 @@ namespace ProjectPCS
     public partial class KasirWindow : Window
     {
         OracleConnection conn;
+        Karyawan kasir;
 
         public KasirWindow()
         {
             InitializeComponent();
             conn = MainWindow.conn;
+            kasir = loginWindow.karyawan;
         }
 
 
@@ -52,6 +54,19 @@ namespace ProjectPCS
             this.Hide();
             //reserve.ShowDialog();
             this.Close();
+        }
+
+        private void picAbsen_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            absensiWindow absen = new absensiWindow();
+            this.Hide();
+            absen.ShowDialog();
+            this.Close();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            lbNama.Content += kasir.nama;
         }
     }
 }
