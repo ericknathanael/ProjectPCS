@@ -16,7 +16,7 @@
         <Button x:Name="btLogout" Content="Logout" HorizontalAlignment="Left" Margin="692,384,0,0" VerticalAlignment="Top" Width="90" Height="25" Click="btLogout_Click"/>
         <Label Content="Kode Absensi :" HorizontalAlignment="Left" Margin="435,244,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
         <Button x:Name="btGenerate" Content="Generate" HorizontalAlignment="Left" Margin="435,346,0,0" VerticalAlignment="Top" Width="147" Height="34" Click="btGenerate_Click"/>
-        <Label x:Name="lbKode" Content="" HorizontalAlignment="Left" Margin="471,286,0,0" VerticalAlignment="Top" FontSize="24" FontWeight="Bold" Width="100"/>
-        <Button x:Name="btVoucher" Content="Create Voucher " HorizontalAlignment="Left" Margin="454,121,0,0" VerticalAlignment="Top" Width="150" Height="63" Click="btLaporan_Click"/>
+        <Label x:Name="lbKode" Content="" HorizontalAlignment="Left" Margin="459,286,0,0" VerticalAlignment="Top" FontSize="24" FontWeight="Bold" Width="100"/>
+        <Button x:Name="btVoucher" Content="Create Voucher " HorizontalAlignment="Left" Margin="454,121,0,0" VerticalAlignment="Top" Width="150" Height="63" Click="btVoucher_Click"/>
     </Grid>
 </Window>

@@ -1,0 +1,32 @@
+﻿<Window x:Class="ProjectPCS.regisCustWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProjectPCS"
+        mc:Ignorable="d"
+        Title="regisCustWindow" Height="450" Width="800" Loaded="Window_Loaded">
+    <Grid>
+        <DataGrid x:Name="dgCust" HorizontalAlignment="Left" Height="310" Margin="10,100,0,0" VerticalAlignment="Top" Width="590" MouseDoubleClick="dgCust_MouseDoubleClick"/>
+        <Label Content="Master Customer" HorizontalAlignment="Left" Margin="285,10,0,0" VerticalAlignment="Top" FontSize="28" FontWeight="Bold"/>
+        <Label Content="ID :" HorizontalAlignment="Left" Margin="635,71,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lbId" Content="Label" HorizontalAlignment="Left" Margin="667,71,0,0" VerticalAlignment="Top"/>
+        <Label Content="Nama :" HorizontalAlignment="Left" Margin="615,96,0,0" VerticalAlignment="Top"/>
+        <Label Content="Alamat :" HorizontalAlignment="Left" Margin="609,126,0,0" VerticalAlignment="Top"/>
+        <Label Content="No Telp :" HorizontalAlignment="Left" Margin="605,156,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbNama" HorizontalAlignment="Left" Height="23" Margin="667,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="115"/>
+        <TextBox x:Name="tbAlamat" HorizontalAlignment="Left" Height="23" Margin="667,130,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="115"/>
+        <TextBox x:Name="tbTelp" HorizontalAlignment="Left" Height="23" Margin="667,160,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="115"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="609,195,0,0" VerticalAlignment="Top" Width="75" Height="25"/>
+        <Button x:Name="btInsert" Content="Insert" HorizontalAlignment="Left" Margin="609,195,0,0" VerticalAlignment="Top" Width="80" Height="25" Click="btInsert_Click"/>
+        <Button x:Name="btUpdate" Content="Update" HorizontalAlignment="Left" Margin="704,195,0,0" VerticalAlignment="Top" Width="80" Height="25" IsEnabled="False" Click="btUpdate_Click"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="609,230,0,0" VerticalAlignment="Top" Width="75" Height="25"/>
+        <Button x:Name="btClear" Content="Clear" HorizontalAlignment="Left" Margin="609,230,0,0" VerticalAlignment="Top" Width="80" Height="25" Click="btClear_Click"/>
+        <Button x:Name="btDelete" Content="Delete" HorizontalAlignment="Left" Margin="704,230,0,0" VerticalAlignment="Top" Width="80" Height="25" IsEnabled="False" Click="btDelete_Click"/>
+        <Label Content="Cari Customer :" HorizontalAlignment="Left" Margin="23,60,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbSearch" HorizontalAlignment="Left" Height="23" Margin="119,64,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="261"/>
+        <Button x:Name="btSearch" Content="Search" HorizontalAlignment="Left" Margin="407,64,0,0" VerticalAlignment="Top" Width="85" Height="23" Click="btSearch_Click"/>
+        <Button x:Name="btReset" Content="Reset" HorizontalAlignment="Left" Margin="515,64,0,0" VerticalAlignment="Top" Width="85" Height="22" Click="btReset_Click"/>
+
+    </Grid>
+</Window>

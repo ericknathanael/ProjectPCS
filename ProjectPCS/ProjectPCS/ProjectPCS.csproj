@@ -77,6 +77,9 @@
     </Compile>
     <Compile Include="Meja.cs" />
     <Compile Include="Menu.cs" />
+    <Compile Include="regisCustWindow.xaml.cs">
+      <DependentUpon>regisCustWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="registerWindow.xaml.cs">
       <DependentUpon>registerWindow.xaml</DependentUpon>
     </Compile>
@@ -85,6 +88,9 @@
     </Compile>
     <Compile Include="transaksiWindow.xaml.cs">
       <DependentUpon>transaksiWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="VoucherWindow.xaml.cs">
+      <DependentUpon>VoucherWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="absensiWindow.xaml">
       <SubType>Designer</SubType>
@@ -122,6 +128,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="regisCustWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="registerWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -135,6 +145,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="transaksiWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VoucherWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

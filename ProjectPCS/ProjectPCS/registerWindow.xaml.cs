@@ -23,7 +23,6 @@ namespace ProjectPCS
     {
         OracleConnection conn;
         OracleCommandBuilder builder;
-        OracleCommand cmd;
         OracleDataAdapter da;
         DataTable dt;
 
@@ -102,7 +101,7 @@ namespace ProjectPCS
                     jabatan = 4;
                 }
                 conn.Open();
-                query = $"insert into karyawan values(0,{jabatan},'{tbUser.Text}','{passBox.Password}','{tbNama.Text}',sysdate)";
+                //query = $"insert into karyawan values(0,{jabatan},'{tbUser.Text}','{passBox.Password}','{tbNama.Text}',sysdate)";
                 DataRow dr = dt.NewRow();
                 dr[0] = 0;
                 dr[1] = jabatan;

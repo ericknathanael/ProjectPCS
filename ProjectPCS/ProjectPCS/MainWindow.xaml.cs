@@ -40,6 +40,8 @@ namespace ProjectPCS
                 conn = new OracleConnection("Data Source = " + source + "; User ID = " + userId + "; password = " + pass);
                 conn.Open();
                 conn.Close();
+                regisCustWindow cust = new regisCustWindow();
+                cust.ShowDialog();
                 menu = new loginWindow();
                 this.Hide();
                 menu.ShowDialog();

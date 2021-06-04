@@ -5,8 +5,29 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjectPCS"
         mc:Ignorable="d"
-        Title="VoucherWindow" Height="450" Width="800">
+        Title="VoucherWindow" Height="450" Width="800" Loaded="Window_Loaded">
     <Grid>
-        
+        <DataGrid x:Name="dgVoucher" HorizontalAlignment="Left" Height="310" Margin="10,100,0,0" VerticalAlignment="Top" Width="568" MouseDoubleClick="dgVoucher_MouseDoubleClick"/>
+        <Label Content="Master Voucher" HorizontalAlignment="Left" Margin="285,10,0,0" VerticalAlignment="Top" FontSize="28" FontWeight="Bold"/>
+        <Label Content="ID :" HorizontalAlignment="Left" Margin="634,88,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.471,0.289"/>
+        <Label x:Name="lbId" Content="Label" HorizontalAlignment="Left" Margin="685,88,0,0" VerticalAlignment="Top"/>
+        <Label Content="Nama :" HorizontalAlignment="Left" Margin="613,114,0,0" VerticalAlignment="Top"/>
+        <Label Content="Status :" HorizontalAlignment="Left" Margin="613,145,0,0" VerticalAlignment="Top"/>
+        <Label Content="Nilai Diskon :" HorizontalAlignment="Left" Margin="583,200,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbNama" HorizontalAlignment="Left" Height="23" Margin="666,117,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="115"/>
+        <TextBox x:Name="tbDiskon" HorizontalAlignment="Left" Height="23" Margin="666,203,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="115"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="590,237,0,0" VerticalAlignment="Top" Width="75" Height="25"/>
+        <Button x:Name="btInsert" Content="Insert" HorizontalAlignment="Left" Margin="590,237,0,0" VerticalAlignment="Top" Width="80" Height="25" Click="btInsert_Click"/>
+        <Button x:Name="btUpdate" Content="Update" HorizontalAlignment="Left" Margin="685,237,0,0" VerticalAlignment="Top" Width="80" Height="25" IsEnabled="False" Click="btUpdate_Click"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="590,272,0,0" VerticalAlignment="Top" Width="75" Height="25"/>
+        <Button x:Name="btClear" Content="Clear" HorizontalAlignment="Left" Margin="590,272,0,0" VerticalAlignment="Top" Width="80" Height="25" Click="btClear_Click"/>
+        <Button x:Name="btDelete" Content="Delete" HorizontalAlignment="Left" Margin="685,272,0,0" VerticalAlignment="Top" Width="80" Height="25" IsEnabled="False" Click="btDelete_Click"/>
+        <Label Content="Cari Voucher :" HorizontalAlignment="Left" Margin="23,60,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbSearch" HorizontalAlignment="Left" Height="23" Margin="119,64,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="261"/>
+        <Button x:Name="btSearch" Content="Search" HorizontalAlignment="Left" Margin="395,64,0,0" VerticalAlignment="Top" Width="85" Height="23" Click="btSearch_Click"/>
+        <Button x:Name="btReset" Content="Reset" HorizontalAlignment="Left" Margin="493,63,0,0" VerticalAlignment="Top" Width="85" Height="22" Click="btReset_Click"/>
+        <RadioButton x:Name="rbExp" Content="Expired" HorizontalAlignment="Left" Margin="715,176,0,0" VerticalAlignment="Top" Checked="rbExp_Checked"/>
+        <RadioButton x:Name="rbAvail" Content="Available" HorizontalAlignment="Left" Margin="630,176,0,0" VerticalAlignment="Top" Checked="rbAvail_Checked"/>
+
     </Grid>
 </Window>
