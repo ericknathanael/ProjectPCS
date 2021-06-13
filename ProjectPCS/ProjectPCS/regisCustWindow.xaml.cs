@@ -26,6 +26,7 @@ namespace ProjectPCS
         OracleCommand cmd;
         DataTable dt;
         OracleDataAdapter da;
+        Karyawan karyawan;
 
         string query;
         string id;
@@ -39,7 +40,15 @@ namespace ProjectPCS
         {
             InitializeComponent();
             conn = MainWindow.conn;
-            
+            karyawan = loginWindow.karyawan;
+            if (karyawan.id_jabatan == 4)
+            {
+                this.formCustomer.Visibility = Visibility.Hidden;
+            }
+            else if (karyawan.id_jabatan == 1)
+            {
+                this.formCustomer.Visibility = Visibility.Visible;
+            }
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)

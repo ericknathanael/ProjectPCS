@@ -22,5 +22,6 @@ namespace ProjectPCS
             this.pass = pass;
             this.nama = nama;
         }
+
     }
 }

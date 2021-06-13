@@ -23,7 +23,7 @@ namespace ProjectPCS
     {
         OracleConnection conn;
         OracleCommand cmd;
-        Karyawan karyawan;
+        Karyawan manager;
         
         //string nama;
         string query;
@@ -34,12 +34,12 @@ namespace ProjectPCS
         {
             InitializeComponent();
             conn = MainWindow.conn;
-            karyawan = loginWindow.karyawan;
+            manager = loginWindow.karyawan;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            lbWelcome.Content = $"Welcome, {karyawan.nama}";
+            lbWelcome.Content = $"Welcome, {manager.nama}";
             conn.Open();
 
             query = $"select kode_absen from absensi where to_char(tgl_absen,'dd-mm-yyyy') = to_char(sysdate,'dd-mm-yyyy')";
@@ -89,7 +89,7 @@ namespace ProjectPCS
         private void btAbsensi_Click(object sender, RoutedEventArgs e)
         {
             Window window = null;
-            if (karyawan.id_jabatan != 1)
+            if (manager.id_jabatan != 1)
             {
                 window = new absensiWindow();
             }
@@ -165,6 +165,14 @@ namespace ProjectPCS
             VoucherWindow voucher = new VoucherWindow();
             this.Hide();
             voucher.ShowDialog();
+            this.Close();
+        }
+
+        private void btCustomer_Click(object sender, RoutedEventArgs e)
+        {
+            regisCustWindow cust = new regisCustWindow();
+            this.Hide();
+            cust.ShowDialog();
             this.Close();
         }
     }

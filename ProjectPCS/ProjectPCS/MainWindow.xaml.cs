@@ -24,10 +24,10 @@ namespace ProjectPCS
         public static OracleConnection conn;
         public static string source, userId, pass;
         loginWindow menu;
+
         public MainWindow()
         {
-            InitializeComponent();
-            
+            InitializeComponent();            
         }
 
         private void btSubmit_Click(object sender, RoutedEventArgs e)
@@ -40,8 +40,8 @@ namespace ProjectPCS
                 conn = new OracleConnection("Data Source = " + source + "; User ID = " + userId + "; password = " + pass);
                 conn.Open();
                 conn.Close();
-                regisCustWindow cust = new regisCustWindow();
-                cust.ShowDialog();
+                //regisCustWindow cust = new regisCustWindow();
+                //cust.ShowDialog();
                 menu = new loginWindow();
                 this.Hide();
                 menu.ShowDialog();

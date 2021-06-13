@@ -9,23 +9,25 @@
     <Grid>
         <DataGrid x:Name="dgCust" HorizontalAlignment="Left" Height="310" Margin="10,100,0,0" VerticalAlignment="Top" Width="590" MouseDoubleClick="dgCust_MouseDoubleClick"/>
         <Label Content="Master Customer" HorizontalAlignment="Left" Margin="285,10,0,0" VerticalAlignment="Top" FontSize="28" FontWeight="Bold"/>
-        <Label Content="ID :" HorizontalAlignment="Left" Margin="635,71,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lbId" Content="Label" HorizontalAlignment="Left" Margin="667,71,0,0" VerticalAlignment="Top"/>
-        <Label Content="Nama :" HorizontalAlignment="Left" Margin="615,96,0,0" VerticalAlignment="Top"/>
-        <Label Content="Alamat :" HorizontalAlignment="Left" Margin="609,126,0,0" VerticalAlignment="Top"/>
-        <Label Content="No Telp :" HorizontalAlignment="Left" Margin="605,156,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="tbNama" HorizontalAlignment="Left" Height="23" Margin="667,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="115"/>
-        <TextBox x:Name="tbAlamat" HorizontalAlignment="Left" Height="23" Margin="667,130,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="115"/>
-        <TextBox x:Name="tbTelp" HorizontalAlignment="Left" Height="23" Margin="667,160,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="115"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="609,195,0,0" VerticalAlignment="Top" Width="75" Height="25"/>
-        <Button x:Name="btInsert" Content="Insert" HorizontalAlignment="Left" Margin="609,195,0,0" VerticalAlignment="Top" Width="80" Height="25" Click="btInsert_Click"/>
-        <Button x:Name="btUpdate" Content="Update" HorizontalAlignment="Left" Margin="704,195,0,0" VerticalAlignment="Top" Width="80" Height="25" IsEnabled="False" Click="btUpdate_Click"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="609,230,0,0" VerticalAlignment="Top" Width="75" Height="25"/>
-        <Button x:Name="btClear" Content="Clear" HorizontalAlignment="Left" Margin="609,230,0,0" VerticalAlignment="Top" Width="80" Height="25" Click="btClear_Click"/>
-        <Button x:Name="btDelete" Content="Delete" HorizontalAlignment="Left" Margin="704,230,0,0" VerticalAlignment="Top" Width="80" Height="25" IsEnabled="False" Click="btDelete_Click"/>
         <Label Content="Cari Customer :" HorizontalAlignment="Left" Margin="23,60,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="tbSearch" HorizontalAlignment="Left" Height="23" Margin="119,64,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="261"/>
         <Button x:Name="btSearch" Content="Search" HorizontalAlignment="Left" Margin="407,64,0,0" VerticalAlignment="Top" Width="85" Height="23" Click="btSearch_Click"/>
+        <Canvas x:Name="formCustomer" HorizontalAlignment="Left" Height="197" Margin="609,65,0,0" VerticalAlignment="Top" Width="173">
+            <Label Content="ID :" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="24" Canvas.Top="3"/>
+            <Label x:Name="lbId" Content="Label" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="56" Canvas.Top="3"/>
+            <Label Content="Nama :" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="4" Canvas.Top="28"/>
+            <Label Content="Alamat :" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="-2" Canvas.Top="58"/>
+            <Label Content="No Telp :" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="-6" Canvas.Top="88"/>
+            <TextBox x:Name="tbNama" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="115" Canvas.Left="56" Canvas.Top="32"/>
+            <TextBox x:Name="tbAlamat" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="115" Canvas.Left="56" Canvas.Top="62"/>
+            <TextBox x:Name="tbTelp" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="115" Canvas.Left="56" Canvas.Top="92"/>
+            <Button Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Height="25" Canvas.Left="-2" Canvas.Top="127"/>
+            <Button x:Name="btInsert" Content="Insert" HorizontalAlignment="Left" VerticalAlignment="Top" Width="80" Height="25" Click="btInsert_Click" Canvas.Left="-2" Canvas.Top="127"/>
+            <Button x:Name="btUpdate" Content="Update" HorizontalAlignment="Left" VerticalAlignment="Top" Width="80" Height="25" IsEnabled="False" Click="btUpdate_Click" Canvas.Left="93" Canvas.Top="127"/>
+            <Button Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Height="25" Canvas.Left="-2" Canvas.Top="162"/>
+            <Button x:Name="btClear" Content="Clear" HorizontalAlignment="Left" VerticalAlignment="Top" Width="80" Height="25" Click="btClear_Click" Canvas.Left="-2" Canvas.Top="162"/>
+            <Button x:Name="btDelete" Content="Delete" HorizontalAlignment="Left" VerticalAlignment="Top" Width="80" Height="25" IsEnabled="False" Click="btDelete_Click" Canvas.Left="93" Canvas.Top="162"/>
+        </Canvas>
         <Button x:Name="btReset" Content="Reset" HorizontalAlignment="Left" Margin="515,64,0,0" VerticalAlignment="Top" Width="85" Height="22" Click="btReset_Click"/>
 
     </Grid>
