@@ -175,5 +175,12 @@ namespace ProjectPCS
             cust.ShowDialog();
             this.Close();
         }
+		private void btReserve_Click(object sender, RoutedEventArgs e)
+        {
+            masterReservasi reserve = new masterReservasi();
+            this.Hide();
+            reserve.ShowDialog();
+            this.Close();
+        }
     }
 }
