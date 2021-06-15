@@ -5,22 +5,26 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjectPCS"
         mc:Ignorable="d"
-        Title="masterReservasi" Height="332" Width="855">
-    <Grid Height="305" Margin="0,0,0,-2.333" VerticalAlignment="Top">
+        Title="masterReservasi" Height="359" Width="855">
+    <Grid Height="329" VerticalAlignment="Top">
         <Image x:Name="picHome" HorizontalAlignment="Left" Height="40" Margin="9,9,0,0" VerticalAlignment="Top" Width="40" Stretch="Fill" Source="Home.png" MouseDown="picHome_MouseDown"/>
         <Label Content="Master Reservasi" HorizontalAlignment="Left" Margin="55,12,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
-        <DataGrid Name="dgReservasi" HorizontalAlignment="Left" Height="228" Margin="55,54,0,0" VerticalAlignment="Top" Width="474" MouseDoubleClick="dgReservasi_MouseDoubleClick"/>
+        <DataGrid Name="dgReservasi" HorizontalAlignment="Left" Height="259" Margin="55,54,0,0" VerticalAlignment="Top" Width="474" MouseDoubleClick="dgReservasi_MouseDoubleClick"/>
         <Label Content="Nama Pelanggan : " HorizontalAlignment="Left" Margin="543,92,0,0" VerticalAlignment="Top"/>
         <Label Content="ID Meja : " HorizontalAlignment="Left" Margin="592,132,0,0" VerticalAlignment="Top"/>
-        <ComboBox Name="comboBoxNamaPelanggan" HorizontalAlignment="Left" Margin="670,96,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox Name="comboBoxNamaPelanggan" HorizontalAlignment="Left" Margin="670,96,0,0" VerticalAlignment="Top" Width="149"/>
         <Label Content="ID : " HorizontalAlignment="Left" Margin="622,54,0,0" VerticalAlignment="Top"/>
-        <ComboBox Name="comboBoxMeja" HorizontalAlignment="Left" Margin="670,136,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox Name="comboBoxMeja" HorizontalAlignment="Left" Margin="670,136,0,0" VerticalAlignment="Top" Width="149"/>
         <Label Content="Tanggal : " HorizontalAlignment="Left" Margin="593,177,0,0" VerticalAlignment="Top"/>
-        <DatePicker Name="datePickerTanggal" HorizontalAlignment="Left" Margin="670,178,0,0" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="buttonInsert" Content="Insert" HorizontalAlignment="Left" Margin="549,230,0,0" VerticalAlignment="Top" Width="75" Click="buttonInsert_Click"/>
-        <Button x:Name="buttonUpdate" Content="Update" HorizontalAlignment="Left" Margin="650,230,0,0" VerticalAlignment="Top" Width="75" Click="buttonUpdate_Click" IsEnabled="False"/>
-        <Button x:Name="buttonDelete" Content="Delete" HorizontalAlignment="Left" Margin="744,230,0,0" VerticalAlignment="Top" Width="75" Click="buttonDelete_Click" IsEnabled="False"/>
-        <Button x:Name="buttonClear" Content="Clear" HorizontalAlignment="Left" Margin="650,261,0,0" VerticalAlignment="Top" Width="75" Click="buttonClear_Click"/>
+        <DatePicker Name="datePickerTanggal" HorizontalAlignment="Left" Margin="670,178,0,0" VerticalAlignment="Top" Width="149"/>
+        <Button x:Name="buttonInsert" Content="Insert" HorizontalAlignment="Left" Margin="549,261,0,0" VerticalAlignment="Top" Width="75" Click="buttonInsert_Click"/>
+        <Button x:Name="buttonUpdate" Content="Update" HorizontalAlignment="Left" Margin="650,261,0,0" VerticalAlignment="Top" Width="75" Click="buttonUpdate_Click" IsEnabled="False"/>
+        <Button x:Name="buttonDelete" Content="Delete" HorizontalAlignment="Left" Margin="744,261,0,0" VerticalAlignment="Top" Width="75" Click="buttonDelete_Click" IsEnabled="False"/>
+        <Button x:Name="buttonClear" Content="Clear" HorizontalAlignment="Left" Margin="650,292,0,0" VerticalAlignment="Top" Width="75" Click="buttonClear_Click"/>
         <Label Name="labelID" Content="-" HorizontalAlignment="Left" Margin="670,54,0,0" VerticalAlignment="Top"/>
+        <Label Content="Waktu : " HorizontalAlignment="Left" Margin="599,219,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="textboxJam" HorizontalAlignment="Left" Height="23" Margin="670,219,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="59"/>
+        <TextBox Name="textBoxMenit" HorizontalAlignment="Left" Height="23" Margin="760,219,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="59"/>
+        <Label Content=":" HorizontalAlignment="Left" Margin="738,216,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>

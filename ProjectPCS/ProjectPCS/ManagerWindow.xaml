@@ -19,5 +19,6 @@
         <Label x:Name="lbKode" Content="" HorizontalAlignment="Left" Margin="459,286,0,0" VerticalAlignment="Top" FontSize="24" FontWeight="Bold" Width="100"/>
         <Button x:Name="btVoucher" Content="Create Voucher " HorizontalAlignment="Left" Margin="454,166,0,0" VerticalAlignment="Top" Width="150" Height="63" Click="btVoucher_Click"/>
         <Button x:Name="btCustomer" Content="Master Customer " HorizontalAlignment="Left" Margin="286,166,0,0" VerticalAlignment="Top" Width="150" Height="63" Click="btCustomer_Click"/>
+        <Button x:Name="btReserve" Content="Master Reservasi " HorizontalAlignment="Left" Margin="622,265,0,0" VerticalAlignment="Top" Width="150" Height="63" Click="btReserve_Click"/>
     </Grid>
 </Window>
