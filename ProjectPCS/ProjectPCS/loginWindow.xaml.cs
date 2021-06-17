@@ -88,19 +88,23 @@ namespace ProjectPCS
                             {
                                 // apabila masuk ke menu manager(Register karyawan, tambah menu, update absensi)
                                 window = new ManagerWindow();
+                                this.Hide();
+                                window.ShowDialog();
+                                this.Close();
                             }
                             else if (karyawan.id_jabatan == 4)
                             {
                                 // apabila masuk ke menu kasir(transaksi reservation, print nota)                                
                                 window = new KasirWindow();
+                                this.Hide();
+                                window.ShowDialog();
+                                this.Close();
                             }
                             else
                             {
                                 window = new absensiWindow();
+                                window.ShowDialog();
                             }
-                            this.Hide();
-                            window.ShowDialog();
-                            this.Close();
                         }
                     }
                 }

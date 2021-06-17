@@ -14,7 +14,6 @@
         <Button x:Name="btAbsen" Content="Absen Masuk" HorizontalAlignment="Left" Margin="138,315,0,0" VerticalAlignment="Top" Width="92" Height="37" Click="BtAbsen_Click"/>
         <Label x:Name="labelDateTime" Content="DateTime" HorizontalAlignment="Left" Margin="60,50,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
         <TextBlock x:Name="dateText" VerticalAlignment="Top" Margin="65,52,65,0"/>
-        <Label x:Name="lbAbsen" Content="Jumlah absen bulan ini sudah" HorizontalAlignment="Left" Margin="85,220,0,0" VerticalAlignment="Top" Width="168"/>
         <Image HorizontalAlignment="Left" Height="100" Margin="135,80,0,0" VerticalAlignment="Top" Width="100" Source="user.png"/>
         <Label x:Name="lbNama" Content="Nama" HorizontalAlignment="Left" Margin="110,185,0,0" VerticalAlignment="Top" Width="150"/>
     </Grid>

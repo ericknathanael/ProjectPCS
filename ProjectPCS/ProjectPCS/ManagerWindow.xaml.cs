@@ -180,5 +180,11 @@ namespace ProjectPCS
             reserve.ShowDialog();
             this.Close();
         }
+
+        private void tbLogin_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            absensiWindow absen = new absensiWindow(lbKode.Content.ToString());
+            absen.ShowDialog();
+        }
     }
 }

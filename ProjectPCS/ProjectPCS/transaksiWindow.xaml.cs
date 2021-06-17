@@ -280,10 +280,11 @@ namespace ProjectPCS
                         MessageBox.Show("Transaksi Berhasil");
                         tr.Commit();
 
-                        notaWindow notaPembayaran = new notaWindow(nota);
+                        pembayaranWindow pw = new pembayaranWindow(setelahDipotong);
+                        pw.ShowDialog();
+
+                        notaWindow notaPembayaran = new notaWindow(nota,pw.hasil);
                         notaPembayaran.ShowDialog();
-
-
                     }
                     catch (Exception ex)
                     {
@@ -292,7 +293,6 @@ namespace ProjectPCS
                         MessageBox.Show("Transaksi Gagal");
                     }
                 }
-                
             }
             conn.Close();
         }

@@ -59,9 +59,7 @@ namespace ProjectPCS
         private void picAbsen_MouseDown(object sender, MouseButtonEventArgs e)
         {
             absensiWindow absen = new absensiWindow();
-            this.Hide();
             absen.ShowDialog();
-            this.Close();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)

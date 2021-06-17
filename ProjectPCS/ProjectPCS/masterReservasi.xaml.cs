@@ -25,12 +25,15 @@ namespace ProjectPCS
         string tanggal, jam;
         OracleConnection conn;
         DataSet ds;
+
+        Karyawan kasir;
         public masterReservasi()
         {
             InitializeComponent();
             conn = loginWindow.conn;
             refreshReservasi();
             fillComboBox();
+            kasir = loginWindow.karyawan;
         }
         void fillComboBox()
         {
@@ -83,10 +86,20 @@ namespace ProjectPCS
         }
         private void picHome_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            ManagerWindow home = new ManagerWindow();
-            this.Hide();
-            home.ShowDialog();
-            this.Close();
+            if(kasir.id_jabatan == 4)
+            {
+                KasirWindow cashier = new KasirWindow();
+                this.Hide();
+                cashier.ShowDialog();
+                this.Close();
+            }else if(kasir.id_jabatan == 1)
+            {
+                ManagerWindow home = new ManagerWindow();
+                this.Hide();
+                home.ShowDialog();
+                this.Close();
+            }
+            
         }
 
         private void buttonInsert_Click(object sender, RoutedEventArgs e)

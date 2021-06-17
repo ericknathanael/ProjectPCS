@@ -20,14 +20,14 @@ namespace ProjectPCS
     public partial class notaWindow : Window
     {
         Karyawan kasir; 
-        public notaWindow(string nota)
+        public notaWindow(string nota,int nominalYgDibayar)
         {
             InitializeComponent();
             kasir = loginWindow.karyawan;
             CrystalReport3 rpt = new CrystalReport3();
             rpt.SetDatabaseLogon(MainWindow.userId, MainWindow.pass, MainWindow.source, "");
             rpt.SetParameterValue("nomorNota", nota);
-            rpt.SetParameterValue("kasir", kasir.nama.ToUpper());
+            rpt.SetParameterValue("Pembayaran", nominalYgDibayar);
             report.ViewerCore.ReportSource = rpt;
         }
     }

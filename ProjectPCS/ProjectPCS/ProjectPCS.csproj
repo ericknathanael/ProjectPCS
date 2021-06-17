@@ -111,6 +111,9 @@
     <Compile Include="notaWindow.xaml.cs">
       <DependentUpon>notaWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="pembayaranWindow.xaml.cs">
+      <DependentUpon>pembayaranWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="popupReserveWindow.xaml.cs">
       <DependentUpon>popupReserveWindow.xaml</DependentUpon>
     </Compile>
@@ -170,6 +173,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="notaWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="pembayaranWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
