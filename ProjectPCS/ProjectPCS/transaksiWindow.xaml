@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjectPCS"
         mc:Ignorable="d"
-        Title="transaksiWindow" Height="610" Width="900" Loaded="Window_Loaded">
+        Icon="Image/EPOS-Icon.ico" Title="transaksiWindow" Height="610" Width="900" Loaded="Window_Loaded">
     <Grid>
         <TextBlock Name="dateText" VerticalAlignment="Top" Margin="724,28,10,0"/>
         <Label Content="Nomor Nota :" HorizontalAlignment="Left" Margin="18,48,0,0" VerticalAlignment="Top"/>
@@ -29,7 +29,7 @@
             <Grid Background="#FFE5E5E5" Height="100" Width="100"/>
         </Popup>
         <Button x:Name="btReset" Content="Reset" HorizontalAlignment="Left" Margin="481,379,0,0" VerticalAlignment="Top" Width="192" Height="38" Click="btReset_Click"/>
-        <Image x:Name="picHome" HorizontalAlignment="Left" Height="40" Margin="9,9,0,0" VerticalAlignment="Top" Width="40" Stretch="Fill" Source="home.png" MouseDown="picHome_MouseDown"/>
+        <Image x:Name="picHome" HorizontalAlignment="Left" Height="40" Margin="9,9,0,0" VerticalAlignment="Top" Width="40" Stretch="Fill" Source="Image/home.png" MouseDown="picHome_MouseDown"/>
         <Label Content="Jumlah :" HorizontalAlignment="Left" Margin="506,346,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="tbJumlah" HorizontalAlignment="Left" Height="23" Margin="564,349,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="311"/>
         <Button x:Name="btReservasi" Content="Pesan meja" HorizontalAlignment="Left" Margin="730,58,0,0" VerticalAlignment="Top" Width="65" Height="34" Click="btReservasi_Click"/>

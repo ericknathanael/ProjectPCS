@@ -6,10 +6,8 @@
         xmlns:local="clr-namespace:ProjectPCS"
         xmlns:Viewer="clr-namespace:SAPBusinessObjects.WPF.Viewer;assembly=SAPBusinessObjects.WPF.Viewer" x:Class="ProjectPCS.notaWindow"
         mc:Ignorable="d"
-        Title="notaWindow" Height="450" Width="800">
+        Icon="Image/EPOS-Icon.ico" Title="notaWindow" Height="450" Width="800">
     <Grid>
-
-        <Viewer:CrystalReportsViewer x:Name="report" HorizontalAlignment="Left" Height="399" Margin="10,10,0,0" VerticalAlignment="Top" Width="772"/>
-
+        <Viewer:CrystalReportsViewer x:Name="report" Width="auto" Height="auto" Margin="10,10,10,10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
     </Grid>
 </Window>

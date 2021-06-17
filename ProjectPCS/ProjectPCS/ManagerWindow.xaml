@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjectPCS"
         mc:Ignorable="d"
-        Title="ManagerWindow" Height="450" Width="800" Loaded="Window_Loaded">
+        Icon="Image/EPOS-Icon.ico" Title="ManagerWindow" Height="450" Width="800" Loaded="Window_Loaded">
     <Grid>
-        <Image HorizontalAlignment="Left" Height="419" VerticalAlignment="Top" Width="240" Source="ManagerMenu.jpg"/>
+        <Image HorizontalAlignment="Left" Height="419" VerticalAlignment="Top" Width="240" Source="Image/ManagerMenu.jpg"/>
         <Button x:Name="btRegis" Content="Master Karyawan" HorizontalAlignment="Left" Margin="286,70,0,0" VerticalAlignment="Top" Width="150" Height="63" Click="btRegis_Click"/>
         <Button x:Name="btMenu" Content="Master Menu" HorizontalAlignment="Left" Margin="622,70,0,0" VerticalAlignment="Top" Width="150" Height="63" Click="btMenu_Click"/>
         <Button x:Name="btLaporan" Content="Cetak Laporan" HorizontalAlignment="Left" Margin="622,166,0,0" VerticalAlignment="Top" Width="150" Height="63" Click="btLaporan_Click"/>

@@ -20,7 +20,7 @@ namespace ProjectPCS
     public partial class notaWindow : Window
     {
         Karyawan kasir; 
-        public notaWindow(string nota,int nominalYgDibayar)
+        public notaWindow(string nota, int nominalYgDibayar)
         {
             InitializeComponent();
             kasir = loginWindow.karyawan;

@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjectPCS"
         mc:Ignorable="d"
-        Title="pembayaranWindow" Height="120" Width="300">
+        Icon="Image/EPOS-Icon.ico" Title="pembayaranWindow" Height="120" Width="300">
     <Grid>
-        <Button x:Name="btSubmit" Content="Button" HorizontalAlignment="Left" Margin="101,53,0,0" VerticalAlignment="Top" Width="98" Height="28" Click="btSubmit_Click"/>
+        <Button x:Name="btSubmit" Content="Submit" HorizontalAlignment="Left" Margin="101,53,0,0" VerticalAlignment="Top" Width="98" Height="28" Click="btSubmit_Click"/>
         <Label Content="Pembayaran :" HorizontalAlignment="Left" Margin="15,16,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="tbBayaran" HorizontalAlignment="Left" Height="23" Margin="101,19,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="183"/>
     </Grid>

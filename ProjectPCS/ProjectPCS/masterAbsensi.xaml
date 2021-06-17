@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjectPCS"
         mc:Ignorable="d"
-        Title="masterAbsensi" Height="450" Width="850" Loaded="Window_Loaded">
+        Icon="Image/EPOS-Icon.ico" Title="masterAbsensi" Height="450" Width="850" Loaded="Window_Loaded">
     <Grid HorizontalAlignment="Left" Width="840">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="239*"/>
@@ -34,7 +34,7 @@
         <TextBox x:Name="tbKode" HorizontalAlignment="Left" Height="25" Margin="48,122,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="153" Grid.Column="2" Grid.ColumnSpan="2"/>
         <Label Content="Nama :" HorizontalAlignment="Left" Margin="386,92,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.608,0.5" Grid.Column="1" Grid.ColumnSpan="2"/>
         <ComboBox x:Name="cbNama" Grid.Column="2" HorizontalAlignment="Left" Margin="48,96,0,0" VerticalAlignment="Top" Width="153" Grid.ColumnSpan="2"/>
-        <Image x:Name="picHome" Grid.Column="3" HorizontalAlignment="Left" Height="45" Margin="88,10,0,0" VerticalAlignment="Top" Width="44" Source="Home.png" Stretch="Fill" MouseDown="picHome_MouseDown"/>
+        <Image x:Name="picHome" Grid.Column="3" HorizontalAlignment="Left" Height="45" Margin="88,10,0,0" VerticalAlignment="Top" Width="44" Source="Image/Home.png" Stretch="Fill" MouseDown="picHome_MouseDown"/>
 
     </Grid>
 </Window>

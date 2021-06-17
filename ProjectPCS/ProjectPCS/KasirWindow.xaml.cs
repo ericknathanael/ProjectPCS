@@ -31,7 +31,6 @@ namespace ProjectPCS
             kasir = loginWindow.karyawan;
         }
 
-
         private void btLogout_Click(object sender, RoutedEventArgs e)
         {
             loginWindow login = new loginWindow();
@@ -40,7 +39,7 @@ namespace ProjectPCS
             this.Close();
         }
 
-        private void Image_MouseDown(object sender, MouseButtonEventArgs e)
+        private void picTrans_MouseDown(object sender, MouseButtonEventArgs e)
         {
             transaksiWindow trans = new transaksiWindow();
             this.Hide();

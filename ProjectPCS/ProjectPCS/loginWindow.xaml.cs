@@ -23,11 +23,7 @@ namespace ProjectPCS
         public static OracleConnection conn;
         public static Karyawan karyawan;
         public OracleCommand cmd;
-        public OracleDataReader dr;        
-        //public static string user;
-        //public static string name;
-        //public static string pass;
-        //public static string source;
+        public OracleDataReader dr;
 
         public loginWindow()
         {
@@ -54,8 +50,6 @@ namespace ProjectPCS
                 try
                 {
                     conn.Open();
-                    //user = tbUser.Text;
-                    //pass = tbPass.Text;
                     string query = $"select id from karyawan where username = '{tbUser.Text.ToUpper()}'";
                     cmd = new OracleCommand(query, conn);
                     dr = cmd.ExecuteReader();                    
@@ -118,24 +112,6 @@ namespace ProjectPCS
                     conn.Close();
                 }
             }
-            
         }
-
-        //private string namaUser()
-        //{
-        //    string nama = "";
-        //    conn.Open();
-        //    string query = $"select nama_karyawan from karyawan where username = '{user.ToUpper()}' and pass = '{pass}'";
-        //    cmd = new OracleCommand(query, conn);
-        //    name = cmd.ExecuteScalar().ToString();
-        //    MessageBox.Show(name);
-        //    conn.Close();
-     
-        //    menuWindow menu = new menuWindow();
-        //    this.Hide();
-        //    menu.ShowDialog();
-        //    this.Close();
-        //    return nama;
-        //}
     }
 }

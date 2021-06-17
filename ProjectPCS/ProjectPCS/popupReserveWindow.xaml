@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjectPCS"
         mc:Ignorable="d"
-        Title="popupReserveWindow" Height="450" Width="800" Loaded="Window_Loaded">
+        Icon="Image/EPOS-Icon.ico" Title="popupReserveWindow" Height="450" Width="800" Loaded="Window_Loaded">
     <Grid>
         <DataGrid x:Name="dgReserve" ColumnWidth="*" HorizontalAlignment="Left" Height="390" Margin="10,15,0,0" VerticalAlignment="Top" Width="559" MouseDoubleClick="dgReserve_MouseDoubleClick"/>
         <Label Content="ID :" HorizontalAlignment="Left" Margin="618,25,0,0" VerticalAlignment="Top"/>

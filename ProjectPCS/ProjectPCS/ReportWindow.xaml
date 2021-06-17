@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ProjectPCS"
         xmlns:Viewer="clr-namespace:SAPBusinessObjects.WPF.Viewer;assembly=SAPBusinessObjects.WPF.Viewer" x:Class="ProjectPCS.ReportWindow"
         mc:Ignorable="d"
-        Title="ReportWindow" Height="450" Width="800">
+        Icon="Image/EPOS-Icon.ico" Title="ReportWindow" Height="450" Width="800">
     <Grid>
 
         <Viewer:CrystalReportsViewer x:Name="cReport" HorizontalAlignment="Left" Height="348" Margin="10,63,0,0" VerticalAlignment="Top" Width="774"/>

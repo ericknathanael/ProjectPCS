@@ -25,16 +25,36 @@ namespace ProjectPCS
         string tanggal, jam;
         OracleConnection conn;
         DataSet ds;
-
         Karyawan kasir;
+
         public masterReservasi()
         {
             InitializeComponent();
-            conn = loginWindow.conn;
+            conn = MainWindow.conn;
+            kasir = loginWindow.karyawan;
             refreshReservasi();
             fillComboBox();
-            kasir = loginWindow.karyawan;
         }
+
+        void refreshReservasi()
+        {
+            conn.Close();
+            conn.Open();
+            string qry = "SELECT R.ID AS \"No\", P.NAMA_PELANGGAN AS \"Nama Pelanggan\", " +
+                "R.ID_MEJA AS \"Nomor Meja\", TO_CHAR(R.TGL_WAKTU_PEMESANAN,'DD - MM - YYYY') AS \"Tanggal\", " +
+                "TO_CHAR(R.WAKTU_PESAN,'HH24:MI') AS \"Jam Reservasi\", " +
+                "TO_CHAR(R.PERKIRAAN_KELUAR,'HH24:MI') AS \"Jam Keluar\" " +
+                "FROM RESERVATION R, PELANGGAN P " +
+                "WHERE R.ID_PELANGGAN = P.ID ORDER BY R.ID";
+            OracleCommand cmd = new OracleCommand(qry, conn);
+            cmd.ExecuteReader();
+            OracleDataAdapter da = new OracleDataAdapter(cmd);
+            ds = new DataSet();
+            da.Fill(ds);
+            dgReservasi.ItemsSource = ds.Tables[0].DefaultView;
+            conn.Close();
+        }
+
         void fillComboBox()
         {
             conn.Close();
@@ -54,24 +74,7 @@ namespace ProjectPCS
             }
             conn.Close();
         }
-        void refreshReservasi()
-        {
-            conn.Close();
-            conn.Open();
-            string qry = "SELECT R.ID AS \"No\", P.NAMA_PELANGGAN AS \"Nama Pelanggan\", " +
-                "R.ID_MEJA AS \"ID Meja\", TO_CHAR(R.TGL_WAKTU_PEMESANAN,'DD - MM - YYYY') AS \"Tanggal\", " +
-                "TO_CHAR(R.WAKTU_PESAN,'HH24:MI') AS \"Jam Reservasi\", " +
-                "TO_CHAR(R.PERKIRAAN_KELUAR,'HH24:MI') AS \"Jam Keluar\" " +
-                "FROM RESERVATION R, PELANGGAN P " +
-                "WHERE R.ID_PELANGGAN = P.ID ORDER BY R.ID";
-            OracleCommand cmd = new OracleCommand(qry, conn);
-            cmd.ExecuteReader();
-            OracleDataAdapter da = new OracleDataAdapter(cmd);
-            ds = new DataSet();
-            da.Fill(ds);
-            dgReservasi.ItemsSource = ds.Tables[0].DefaultView;
-            conn.Close();
-        }
+        
         void clear()
         {
             labelID.Content = "-";
@@ -84,22 +87,49 @@ namespace ProjectPCS
             buttonUpdate.IsEnabled = false;
             buttonDelete.IsEnabled = false;
         }
+
         private void picHome_MouseDown(object sender, MouseButtonEventArgs e)
         {
+            Window window = null;
             if(kasir.id_jabatan == 4)
             {
-                KasirWindow cashier = new KasirWindow();
-                this.Hide();
-                cashier.ShowDialog();
-                this.Close();
-            }else if(kasir.id_jabatan == 1)
-            {
-                ManagerWindow home = new ManagerWindow();
-                this.Hide();
-                home.ShowDialog();
-                this.Close();
+                window = new KasirWindow();
             }
-            
+            else if(kasir.id_jabatan == 1)
+            {
+                window = new ManagerWindow();
+            }
+            this.Hide();
+            window.ShowDialog();
+            this.Close();
+        }
+
+        private void TextboxJam_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (!validHour(((TextBox)sender).Text + e.Text))
+            {
+                MessageBox.Show("Input Jam Invalid");
+                textboxJam.Clear();
+            }
+        }
+
+        static bool validHour(string str_jam)
+        {
+            return int.TryParse(str_jam, out int jam) && jam > -1 && jam < 25;
+        }
+
+        private void TextBoxMenit_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (!validMinute(((TextBox)sender).Text + e.Text))
+            {
+                MessageBox.Show("Input Menit Invalid");
+                textBoxMenit.Clear();
+            }
+        }
+
+        static bool validMinute(string str_menit)
+        {
+            return int.TryParse(str_menit, out int menit) && menit > -1 && menit < 60;
         }
 
         private void buttonInsert_Click(object sender, RoutedEventArgs e)
@@ -109,61 +139,77 @@ namespace ProjectPCS
             {
                 MessageBox.Show("Masih ada field yang kosong");
             }
-            else if(Convert.ToInt32(textboxJam.Text) < 9 || Convert.ToInt32(textboxJam.Text) > 22)
-            {
-                MessageBox.Show("Restoran belum buka atau sudah tutup");
-            }
-            else if(Convert.ToInt32(textBoxMenit.Text) < 0 || Convert.ToInt32(textBoxMenit.Text) > 59)
-            {
-                MessageBox.Show("Menit tidak valid");
-            } 
             else
             {
-                conn.Open();
-                string qry = "select * from RESERVATION";
-                OracleCommand cmd = new OracleCommand(qry, conn);
-                OracleDataReader dr = cmd.ExecuteReader();
-                bool flag = true;
-                while (dr.Read())
+                int input_tahun = datePickerTanggal.SelectedDate.Value.Year,
+                input_bulan = datePickerTanggal.SelectedDate.Value.Month,
+                input_tanggal = datePickerTanggal.SelectedDate.Value.Day;
+                DateTime inputTime = new DateTime(input_tahun, input_bulan, input_tanggal, Convert.ToInt32(textboxJam.Text), Convert.ToInt32(textBoxMenit.Text), 00);
+
+                if (DateTime.Compare(inputTime, DateTime.Now) < 0)
                 {
-                    MessageBox.Show(dr[4].ToString());
-                    int jam3 = Convert.ToInt32(dr[4].ToString().Substring(11, 2)) + 1;
-                    if (dr[2].ToString() == comboBoxMeja.Text && dr[3].ToString().Substring(0, 10) == datePickerTanggal.Text && dr[4].ToString().Substring(11, 2) == textboxJam.Text ||
-                        dr[2].ToString() == comboBoxMeja.Text && dr[3].ToString().Substring(0, 10) == datePickerTanggal.Text && jam3.ToString() == textboxJam.Text)
-                    {
-                        flag = false;
-                    }
+                    MessageBox.Show("Waktu Reservasi tidak valid");
                 }
-                if (flag)
+                else if ((DateTime.Now - inputTime).Hours * -1 < 2)
                 {
-                    qry = "select max(id) from reservation";
-                    cmd = new OracleCommand(qry, conn);
-                    int id2 = Convert.ToInt32(cmd.ExecuteScalar().ToString()) + 1;
-                    int idPelanggan = comboBoxNamaPelanggan.SelectedIndex + 1;
-                    int idMeja = Convert.ToInt32(comboBoxMeja.Text);
-                    string jam = textboxJam.Text + ":" + textBoxMenit.Text;
-                    int kira = Convert.ToInt32(textboxJam.Text) + 2;
-                    string jam2 = kira.ToString() + ":" + textBoxMenit.Text;
-                    qry = $"insert into reservation values({id2},{idPelanggan},{idMeja},to_date('{datePickerTanggal.Text}','dd:MM:YYYY')," +
-                        $"to_date('{jam}', 'HH24:mi:ss'),to_date('{jam2}','HH24:mi:ss'))";
-                    try
-                    {
-                        cmd = new OracleCommand(qry, conn);
-                        cmd.ExecuteNonQuery();
-                        MessageBox.Show("Insert Reservasi Berhasil");
-                        refreshReservasi();
-                        clear();
-                        conn.Close();
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message);
-                        conn.Close();
-                    }
+                    MessageBox.Show("Waktu Reservasi minimal 2 jam dari sekarang");
+                }
+                else if(Convert.ToInt32(textboxJam.Text) < 2) // 9
+                {
+                    MessageBox.Show("Restoran belum buka");
+                }
+                else if (Convert.ToInt32(textboxJam.Text) > 22)
+                {
+                    MessageBox.Show("Restoran sudah tutup");
                 }
                 else
                 {
-                    MessageBox.Show("Meja sudah direservasi");
+                    conn.Open();
+                    string qry = "select * from RESERVATION";
+                    OracleCommand cmd = new OracleCommand(qry, conn);
+                    OracleDataReader dr = cmd.ExecuteReader();
+                    bool flag = true;
+                    while (dr.Read())
+                    {
+                        MessageBox.Show(dr[4].ToString());
+                        int jam3 = Convert.ToInt32(dr[4].ToString().Substring(11, 2)) + 1;
+                        if (dr[2].ToString() == comboBoxMeja.Text && dr[3].ToString().Substring(0, 10) == datePickerTanggal.Text && dr[4].ToString().Substring(11, 2) == textboxJam.Text ||
+                            dr[2].ToString() == comboBoxMeja.Text && dr[3].ToString().Substring(0, 10) == datePickerTanggal.Text && jam3.ToString() == textboxJam.Text)
+                        {
+                            flag = false;
+                        }
+                    }
+                    if (flag)
+                    {
+                        qry = "select max(id) from reservation";
+                        cmd = new OracleCommand(qry, conn);
+                        int id2 = Convert.ToInt32(cmd.ExecuteScalar().ToString()) + 1;
+                        int idPelanggan = comboBoxNamaPelanggan.SelectedIndex + 1;
+                        int idMeja = Convert.ToInt32(comboBoxMeja.Text);
+                        string jam = textboxJam.Text + ":" + textBoxMenit.Text;
+                        int kira = Convert.ToInt32(textboxJam.Text) + 2;
+                        string jam2 = kira.ToString() + ":" + textBoxMenit.Text;
+                        qry = $"insert into reservation values({id2},{idPelanggan},{idMeja},to_date('{datePickerTanggal.Text}','dd:MM:YYYY')," +
+                            $"to_date('{jam}', 'HH24:mi:ss'),to_date('{jam2}','HH24:mi:ss'))";
+                        try
+                        {
+                            cmd = new OracleCommand(qry, conn);
+                            cmd.ExecuteNonQuery();
+                            MessageBox.Show("Insert Reservasi Berhasil");
+                            refreshReservasi();
+                            clear();
+                            conn.Close();
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message);
+                            conn.Close();
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Meja sudah direservasi");
+                    }
                 }
             }
         }
@@ -281,7 +327,7 @@ namespace ProjectPCS
                 cmd = new OracleCommand(qry, conn);
                 int id = Convert.ToInt32(cmd.ExecuteScalar().ToString()) - 1;
                 comboBoxNamaPelanggan.SelectedIndex = id;
-                comboBoxMeja.SelectedIndex = Convert.ToInt32(dr["ID Meja"].ToString()) - 1;
+                comboBoxMeja.SelectedIndex = Convert.ToInt32(dr["Nomor Meja"].ToString()) - 1;
                 datePickerTanggal.SelectedDate = Convert.ToDateTime(dr["Tanggal"].ToString());
                 textboxJam.Text = dr["Jam Reservasi"].ToString().Substring(0, 2);
                 textBoxMenit.Text = dr["Jam Reservasi"].ToString().Substring(3, 2);

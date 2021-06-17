@@ -254,28 +254,31 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="ManagerMenu.jpg" />
+    <Resource Include="Image\ManagerMenu.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Home.png" />
+    <Resource Include="Image\Home.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Cashier.jpg" />
+    <Resource Include="Image\Cashier.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="bill.jpg" />
+    <Resource Include="Image\bill.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Reservation.png" />
+    <Resource Include="Image\Reservation.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="absen.png" />
+    <Resource Include="Image\absen.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="user.png" />
+    <Resource Include="Image\user.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\EPOS-Icon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

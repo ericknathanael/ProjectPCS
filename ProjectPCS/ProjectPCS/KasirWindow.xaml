@@ -5,17 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjectPCS"
         mc:Ignorable="d"
-        Title="KasirWindow" Height="450" Width="800" Loaded="Window_Loaded">
+        Icon="Image/EPOS-Icon.ico" Title="KasirWindow" Height="450" Width="800" Loaded="Window_Loaded">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="29*"/>
             <ColumnDefinition Width="37*"/>
         </Grid.ColumnDefinitions>
         <Button x:Name="btLogout" Content="Logout" HorizontalAlignment="Left" Margin="344,379,0,0" VerticalAlignment="Top" Width="90" Click="btLogout_Click" Height="30" Grid.Column="1"/>
-        <Image HorizontalAlignment="Left" Height="300" Margin="10,75,0,0" VerticalAlignment="Top" Width="300" Source="Cashier.jpg" Stretch="Fill"/>
-        <Image x:Name="picTrans" HorizontalAlignment="Left" Height="180" Margin="232,21,0,0" VerticalAlignment="Top" Width="200" Source="bill.jpg" Stretch="Fill" MouseDown="Image_MouseDown" Grid.Column="1"/>
-        <Image x:Name="picPesan" HorizontalAlignment="Left" Height="157" Margin="2,32,0,0" VerticalAlignment="Top" Width="180" Source="reservation.png" Stretch="Fill" MouseDown="picPesan_MouseDown" Grid.Column="1"/>
-        <Image x:Name="picAbsen" HorizontalAlignment="Left" Height="157" Margin="127,205,0,0" VerticalAlignment="Top" Width="180" Source="absen.png" Stretch="Fill" RenderTransformOrigin="1.267,1.471" MouseDown="picAbsen_MouseDown" Grid.Column="1"/>
+        <Image HorizontalAlignment="Left" Height="300" Margin="10,75,0,0" VerticalAlignment="Top" Width="300" Source="Image/Cashier.jpg" Stretch="Fill"/>
+        <Image x:Name="picTrans" HorizontalAlignment="Left" Height="180" Margin="232,21,0,0" VerticalAlignment="Top" Width="200" Source="Image/bill.jpg" Stretch="Fill" MouseDown="picTrans_MouseDown" Grid.Column="1"/>
+        <Image x:Name="picPesan" HorizontalAlignment="Left" Height="157" Margin="2,32,0,0" VerticalAlignment="Top" Width="180" Source="Image/reservation.png" Stretch="Fill" MouseDown="picPesan_MouseDown" Grid.Column="1"/>
+        <Image x:Name="picAbsen" HorizontalAlignment="Left" Height="157" Margin="127,205,0,0" VerticalAlignment="Top" Width="180" Source="Image/absen.png" Stretch="Fill" RenderTransformOrigin="1.267,1.471" MouseDown="picAbsen_MouseDown" Grid.Column="1"/>
         <Label x:Name="lbNama" Content="Welcome, " HorizontalAlignment="Left" Margin="10,21,0,0" VerticalAlignment="Top" Width="335" Height="49" FontWeight="Bold" FontSize="20"/>
     </Grid>
 </Window>

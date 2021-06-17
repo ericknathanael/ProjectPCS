@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjectPCS"
         mc:Ignorable="d"
-        Title="masterMenu" Height="710.667" Width="987">
+        Icon="Image/EPOS-Icon.ico" Title="masterMenu" Height="710.667" Width="987">
     <Grid>
         <Menu Margin="0,0,1,652.333">
             <MenuItem x:Name="menuTrans" Header="Transaksi" Click="menuTrans_Click" />

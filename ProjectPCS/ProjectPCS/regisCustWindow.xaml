@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjectPCS"
         mc:Ignorable="d"
-        Title="regisCustWindow" Height="450" Width="800" Loaded="Window_Loaded">
+        Icon="Image/EPOS-Icon.ico" Title="regisCustWindow" Height="450" Width="800" Loaded="Window_Loaded">
     <Grid>
         <DataGrid x:Name="dgCust" HorizontalAlignment="Left" Height="310" Margin="10,100,0,0" VerticalAlignment="Top" Width="590" MouseDoubleClick="dgCust_MouseDoubleClick"/>
         <Label Content="Master Customer" HorizontalAlignment="Left" Margin="285,10,0,0" VerticalAlignment="Top" FontSize="28" FontWeight="Bold"/>
@@ -29,7 +29,7 @@
             <Button x:Name="btDelete" Content="Delete" HorizontalAlignment="Left" VerticalAlignment="Top" Width="80" Height="25" IsEnabled="False" Click="btDelete_Click" Canvas.Left="93" Canvas.Top="162"/>
         </Canvas>
         <Button x:Name="btReset" Content="Reset" HorizontalAlignment="Left" Margin="515,64,0,0" VerticalAlignment="Top" Width="85" Height="22" Click="btReset_Click"/>
-        <Image x:Name="imgHome" HorizontalAlignment="Left" Height="50" Margin="10,10,0,0" VerticalAlignment="Top" Width="50" Source="Home.png" Stretch="Fill" MouseDown="imgHome_MouseDown"/>
+        <Image x:Name="imgHome" HorizontalAlignment="Left" Height="50" Margin="10,10,0,0" VerticalAlignment="Top" Width="50" Source="Image/Home.png" Stretch="Fill" MouseDown="imgHome_MouseDown"/>
 
     </Grid>
 </Window>
