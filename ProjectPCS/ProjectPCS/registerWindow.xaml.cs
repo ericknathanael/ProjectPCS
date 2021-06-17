@@ -62,7 +62,7 @@ namespace ProjectPCS
             rbManager.IsChecked = false;
             radiobutton = false;
 
-            dgKaryawan.Columns[0].Width = 30;
+            //dgKaryawan.Columns[0].Width = 30;
         }
 
         private void btRegis_Click(object sender, RoutedEventArgs e)
@@ -140,24 +140,18 @@ namespace ProjectPCS
 
         private void btUpdate_Click(object sender, RoutedEventArgs e)
         {
-            DataRow dr = masterKaryawan.NewRow();
-            dr[0] = masterKaryawan.Rows[index][0].ToString();   //ID
-            dr[1] = masterKaryawan.Rows[index][1].ToString();   //IDJabatan 
-            dr[2] = tbUser.Text;                                //Username
-            dr[3] = passBox.Text;                               //password
-            dr[4] = tbNama.Text;                                //nama
-            dr[5] = masterKaryawan.Rows[index][5].ToString();   //tgl_daftar
+            masterKaryawan.Rows[index][2] = tbUser.Text;
+            masterKaryawan.Rows[index][4] = tbNama.Text;
             try
             {
-                masterKaryawan.Rows[index].Delete();
-                masterKaryawan.Rows.Add(dr);
+                daMaster.Update(masterKaryawan);
+                MessageBox.Show("update berhasil");
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
             
-            daMaster.Update(masterKaryawan);
 
             tbNama.Text = "";
             tbUser.Text = "";

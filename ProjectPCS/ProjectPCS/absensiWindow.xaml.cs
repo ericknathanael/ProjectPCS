@@ -93,7 +93,7 @@ namespace ProjectPCS
                     {
                         tbKode.Text = ManagerWindow.kode;
                         tbKode.IsEnabled = false;
-                        btAbsen.Content = "Absen Pulang";
+                        btAbsen.Content = "Absen";
                     }
                 }
                 catch (Exception ex)
@@ -149,7 +149,7 @@ namespace ProjectPCS
                                 query = $"insert into d_absensi values({id},{idAbsen},{karyawan.id_karyawan},sysdate,null)";
                                 cmd = new OracleCommand(query, conn);
                                 cmd.ExecuteNonQuery();
-                                btAbsen.Content = "Absen Pulang";
+                                btAbsen.Content = "Absen";
                                 tbKode.IsEnabled = false;
                                 resetLabel(idAbsen);
                             }
