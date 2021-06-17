@@ -27,9 +27,9 @@ namespace ProjectPCS
             this.hargaTotal = (harga * jumlah) - (harga * (diskon / 100) * jumlah);
             this.jumlah = jumlah;
         }
-        public void tambahMenu()
+        public void tambahMenu(int Jumlah)
         {
-            jumlah++;
+            jumlah += Jumlah;
             this.hargaTotal = (harga * jumlah) - (harga * (diskon / 100) * jumlah);
         }
         public string query(string nota)
@@ -43,5 +43,6 @@ namespace ProjectPCS
             return (harga * (diskon / 100) * jumlah);
         }
 
+        
     }
 }

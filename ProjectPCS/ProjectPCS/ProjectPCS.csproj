@@ -42,9 +42,15 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\ORACLE\product\11.2.0\dbhome_1\ODP.NET\bin\2.x\Oracle.DataAccess.dll</HintPath>
     </Reference>
+    <Reference Include="ReachFramework" />
+    <Reference Include="sapbusinessobjects.wpf.viewer, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="SAPBusinessObjects.WPF.ViewerShared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Printing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -102,6 +108,12 @@
     </Compile>
     <Compile Include="Meja.cs" />
     <Compile Include="Menu.cs" />
+    <Compile Include="notaWindow.xaml.cs">
+      <DependentUpon>notaWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="popupReserveWindow.xaml.cs">
+      <DependentUpon>popupReserveWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="regisCustWindow.xaml.cs">
       <DependentUpon>regisCustWindow.xaml</DependentUpon>
     </Compile>
@@ -111,11 +123,11 @@
     <Compile Include="menuLaporan.xaml.cs">
       <DependentUpon>menuLaporan.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ReportWindow.xaml.cs">
+      <DependentUpon>ReportWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="transaksiWindow.xaml.cs">
       <DependentUpon>transaksiWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="VoucherWindow.xaml.cs">
-      <DependentUpon>VoucherWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="absensiWindow.xaml">
       <SubType>Designer</SubType>
@@ -157,6 +169,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="notaWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="popupReserveWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="regisCustWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -173,11 +193,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="transaksiWindow.xaml">
+    <Page Include="ReportWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="VoucherWindow.xaml">
+    <Page Include="transaksiWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

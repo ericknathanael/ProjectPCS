@@ -94,6 +94,10 @@ namespace ProjectPCS
                                 // apabila masuk ke menu kasir(transaksi reservation, print nota)                                
                                 window = new KasirWindow();
                             }
+                            else
+                            {
+                                window = new absensiWindow();
+                            }
                             this.Hide();
                             window.ShowDialog();
                             this.Close();

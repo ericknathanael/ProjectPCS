@@ -37,14 +37,6 @@ namespace ProjectPCS
             }
             return total;
         }
-        public int totalKotor()
-        {
-            int total = 0;
-            foreach (Menu menu in Pesanan)
-            {
-                total += menu.harga;
-            }
-            return total;
-        }
+        
     }
 }

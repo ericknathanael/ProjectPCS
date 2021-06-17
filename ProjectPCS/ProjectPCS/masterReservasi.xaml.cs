@@ -113,6 +113,7 @@ namespace ProjectPCS
                 bool flag = true;
                 while (dr.Read())
                 {
+                    MessageBox.Show(dr[4].ToString());
                     int jam3 = Convert.ToInt32(dr[4].ToString().Substring(11, 2)) + 1;
                     if (dr[2].ToString() == comboBoxMeja.Text && dr[3].ToString().Substring(0, 10) == datePickerTanggal.Text && dr[4].ToString().Substring(11, 2) == textboxJam.Text ||
                         dr[2].ToString() == comboBoxMeja.Text && dr[3].ToString().Substring(0, 10) == datePickerTanggal.Text && jam3.ToString() == textboxJam.Text)

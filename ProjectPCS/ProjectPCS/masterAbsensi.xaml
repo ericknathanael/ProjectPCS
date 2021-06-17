@@ -9,30 +9,32 @@
     <Grid HorizontalAlignment="Left" Width="840">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="239*"/>
-            <ColumnDefinition Width="441*"/>
+            <ColumnDefinition Width="390*"/>
+            <ColumnDefinition Width="51*"/>
             <ColumnDefinition Width="160*"/>
         </Grid.ColumnDefinitions>
         <DataGrid x:Name="dgAbsen" HorizontalAlignment="Left" Height="354" Margin="10,55,0,0" VerticalAlignment="Top" Width="560" MouseDoubleClick="dgAbsen_MouseDoubleClick" Grid.ColumnSpan="2"/>
         <Label Content="Master Absensi" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
-        <Label Content="Kode Absen :" HorizontalAlignment="Left" Margin="354,122,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.608,0.5" Grid.Column="1"/>
-        <Label Content="ID :" HorizontalAlignment="Left" Margin="406,57,0,0" VerticalAlignment="Top" Grid.Column="1"/>
-        <Label x:Name="lbID" Content="-" HorizontalAlignment="Left" Margin="438,57,0,0" VerticalAlignment="Top" Grid.Column="1" Grid.ColumnSpan="2"/>
+        <Label Content="Kode Absen :" HorizontalAlignment="Left" Margin="354,122,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.608,0.5" Grid.Column="1" Grid.ColumnSpan="2"/>
+        <Label Content="ID :" HorizontalAlignment="Left" Margin="16,57,0,0" VerticalAlignment="Top" Grid.Column="2"/>
+        <Label x:Name="lbID" Content="-" HorizontalAlignment="Left" Margin="48,57,0,0" VerticalAlignment="Top" Grid.Column="2" Grid.ColumnSpan="2"/>
         <TextBox x:Name="tbFilter" HorizontalAlignment="Left" Height="23" Margin="195,20,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="189" Tag="hahaha" Grid.ColumnSpan="2"/>
         <Button x:Name="buttonFilter" Content="Filter" HorizontalAlignment="Left" Margin="175,20,0,0" VerticalAlignment="Top" Width="75" Click="buttonFilter_Click" Grid.Column="1"/>
         <Button x:Name="buttonReset" Content="Reset" HorizontalAlignment="Left" Margin="270,20,0,0" VerticalAlignment="Top" Width="75" Click="buttonReset_Click" Grid.Column="1"/>
-        <Label Content="Jam Masuk :" HorizontalAlignment="Left" Margin="358,152,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.608,0.5" Grid.Column="1"/>
-        <Label Content="Jam Pulang :" HorizontalAlignment="Left" Margin="357,182,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.608,0.5" Grid.Column="1"/>
-        <TextBox x:Name="tbMasuk" HorizontalAlignment="Left" Height="23" Margin="438,152,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="153" Grid.Column="1" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="tbKeluar" HorizontalAlignment="Left" Height="23" Margin="438,182,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="153" Grid.Column="1" Grid.ColumnSpan="2"/>
-        <Button x:Name="btInsert" Content="Insert" HorizontalAlignment="Left" Margin="340,249,0,0" VerticalAlignment="Top" Width="120" Click="buttonInsert_Click" Grid.Column="1" Grid.ColumnSpan="2"/>
-        <Button x:Name="btUpdate" Content="Update" HorizontalAlignment="Left" Margin="30,249,0,0" VerticalAlignment="Top" Width="120" Click="buttonUpdate_Click" IsEnabled="False" Grid.Column="2"/>
-        <Button x:Name="btDelete" Content="Delete" HorizontalAlignment="Left" Margin="30,287,0,0" VerticalAlignment="Top" Width="120" Click="buttonDelete_Click" IsEnabled="False" Grid.Column="2"/>
-        <Button x:Name="btClear" Content="Clear" HorizontalAlignment="Left" Margin="340,287,0,0" VerticalAlignment="Top" Width="120" Click="buttonClear_Click" Grid.Column="1" Grid.ColumnSpan="2"/>
-        <Label Content="Tanggal Absen :" HorizontalAlignment="Left" Margin="340,208,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.608,0.5" Grid.Column="1"/>
-        <DatePicker x:Name="dtTgl" HorizontalAlignment="Left" Margin="438,210,0,0" VerticalAlignment="Top" Width="153" Grid.Column="1" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="tbKode" HorizontalAlignment="Left" Height="25" Margin="438,122,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="153" Grid.Column="1" Grid.ColumnSpan="2"/>
-        <Label Content="Nama :" HorizontalAlignment="Left" Margin="386,92,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.608,0.5" Grid.Column="1"/>
-        <ComboBox x:Name="cbNama" Grid.Column="1" HorizontalAlignment="Left" Margin="438,96,0,0" VerticalAlignment="Top" Width="153" Grid.ColumnSpan="2"/>
+        <Label Content="Jam Masuk :" HorizontalAlignment="Left" Margin="358,152,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.608,0.5" Grid.Column="1" Grid.ColumnSpan="2"/>
+        <Label Content="Jam Pulang :" HorizontalAlignment="Left" Margin="357,182,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.608,0.5" Grid.Column="1" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="tbMasuk" HorizontalAlignment="Left" Height="23" Margin="48,152,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="153" Grid.Column="2" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="tbKeluar" HorizontalAlignment="Left" Height="23" Margin="48,182,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="153" Grid.Column="2" Grid.ColumnSpan="2"/>
+        <Button x:Name="btInsert" Content="Insert" HorizontalAlignment="Left" Margin="340,291,0,0" VerticalAlignment="Top" Width="120" Click="buttonInsert_Click" Grid.Column="1" Grid.ColumnSpan="3"/>
+        <Button x:Name="btUpdate" Content="Update" HorizontalAlignment="Left" Margin="30,291,0,0" VerticalAlignment="Top" Width="120" Click="buttonUpdate_Click" IsEnabled="False" Grid.Column="3"/>
+        <Button x:Name="btDelete" Content="Delete" HorizontalAlignment="Left" Margin="30,329,0,0" VerticalAlignment="Top" Width="120" Click="buttonDelete_Click" IsEnabled="False" Grid.Column="3"/>
+        <Button x:Name="btClear" Content="Clear" HorizontalAlignment="Left" Margin="340,329,0,0" VerticalAlignment="Top" Width="120" Click="buttonClear_Click" Grid.Column="1" Grid.ColumnSpan="3"/>
+        <Label Content="Tanggal Absen :" HorizontalAlignment="Left" Margin="340,208,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.608,0.5" Grid.Column="1" Grid.ColumnSpan="2"/>
+        <DatePicker x:Name="dtTgl" HorizontalAlignment="Left" Margin="48,210,0,0" VerticalAlignment="Top" Width="153" Grid.Column="2" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="tbKode" HorizontalAlignment="Left" Height="25" Margin="48,122,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="153" Grid.Column="2" Grid.ColumnSpan="2"/>
+        <Label Content="Nama :" HorizontalAlignment="Left" Margin="386,92,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.608,0.5" Grid.Column="1" Grid.ColumnSpan="2"/>
+        <ComboBox x:Name="cbNama" Grid.Column="2" HorizontalAlignment="Left" Margin="48,96,0,0" VerticalAlignment="Top" Width="153" Grid.ColumnSpan="2"/>
+        <Image x:Name="picHome" Grid.Column="3" HorizontalAlignment="Left" Height="45" Margin="88,10,0,0" VerticalAlignment="Top" Width="44" Source="Home.png" Stretch="Fill" MouseDown="picHome_MouseDown"/>
 
     </Grid>
 </Window>

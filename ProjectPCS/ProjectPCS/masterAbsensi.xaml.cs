@@ -35,6 +35,8 @@ namespace ProjectPCS
         string tanggal;
         string nama;
 
+        string pil;
+
         public masterAbsensi()
         {
             InitializeComponent();
@@ -119,9 +121,16 @@ namespace ProjectPCS
             pulang = dt.Rows[dgAbsen.SelectedIndex][4].ToString();
             tanggal = dt.Rows[dgAbsen.SelectedIndex][5].ToString();
 
+            conn.Open();
+            query = $"select id from karyawan where nama_karyawan = '{nama}'";
+            cmd = new OracleCommand(query, conn);
+
+            int index = Convert.ToInt32(cmd.ExecuteScalar()) - 1;
+            conn.Close();
+
             lbID.Content = id;
-            cbNama.SelectedIndex = Convert.ToInt32(id) - 1;
             cbNama.IsEnabled = false;
+            cbNama.SelectedIndex = index;
             tbKode.Text = kode;
             tbMasuk.Text = masuk;
             tbKeluar.Text = pulang;
@@ -139,8 +148,7 @@ namespace ProjectPCS
             {
                 masuk = tbMasuk.Text;
                 pulang = tbKeluar.Text;
-                query = $"update d_absensi set jam_masuk = to_date('{masuk}','HH24:mm:ss'), jam_pulang = to_date('{pulang}','HH24:mm:ss') where id = {id}";
-                MessageBox.Show(query);
+                query = $"update d_absensi set jam_masuk = to_date('{masuk}','HH24:mi:ss'), jam_pulang = to_date('{pulang}','HH24:mi:ss') where id = {id}";
                 conn.Open();
                 cmd = new OracleCommand(query, conn);
                 using(OracleTransaction trans = conn.BeginTransaction())
@@ -161,6 +169,7 @@ namespace ProjectPCS
                 conn.Close();
             }
             ResetDataGrid();
+            clearData();
         }
 
         private void buttonDelete_Click(object sender, RoutedEventArgs e)
@@ -184,23 +193,25 @@ namespace ProjectPCS
                     MessageBox.Show(ex.Message);
                 }
             }
+            clearData();
             conn.Close();
         }
 
         private void buttonInsert_Click(object sender, RoutedEventArgs e)
         {
-            if(tbMasuk.Text == "" || tbKode.Text == "")
+            if (tbMasuk.Text == "" || tbKode.Text == "")
             {
                 MessageBox.Show("pastikan semua sudah terisi");
             }
             else
             {
                 conn.Open();
+
                 id = lbID.Content.ToString();
                 query = $"Select id from absensi where kode_absen = '{tbKode.Text}'";
                 cmd = new OracleCommand(query, conn);
 
-                if(cmd.ExecuteScalar() == null)
+                if (cmd.ExecuteScalar() == null)
                 {
                     MessageBox.Show("kode tidak sesuai silahkan coba lagi!");
                 }
@@ -208,27 +219,24 @@ namespace ProjectPCS
                 {
                     kode = tbKode.Text;
                     string idAbsen = cmd.ExecuteScalar().ToString();
-                    masuk =  tbMasuk.Text;
+                    masuk = tbMasuk.Text;
                     pulang = tbKeluar.Text;
-                    MessageBox.Show(idAbsen);
                     DateTime absenMasuk;
                     string[] tmp = dtTgl.DisplayDate.ToString().Split(' ');
                     string s = $"{tmp[0]} {masuk}";
                     absenMasuk = DateTime.Parse(s);
-                    MessageBox.Show(absenMasuk + "");
-                    string [] idKaryawan = cbNama.SelectedItem.ToString().Split(' ');
+                    string[] idKaryawan = cbNama.SelectedItem.ToString().Split(' ');
 
-                    if(tbKeluar.Text == "")
+                    if (tbKeluar.Text == "")
                     {
-                        query = $"insert into d_absensi values({id},{idAbsen},{idKaryawan[0]},to_date('{masuk}','HH24:mm:ss'),null)";
+                        query = $"insert into d_absensi values({id},{idAbsen},{idKaryawan[0]},to_date('{masuk}','HH24:mi:ss'),null)";
                     }
                     else
                     {
-                        query = $"insert into d_absensi values({id},{idAbsen},{idKaryawan[0]},to_date('{masuk}','HH24:mm:ss'),to_date('{pulang}','HH24:mm:ss'))";
+                        query = $"insert into d_absensi values({id},{idAbsen},{idKaryawan[0]},to_date('{masuk}','HH24:mi:ss'),to_date('{pulang}','HH24:mi:ss'))";
                     }
-                    MessageBox.Show(query);
                     cmd = new OracleCommand(query, conn);
-                    using(OracleTransaction tr = conn.BeginTransaction())
+                    using (OracleTransaction tr = conn.BeginTransaction())
                     {
                         cmd.Transaction = tr;
                         try
@@ -243,10 +251,12 @@ namespace ProjectPCS
                             MessageBox.Show(ex.Message);
                         }
                     }
+                    clearData();
                 }
-                conn.Close();
-                ResetDataGrid();
             }
+
+            conn.Close();
+            ResetDataGrid();
         }
 
         private void buttonClear_Click(object sender, RoutedEventArgs e)
@@ -257,7 +267,8 @@ namespace ProjectPCS
 
         public void generateID()
         {
-            query = $"select count(*) + 1 from D_absensi";
+            conn.Close();
+            query = $"select max(ID) + 1 from D_absensi";
             cmd = new OracleCommand(query, conn);
             conn.Open();
             string id = cmd.ExecuteScalar().ToString();
@@ -272,6 +283,7 @@ namespace ProjectPCS
             tbKode.Text = "";
             tbKeluar.Text = "";
             tbMasuk.Text = "";
+            pil = "";
             dtTgl.SelectedDate = DateTime.Now;
             tbKode.IsEnabled = true;
             btUpdate.IsEnabled = false;
@@ -281,6 +293,16 @@ namespace ProjectPCS
             dtTgl.SelectedDate = DateTime.Now;
             dtTgl.IsEnabled = true;
             cbNama.IsEnabled = true;
+
+            generateID();
+        }
+
+        private void picHome_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ManagerWindow manage = new ManagerWindow();
+            this.Hide();
+            manage.ShowDialog();
+            this.Close();
         }
     }
 }

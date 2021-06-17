@@ -1,0 +1,26 @@
+﻿<Window x:Class="ProjectPCS.popupReserveWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProjectPCS"
+        mc:Ignorable="d"
+        Title="popupReserveWindow" Height="450" Width="800" Loaded="Window_Loaded">
+    <Grid>
+        <DataGrid x:Name="dgReserve" ColumnWidth="*" HorizontalAlignment="Left" Height="390" Margin="10,15,0,0" VerticalAlignment="Top" Width="559" MouseDoubleClick="dgReserve_MouseDoubleClick"/>
+        <Label Content="ID :" HorizontalAlignment="Left" Margin="618,25,0,0" VerticalAlignment="Top"/>
+        <Label Content="Nama :" HorizontalAlignment="Left" Margin="603,65,0,0" VerticalAlignment="Top"/>
+        <Label Content="Meja :" HorizontalAlignment="Left" Margin="608,105,0,0" VerticalAlignment="Top"/>
+        <Label Content="Tanggal &#xD;&#xA;Pemesanan :" HorizontalAlignment="Left" Margin="574,145,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lbID" Content="-" HorizontalAlignment="Left" Margin="655,25,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lbNama" Content="-" HorizontalAlignment="Left" Margin="655,65,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lbMeja" Content="-" HorizontalAlignment="Left" Margin="655,105,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lbTgl" Content="-" HorizontalAlignment="Left" Margin="655,155,0,0" VerticalAlignment="Top" Width="83"/>
+        <Button x:Name="btFind" Content="Cari" HorizontalAlignment="Left" Margin="575,272,0,0" VerticalAlignment="Top" Width="95" Click="btFind_Click"/>
+        <Button x:Name="btReset" Content="Reset" HorizontalAlignment="Left" Margin="680,272,0,0" VerticalAlignment="Top" Width="95" Click="btReset_Click"/>
+        <TextBox x:Name="tbNama" HorizontalAlignment="Left" Height="23" Margin="575,230,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200"/>
+        <Label Content="Cari Nama :" HorizontalAlignment="Left" Margin="575,199,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btEnter" Content="Enter" HorizontalAlignment="Left" Margin="575,378,0,0" VerticalAlignment="Top" Width="95" Height="27" Click="btEnter_Click"/>
+        <Button x:Name="btClear" Content="Clear" HorizontalAlignment="Left" Margin="680,378,0,0" VerticalAlignment="Top" Width="95" Height="27" Click="btClear_Click"/>
+    </Grid>
+</Window>

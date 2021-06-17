@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\Kuliah\Semester 4\ProjectPCS\ProjectPCS\ProjectPCS\obj\Debug\
+C:\Users\edyef\Desktop\ProjectPCS\ProjectPCS\ProjectPCS\ProjectPCS\obj\Debug\
 ProjectPCS
 none
 false
 DEBUG;TRACE
-D:\Kuliah\Semester 4\ProjectPCS\ProjectPCS\ProjectPCS\App.xaml
-141465946911
+C:\Users\edyef\Desktop\ProjectPCS\ProjectPCS\ProjectPCS\ProjectPCS\App.xaml
+16-460155551
 
-24-1479750476
-181228023965
-absensiWindow.xaml;KasirWindow.xaml;LoginWindow.xaml;MainWindow.xaml;ManagerWindow.xaml;masterAbsensi.xaml;masterMenu.xaml;masterReservasi.xaml;regisCustWindow.xaml;registerWindow.xaml;menuLaporan.xaml;menuWindow.xaml;transaksiWindow.xaml;VoucherWindow.xaml;
+26709110614
+241304399446
+absensiWindow.xaml;KasirWindow.xaml;LoginWindow.xaml;MainWindow.xaml;ManagerWindow.xaml;masterAbsensi.xaml;masterMenu.xaml;masterReservasi.xaml;notaWindow.xaml;popupReserveWindow.xaml;regisCustWindow.xaml;registerWindow.xaml;menuLaporan.xaml;menuWindow.xaml;ReportWindow.xaml;transaksiWindow.xaml;
 
 False
 

@@ -17,8 +17,7 @@
         <Label Content="Kode Absensi :" HorizontalAlignment="Left" Margin="435,244,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
         <Button x:Name="btGenerate" Content="Generate" HorizontalAlignment="Left" Margin="435,346,0,0" VerticalAlignment="Top" Width="147" Height="34" Click="btGenerate_Click"/>
         <Label x:Name="lbKode" Content="" HorizontalAlignment="Left" Margin="459,286,0,0" VerticalAlignment="Top" FontSize="24" FontWeight="Bold" Width="100"/>
-        <Button x:Name="btVoucher" Content="Create Voucher " HorizontalAlignment="Left" Margin="454,166,0,0" VerticalAlignment="Top" Width="150" Height="63" Click="btVoucher_Click"/>
         <Button x:Name="btCustomer" Content="Master Customer " HorizontalAlignment="Left" Margin="286,166,0,0" VerticalAlignment="Top" Width="150" Height="63" Click="btCustomer_Click"/>
-        <Button x:Name="btReserve" Content="Master Reservasi " HorizontalAlignment="Left" Margin="622,265,0,0" VerticalAlignment="Top" Width="150" Height="63" Click="btReserve_Click"/>
+        <Button x:Name="btReserve" Content="Master Reservasi " HorizontalAlignment="Left" Margin="454,166,0,0" VerticalAlignment="Top" Width="150" Height="63" Click="btReserve_Click"/>
     </Grid>
 </Window>

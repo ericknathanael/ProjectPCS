@@ -34,11 +34,18 @@ namespace ProjectPCS
         List<Meja> listMeja;
         string query;
         string kode;
+
+        string tanggal;
+        string nama;
+
+        int jumlah = 0;
         int noMeja = -1;
+        int index = -1;
 
         public transaksiWindow()
         {
             InitializeComponent();
+            listPesanan = new List<Menu>();
             listMeja = new List<Meja>();
             DispatcherTimer timer = new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, delegate
             {
@@ -71,61 +78,6 @@ namespace ProjectPCS
                 Content = "ShopeePay"
             });
 
-            cbMeja.Items.Add(new ComboBoxItem()
-            {
-                Name = "M1",
-                Content = "Meja 1"
-            });
-            cbMeja.Items.Add(new ComboBoxItem()
-            {
-                Name = "M2",
-                Content = "Meja 2"
-            });
-            cbMeja.Items.Add(new ComboBoxItem()
-            {
-                Name = "M3",
-                Content = "Meja 3"
-            });
-            cbMeja.Items.Add(new ComboBoxItem()
-            {
-                Name = "M4",
-                Content = "Meja 4"
-            });
-            cbMeja.Items.Add(new ComboBoxItem()
-            {
-                Name = "M5",
-                Content = "Meja 5"
-            });
-            cbMeja.Items.Add(new ComboBoxItem()
-            {
-                Name = "M6",
-                Content = "Meja 6"
-            });
-            cbMeja.Items.Add(new ComboBoxItem()
-            {
-                Name = "M7",
-                Content = "Meja 7"
-            });
-            cbMeja.Items.Add(new ComboBoxItem()
-            {
-                Name = "M8",
-                Content = "Meja 8"
-            });
-            cbMeja.Items.Add(new ComboBoxItem()
-            {
-                Name = "M9",
-                Content = "Meja 9"
-            });
-            cbMeja.Items.Add(new ComboBoxItem()
-            {
-                Name = "M10",
-                Content = "Meja 10"
-            });
-
-            cbMeja.SelectedIndex = 0;
-            cbMetode.SelectedIndex = 0;
-            listPesanan = new List<Menu>();
-
             isiMenu();
 
             dgTrans.ItemsSource = listPesanan;
@@ -139,47 +91,60 @@ namespace ProjectPCS
             }
             else
             {
-                DataRow temp = tableMenu.Rows[dgMenu.SelectedIndex];
-                bool kembar = false;
-                foreach(Menu pesanan in listPesanan)
+                if(tbNama.Text == "" || tbJumlah.Text == "")
                 {
-                    if(pesanan.namaMenu == temp[1].ToString())
+                    MessageBox.Show("Pastikan Seluruh Isian Telah terisi dengan benar");
+                }
+                else
+                {
+                    int result;
+                    try
                     {
-                        pesanan.tambahMenu();
-                        kembar = true;
-                        break;
+                        if (Int32.TryParse(tbJumlah.Text, out result)) 
+                        {
+                            DataRow temp = tableMenu.Rows[dgMenu.SelectedIndex];
+                            bool kembar = false;
+                            foreach (Menu pesanan in listPesanan)
+                            {
+                                if (pesanan.kode == tbNama.Text)
+                                {
+                                    pesanan.tambahMenu(result);
+                                    kembar = true;
+                                    break;
+                                }
+                            }
+                            if (!kembar)
+                            {
+                                listPesanan.Add(new Menu(listPesanan.Count + 1, temp[0].ToString(), temp[1].ToString(), Convert.ToInt32(temp[2].ToString()), Convert.ToInt32(temp[3].ToString()), Convert.ToInt32(tbJumlah.Text)));
+                            }
+                            lbTotal.Content = countTotal();
+                            dgTrans.ItemsSource = null;
+                            dgTrans.ItemsSource = listPesanan;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Jumlah harus diisi dengan angka");
+                        }
+                        
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
                     }
                 }
-                if (!kembar)
-                {
-                    listPesanan.Add(new Menu(listPesanan.Count + 1,temp[0].ToString(),temp[1].ToString(),Convert.ToInt32(temp[2].ToString()),Convert.ToInt32(temp[3].ToString()),1));
-                }
-                
-                dgTrans.ItemsSource = null;
-                dgTrans.ItemsSource = listPesanan;
-                MessageBox.Show(listPesanan.Count + "");
             }
+            tbJumlah.Text = "";
+            tbNama.Text = "";
         }
 
-        private void cbMeja_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            
-            if(listPesanan != null)
-            {
-                ComboBoxItem tmp = (ComboBoxItem)cbMeja.SelectedItem;
-                noMeja = Convert.ToInt32(tmp.Name.Substring(1));
-                listPesanan = listMeja[noMeja].Pesanan;
-            }
-            
-            //apabila meja dipilih dilihat terlebih dahulu apakah meja tersebut sudah dibooking atau belum, apabila sudah dibooking maka ia akan mengisi ID pelanggan
-        }
+       
 
         private void btCari_Click(object sender, RoutedEventArgs e)
         {
             tableMenu = new DataTable();
             conn.Open();
-            string namamenu = tbNama.Text;
-            //query = $"select m.kode_menu,m.Nama_Menu,m.harga,m.diskon from menu m where status != 0 and m.namamenu like '{namamenu}%'";
+            string kodeMenu = tbNama.Text;
+            query = $"select m.kode_menu,m.Nama_Menu,m.harga,m.diskon from menu m where status != 0 and m.kode_menu like '{kodeMenu.ToUpper()}%'";
             cmd = new OracleCommand(query, conn);
             //cmd.ExecuteNonQuery();
             da = new OracleDataAdapter(cmd);
@@ -187,6 +152,7 @@ namespace ProjectPCS
             dgMenu.ItemsSource = tableMenu.DefaultView;
             conn.Close();
         }
+
         private string create_nota()
         {
             conn.Open();
@@ -211,23 +177,28 @@ namespace ProjectPCS
             return nota;
         }
 
+        public string countTotal()
+        {
+            int total = 0;
+            foreach (Menu item in listPesanan)
+            {
+                total += item.hargaTotal;
+            }
+            return total.ToString();
+        }
+
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            dgMenu.Columns[0].Width = DataGridLength.Auto;
             dgMenu.Columns[1].Width = DataGridLength.Auto;
-            dgMenu.Columns[2].Width = DataGridLength.Auto;
-            dgMenu.Columns[3].Width = DataGridLength.Auto;
-            dgTrans.Columns[0].Width = 30;
-            dgTrans.Columns[1].Width = DataGridLength.Auto;
-            dgTrans.Columns[2].Width = DataGridLength.Auto;
-            dgTrans.Columns[3].Width = DataGridLength.Auto;
-            dgTrans.Columns[4].Width = DataGridLength.Auto;
-            dgTrans.Columns[5].Width = DataGridLength.Auto;
+
+
         }
 
         private void btReset_Click(object sender, RoutedEventArgs e)
         {
             isiMenu();
+            tbNama.Text = "";
+            tbJumlah.Text = "";
         }
 
         private void isiMenu()
@@ -246,72 +217,104 @@ namespace ProjectPCS
 
         private void btHapus_Click(object sender, RoutedEventArgs e)
         {
-            listPesanan.RemoveAt(dgTrans.SelectedIndex);
-            if(noMeja != -1)
-            {
-                listMeja[noMeja].Pesanan = listPesanan;
-            }
-
+            dgTrans.ItemsSource = null;
+            listPesanan.Clear();
+            listPesanan = new List<Menu>();
+            dgTrans.ItemsSource = listPesanan;
+            lbTotal.Content = "0";
         }
 
         private void btBayar_Click(object sender, RoutedEventArgs e)
         {
-            //kurang print bill / nota pembayaran
+            //kurang print bill / nota pembayaran + pengecekan tidak ada dsb
             conn.Open();
             using(OracleTransaction tr = conn.BeginTransaction())
             {
                 cmd.Transaction = tr;
-                try
+                if(cbMetode.SelectedIndex == -1 || listPesanan.Count < 1 || tbMeja.Text == "")
                 {
-                    ComboBoxItem temp;
-                    string nota = lbNota.Content.ToString();
-                    //string nama;
-                    string metode;
-                    string idPelanggan = lbPelanggan.Content.ToString();
-                    int idMeja;
-                    int total;
-                    int potongan;
-                    int setelahDipotong;
-
-                    temp = (ComboBoxItem)cbMeja.SelectedItem;
-                    idMeja = Convert.ToInt32(temp.Name.Substring(1));
-                    
-                    //nama = loginWindow.name;
-                    
-                    temp = (ComboBoxItem)cbMetode.SelectedItem;
-                    metode = temp.Name;
-
-                    setelahDipotong = Convert.ToInt32(lbTotal.Content.ToString());
-                    potongan = listMeja[noMeja].totalPotongan();
-                    total = listMeja[noMeja].totalKotor();
-                    
-                    if(idPelanggan == "")
+                    MessageBox.Show("Error silahkan coba lagi");
+                }
+                else
+                {
+                    try
                     {
-                        idPelanggan = "null";
+                        bool flag = true;
+                        ComboBoxItem temp;
+                        string nota = lbNota.Content.ToString();
+                        //string nama;
+                        string metode;
+                        string idPelanggan = lbPelanggan.Content.ToString();
+                        int idMeja;
+                        int total;
+                        int potongan;
+                        int setelahDipotong;
+
+                        flag = int.TryParse(tbMeja.Text.ToString(), out idMeja);
+
+                        temp = (ComboBoxItem)cbMetode.SelectedItem;
+                        metode = temp.Name;
+
+                        setelahDipotong = Convert.ToInt32(lbTotal.Content.ToString());
+                        potongan = totalPotongan();
+                        total = totalKotor();
+
+                        if (idPelanggan == "")
+                        {
+                            idPelanggan = "null";
+                        }
+
+                        query = $"insert into transaksi values(0,'{nota}',{idPelanggan},{idMeja},'{karyawan.nama}'," +
+                            $"'{metode}',{total},{potongan},{setelahDipotong},sysdate)";
+                        cmd = new OracleCommand(query, conn);
+                        cmd.ExecuteNonQuery();
+                        query = $"select max(id) from transaksi";
+                        cmd = new OracleCommand(query, conn);
+                        int id = Convert.ToInt32(cmd.ExecuteScalar().ToString());
+                        foreach (Menu item in listPesanan)
+                        {
+                            query = $"insert into d_transaksi values({id},{item.ID},{item.jumlah})";
+                            cmd.CommandText = query;
+                            cmd.ExecuteNonQuery();
+                        }
+                        MessageBox.Show("Transaksi Berhasil");
+                        tr.Commit();
+
+                        notaWindow notaPembayaran = new notaWindow(nota);
+                        notaPembayaran.ShowDialog();
+
+
                     }
-
-
-                    query = $"insert into transaksi values('{nota}',{idPelanggan},{idMeja},'{karyawan.nama}','{metode}',{total},{potongan},{setelahDipotong},sysdate)";
-                    cmd = new OracleCommand(query,conn);
-                    cmd.ExecuteNonQuery();
-                    query = $"select count(id) + 1 from d_transaksi";
-                    cmd = new OracleCommand(query, conn);
-                    int id = Convert.ToInt32(cmd.ExecuteScalar().ToString());
-                    foreach (Menu item in listMeja[noMeja].Pesanan)
+                    catch (Exception ex)
                     {
-                        query = $"insert into d_transaksi values({id},{item.ID},'{item.namaMenu}','{item.jumlah}',{item.harga},{item.potongan()},{item.hargaTotal})";
-                        id++;
+                        tr.Rollback();
+                        MessageBox.Show(ex.Message);
+                        MessageBox.Show("Transaksi Gagal");
                     }
                 }
-                catch (Exception ex)
-                {
-                    tr.Rollback();
-
-                    MessageBox.Show(ex.Message);
-                    MessageBox.Show("Transaksi Gagal");
-                }
+                
             }
             conn.Close();
+        }
+
+        public int totalPotongan()
+        {
+            int total = 0;
+            foreach (Menu pesan in listPesanan)
+            {
+                total += pesan.potongan();
+            }
+            return total;
+        }
+
+        public int totalKotor()
+        {
+            int total = 0;
+            foreach (Menu menu in listPesanan)
+            {
+                total += menu.harga;
+            }
+            return total;
         }
 
         private void picHome_MouseDown(object sender, MouseButtonEventArgs e)
@@ -320,6 +323,43 @@ namespace ProjectPCS
             this.Hide();
             kasir.ShowDialog();
             this.Close();
+        }
+
+        private void dgMenu_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (dgMenu.SelectedIndex != -1)
+            {
+                tbNama.Text = tableMenu.Rows[dgMenu.SelectedIndex][0].ToString();
+                tbJumlah.Text = 1 + "";
+            }
+        }
+
+        private void btReservasi_Click(object sender, RoutedEventArgs e)
+        {
+            popupReserveWindow popup = new popupReserveWindow();
+            popup.ShowDialog();
+            lbPelanggan.Content = popup.nama;
+            tbMeja.Text = popup.idMeja;
+            nama = popup.nama;
+            tanggal = popup.tanggal;
+            MessageBox.Show(tanggal);
+        }
+
+        private void btHpsData_Click(object sender, RoutedEventArgs e)
+        {
+            lbNota.Content = "";
+            lbPelanggan.Content = "";
+            tbMeja.Text = "";
+            cbMetode.SelectedIndex = -1;
+        }
+
+        private void dgTrans_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            int index = dgTrans.SelectedIndex;
+            dgTrans.ItemsSource = null;
+            listPesanan.RemoveAt(index);
+            dgTrans.ItemsSource = listPesanan;
+            lbTotal.Content = countTotal();
         }
     }
 }

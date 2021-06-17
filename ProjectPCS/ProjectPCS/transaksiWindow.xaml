@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="transaksiWindow" Height="610" Width="900" Loaded="Window_Loaded">
     <Grid>
-        <TextBlock Name="dateText" VerticalAlignment="Top" Margin="640,28,10,0"/>
+        <TextBlock Name="dateText" VerticalAlignment="Top" Margin="724,28,10,0"/>
         <Label Content="Nomor Nota :" HorizontalAlignment="Left" Margin="18,48,0,0" VerticalAlignment="Top"/>
         <Label Content="ID Pelanggan :" HorizontalAlignment="Left" Margin="16,76,0,0" VerticalAlignment="Top"/>
         <Label Content="No Meja :" HorizontalAlignment="Left" Margin="432,48,0,0" VerticalAlignment="Top"/>
@@ -15,22 +15,26 @@
         <Label Content="Total :" HorizontalAlignment="Left" Margin="724,492,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" RenderTransformOrigin="-0.638,-0.578"/>
         <Label x:Name="lbTotal" Content="0" HorizontalAlignment="Left" Margin="790,492,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18"/>
         <Button x:Name="btBayar" Content="Bayar" HorizontalAlignment="Left" Height="38" Margin="482,530,0,0" VerticalAlignment="Top" Width="400" Click="btBayar_Click"/>
-        <Button x:Name="btTambah" Content="Tambah Item" HorizontalAlignment="Left" Height="38" Margin="488,388,0,0" VerticalAlignment="Top" Width="394" Click="btTambah_Click"/>
+        <Button x:Name="btTambah" Content="Tambah Item" HorizontalAlignment="Left" Height="38" Margin="481,421,0,0" VerticalAlignment="Top" Width="394" Click="btTambah_Click"/>
         <Button x:Name="btHapus" Content="Hapus" HorizontalAlignment="Left" Height="38" Margin="10,530,0,0" VerticalAlignment="Top" Width="466" Click="btHapus_Click"/>
-        <TextBox x:Name="tbNama" HorizontalAlignment="Left" Height="24" Margin="580,318,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="302"/>
-        <Label Content="Nama Menu :" HorizontalAlignment="Left" Margin="482,316,0,0" VerticalAlignment="Top"/>
-        <DataGrid x:Name="dgTrans" HorizontalAlignment="Left" Height="420" Margin="10,106,0,0" VerticalAlignment="Top" Width="466"/>
+        <TextBox x:Name="tbNama" HorizontalAlignment="Left" Height="24" Margin="564,317,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="311"/>
+        <Label Content="Kode Menu :" HorizontalAlignment="Left" Margin="482,315,0,0" VerticalAlignment="Top"/>
+        <DataGrid x:Name="dgTrans" ColumnWidth="*" HorizontalAlignment="Left" Height="420" Margin="10,106,0,0" VerticalAlignment="Top" Width="466" MouseDoubleClick="dgTrans_MouseDoubleClick"/>
         <Label x:Name="lbNota" Content="" HorizontalAlignment="Left" Margin="106,48,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="cbMeja" HorizontalAlignment="Left" Margin="498,52,0,0" VerticalAlignment="Top" Width="220" SelectionChanged="cbMeja_SelectionChanged"/>
         <ComboBox x:Name="cbMetode" HorizontalAlignment="Left" Margin="498,80,0,0" VerticalAlignment="Top" Width="220"/>
         <Label x:Name="lbPelanggan" Content="" HorizontalAlignment="Left" Margin="106,76,0,0" VerticalAlignment="Top"/>
-        <DataGrid x:Name="dgMenu" HorizontalAlignment="Left" Height="204" Margin="482,106,0,0" VerticalAlignment="Top" Width="400"/>
-        <Button x:Name="btCari" Content="Cari " HorizontalAlignment="Left" Margin="690,346,0,0" VerticalAlignment="Top" Width="192" Height="38" Click="btCari_Click"/>
+        <DataGrid x:Name="dgMenu" ColumnWidth="*" HorizontalAlignment="Left" Height="204" Margin="482,106,0,0" VerticalAlignment="Top" Width="auto" MouseDoubleClick="dgMenu_MouseDoubleClick"/>
+        <Button x:Name="btCari" Content="Cari " HorizontalAlignment="Left" Margin="683,379,0,0" VerticalAlignment="Top" Width="192" Height="38" Click="btCari_Click"/>
         <Popup PopupAnimation="Fade">
             <Grid Background="#FFE5E5E5" Height="100" Width="100"/>
         </Popup>
-        <Button x:Name="btReset" Content="Reset" HorizontalAlignment="Left" Margin="488,346,0,0" VerticalAlignment="Top" Width="192" Height="38" Click="btReset_Click"/>
+        <Button x:Name="btReset" Content="Reset" HorizontalAlignment="Left" Margin="481,379,0,0" VerticalAlignment="Top" Width="192" Height="38" Click="btReset_Click"/>
         <Image x:Name="picHome" HorizontalAlignment="Left" Height="40" Margin="9,9,0,0" VerticalAlignment="Top" Width="40" Stretch="Fill" Source="home.png" MouseDown="picHome_MouseDown"/>
+        <Label Content="Jumlah :" HorizontalAlignment="Left" Margin="506,346,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbJumlah" HorizontalAlignment="Left" Height="23" Margin="564,349,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="311"/>
+        <Button x:Name="btReservasi" Content="Pesan meja" HorizontalAlignment="Left" Margin="730,58,0,0" VerticalAlignment="Top" Width="65" Height="34" Click="btReservasi_Click"/>
+        <Button x:Name="btHpsData" Content="Hapus" HorizontalAlignment="Left" Margin="810,58,0,0" VerticalAlignment="Top" Width="65" Height="34" Click="btHpsData_Click"/>
+        <TextBox x:Name="tbMeja" HorizontalAlignment="Left" Height="23" Margin="498,51,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="220"/>
 
     </Grid>
 </Window>

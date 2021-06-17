@@ -50,9 +50,9 @@ namespace ProjectPCS
 
         private void picPesan_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            //pemesananWindow reserve = new pemesananWindow();
+            masterReservasi reserve = new masterReservasi();
             this.Hide();
-            //reserve.ShowDialog();
+            reserve.ShowDialog();
             this.Close();
         }
 

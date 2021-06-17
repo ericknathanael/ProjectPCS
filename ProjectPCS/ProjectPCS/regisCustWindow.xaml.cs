@@ -113,6 +113,7 @@ namespace ProjectPCS
                 
             }
             resetState();
+            loadData();
         }
 
         private void btUpdate_Click(object sender, RoutedEventArgs e)
@@ -137,15 +138,28 @@ namespace ProjectPCS
                 {
                     MessageBox.Show(ex.Message);
                 }
-
+                loadData();
             }
             resetState();
+            
         }
 
         private void btDelete_Click(object sender, RoutedEventArgs e)
         {
             try
             {
+                DataRow dr = dt.Rows[indexDataGrid];
+                conn.Open();
+                query = $"delete from reservation where id_pelanggan = {dr[0].ToString()}";
+                cmd = new OracleCommand(query, conn);
+                cmd.ExecuteNonQuery();
+
+                query = $"delete from transaksi where id_pelanggan = {dr[0].ToString()}";
+                cmd = new OracleCommand(query, conn);
+                cmd.ExecuteNonQuery();
+
+                conn.Close();
+
                 dt.Rows[indexDataGrid].Delete();
                 da.Update(dt);
                 MessageBox.Show("Berhasil Delete");
@@ -208,6 +222,25 @@ namespace ProjectPCS
             btDelete.IsEnabled = false;
             btUpdate.IsEnabled = false;
             generateId();
+        }
+
+        private void imgHome_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if(karyawan.id_jabatan == 1)
+            {
+                ManagerWindow manage = new ManagerWindow();
+                this.Hide();
+                manage.ShowDialog();
+                this.Close();
+
+            }
+            else if(karyawan.id_jabatan == 4)
+            {
+                KasirWindow cashier = new KasirWindow();
+                this.Hide();
+                cashier.ShowDialog();
+                this.Close();
+            }
         }
     }
 }

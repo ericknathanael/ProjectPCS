@@ -75,7 +75,8 @@ namespace ProjectPCS
 
         private void btLaporan_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("belom");
+            ReportWindow rep = new ReportWindow();
+            rep.ShowDialog();
         }
 
         private void btMenu_Click(object sender, RoutedEventArgs e)
@@ -162,10 +163,6 @@ namespace ProjectPCS
 
         private void btVoucher_Click(object sender, RoutedEventArgs e)
         {
-            VoucherWindow voucher = new VoucherWindow();
-            this.Hide();
-            voucher.ShowDialog();
-            this.Close();
         }
 
         private void btCustomer_Click(object sender, RoutedEventArgs e)
