@@ -24,7 +24,7 @@ namespace ProjectPCS
         {
             InitializeComponent();
             kasir = loginWindow.karyawan;
-            CrystalReport3 rpt = new CrystalReport3();
+            CrystalReportNotaTransaksi rpt = new CrystalReportNotaTransaksi();
             rpt.SetDatabaseLogon(MainWindow.userId, MainWindow.pass, MainWindow.source, "");
             rpt.SetParameterValue("nomorNota", nota);
             rpt.SetParameterValue("Pembayaran", nominalYgDibayar);

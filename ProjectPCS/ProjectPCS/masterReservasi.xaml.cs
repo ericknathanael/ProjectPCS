@@ -192,7 +192,7 @@ namespace ProjectPCS
                         string jam = textboxJam.Text + ":" + textBoxMenit.Text;
                         int kira = Convert.ToInt32(textboxJam.Text) + 2;
                         string jam2 = kira.ToString() + ":" + textBoxMenit.Text;
-                        qry = $"insert into reservation values({id2},{idPelanggan},{idMeja},to_date('{datePickerTanggal.Text}','MM:DD:YYYY')," +
+                        qry = $"insert into reservation values({id2},{idPelanggan},{idMeja},to_date('{datePickerTanggal.Text}','DD:MM:YYYY')," +
                             $"to_date('{jam}', 'HH24:mi:ss'),to_date('{jam2}','HH24:mi:ss'))";
                         try
                         {

@@ -16,14 +16,14 @@ namespace ProjectPCS {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class CrystalReport3 : ReportClass {
+    public class CrystalReportNotaTransaksi : ReportClass {
         
-        public CrystalReport3() {
+        public CrystalReportNotaTransaksi() {
         }
         
         public override string ResourceName {
             get {
-                return "CrystalReport3.rpt";
+                return "CrystalReportNotaTransaksi.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace ProjectPCS {
         
         public override string FullResourceName {
             get {
-                return "ProjectPCS.CrystalReport3.rpt";
+                return "ProjectPCS.CrystalReportNotaTransaksi.rpt";
             }
             set {
                 // Do nothing
@@ -114,9 +114,9 @@ namespace ProjectPCS {
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedCrystalReport3 : Component, ICachedReport {
+    public class CachedCrystalReportNotaTransaksi : Component, ICachedReport {
         
-        public CachedCrystalReport3() {
+        public CachedCrystalReportNotaTransaksi() {
         }
         
         [Browsable(false)]
@@ -153,7 +153,7 @@ namespace ProjectPCS {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            CrystalReport3 rpt = new CrystalReport3();
+            CrystalReportNotaTransaksi rpt = new CrystalReportNotaTransaksi();
             rpt.Site = this.Site;
             return rpt;
         }
