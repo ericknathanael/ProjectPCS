@@ -338,7 +338,7 @@ namespace ProjectPCS
         {
             popupReserveWindow popup = new popupReserveWindow();
             popup.ShowDialog();
-            lbPelanggan.Content = popup.nama;
+            lbPelanggan.Content = popup.id;
             tbMeja.Text = popup.idMeja;
             nama = popup.nama;
             tanggal = popup.tanggal;

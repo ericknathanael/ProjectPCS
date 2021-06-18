@@ -41,7 +41,7 @@ namespace ProjectPCS
             conn.Close();
             conn.Open();
             string qry = "SELECT R.ID AS \"No\", P.NAMA_PELANGGAN AS \"Nama Pelanggan\", " +
-                "R.ID_MEJA AS \"Nomor Meja\", TO_CHAR(R.TGL_WAKTU_PEMESANAN,'DD - MM - YYYY') AS \"Tanggal\", " +
+                "R.ID_MEJA AS \"Nomor Meja\", TO_CHAR(R.TGL_WAKTU_PEMESANAN,'DD/MM/YYYY') AS \"Tanggal\", " +
                 "TO_CHAR(R.WAKTU_PESAN,'HH24:MI') AS \"Jam Reservasi\", " +
                 "TO_CHAR(R.PERKIRAAN_KELUAR,'HH24:MI') AS \"Jam Keluar\" " +
                 "FROM RESERVATION R, PELANGGAN P " +
@@ -150,11 +150,11 @@ namespace ProjectPCS
                 {
                     MessageBox.Show("Waktu Reservasi tidak valid");
                 }
-                else if ((DateTime.Now - inputTime).Hours * -1 < 2)
+                else if ((DateTime.Now - inputTime).Hours * -1 < 2 && DateTime.Now.Date == datePickerTanggal.SelectedDate)
                 {
                     MessageBox.Show("Waktu Reservasi minimal 2 jam dari sekarang");
                 }
-                else if(Convert.ToInt32(textboxJam.Text) < 2) // 9
+                else if(Convert.ToInt32(textboxJam.Text) < 9)
                 {
                     MessageBox.Show("Restoran belum buka");
                 }
@@ -165,16 +165,19 @@ namespace ProjectPCS
                 else
                 {
                     conn.Open();
-                    string qry = "select * from RESERVATION";
+                    string qry = "select to_char(waktu_pesan,'HH24:MI:SS'),to_char(perkiraan_keluar,'HH24:MI:SS'),ID_MEJA,TGL_WAKTU_pemesanan from RESERVATION";
                     OracleCommand cmd = new OracleCommand(qry, conn);
                     OracleDataReader dr = cmd.ExecuteReader();
                     bool flag = true;
                     while (dr.Read())
                     {
-                        MessageBox.Show(dr[4].ToString());
-                        int jam3 = Convert.ToInt32(dr[4].ToString().Substring(11, 2)) + 1;
-                        if (dr[2].ToString() == comboBoxMeja.Text && dr[3].ToString().Substring(0, 10) == datePickerTanggal.Text && dr[4].ToString().Substring(11, 2) == textboxJam.Text ||
-                            dr[2].ToString() == comboBoxMeja.Text && dr[3].ToString().Substring(0, 10) == datePickerTanggal.Text && jam3.ToString() == textboxJam.Text)
+                        MessageBox.Show("1. "+dr[0].ToString());
+                        MessageBox.Show("2. "+dr[3].ToString());
+                        string jam = dr[0].ToString().Substring(0,2);
+
+                        int jam3 = Convert.ToInt32(jam) + 2;
+                        if (dr[2].ToString() == comboBoxMeja.Text && dr[3].ToString() == datePickerTanggal.Text && dr[0].ToString().Substring(11, 2) == textboxJam.Text ||
+                            dr[2].ToString() == comboBoxMeja.Text && dr[3].ToString() == datePickerTanggal.Text && jam3.ToString() == textboxJam.Text)
                         {
                             flag = false;
                         }
@@ -189,7 +192,7 @@ namespace ProjectPCS
                         string jam = textboxJam.Text + ":" + textBoxMenit.Text;
                         int kira = Convert.ToInt32(textboxJam.Text) + 2;
                         string jam2 = kira.ToString() + ":" + textBoxMenit.Text;
-                        qry = $"insert into reservation values({id2},{idPelanggan},{idMeja},to_date('{datePickerTanggal.Text}','dd:MM:YYYY')," +
+                        qry = $"insert into reservation values({id2},{idPelanggan},{idMeja},to_date('{datePickerTanggal.Text}','MM:DD:YYYY')," +
                             $"to_date('{jam}', 'HH24:mi:ss'),to_date('{jam2}','HH24:mi:ss'))";
                         try
                         {
@@ -232,7 +235,7 @@ namespace ProjectPCS
             else
             {
                 conn.Open();
-                string qry = "select * from RESERVATION";
+                string qry = "select TO_CHAR(waktu_pesan,'HH24:MI:SS'),TO_CHAR(PERKIRAAN_KELUAR,'HH24:MI:SS)' from RESERVATION";
                 OracleCommand cmd = new OracleCommand(qry, conn);
                 OracleDataReader dr = cmd.ExecuteReader();
                 bool flag = true;
@@ -322,12 +325,14 @@ namespace ProjectPCS
             if (barisKeKlik >= 0 && barisKeKlik < jumlah)
             {
                 DataRow dr = ds.Tables[0].Rows[barisKeKlik];
+
                 labelID.Content = dr["No"].ToString();
                 qry = "select id from pelanggan where nama_pelanggan ='" + dr["Nama Pelanggan"] + "'";
                 cmd = new OracleCommand(qry, conn);
                 int id = Convert.ToInt32(cmd.ExecuteScalar().ToString()) - 1;
                 comboBoxNamaPelanggan.SelectedIndex = id;
                 comboBoxMeja.SelectedIndex = Convert.ToInt32(dr["Nomor Meja"].ToString()) - 1;
+                MessageBox.Show(dr["Tanggal"].ToString());
                 datePickerTanggal.SelectedDate = Convert.ToDateTime(dr["Tanggal"].ToString());
                 textboxJam.Text = dr["Jam Reservasi"].ToString().Substring(0, 2);
                 textBoxMenit.Text = dr["Jam Reservasi"].ToString().Substring(3, 2);

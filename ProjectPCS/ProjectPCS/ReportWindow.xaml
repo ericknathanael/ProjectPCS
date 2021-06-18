@@ -9,7 +9,7 @@
         Icon="Image/EPOS-Icon.ico" Title="ReportWindow" Height="450" Width="800">
     <Grid>
 
-        <Viewer:CrystalReportsViewer x:Name="cReport" HorizontalAlignment="Left" Height="348" Margin="10,63,0,0" VerticalAlignment="Top" Width="774"/>
+        <Viewer:CrystalReportsViewer x:Name="cReport" HorizontalAlignment="Left" Height="auto" Margin="10,63,0,0" VerticalAlignment="Top" Width="auto"/>
         <RadioButton x:Name="rbAbsensi" Content="Absensi" HorizontalAlignment="Left" Margin="10,31,0,0" VerticalAlignment="Top" Checked="rbAbsensi_Checked"/>
         <RadioButton x:Name="rbTransaksi" Content="Transaksi" HorizontalAlignment="Left" Margin="122,31,0,0" VerticalAlignment="Top" Checked="rbTransaksi_Checked"/>
 
