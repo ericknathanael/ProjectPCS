@@ -23,7 +23,7 @@ namespace ProjectPCS
     {
         OracleConnection conn;
         OracleCommand cmd;
-        Karyawan manager;
+        Karyawan karyawan;
         
         //string nama;
         string query;
@@ -34,12 +34,13 @@ namespace ProjectPCS
         {
             InitializeComponent();
             conn = MainWindow.conn;
-            manager = loginWindow.karyawan;
+            karyawan = loginWindow.karyawan;
+            canvasMaster.Visibility = karyawan.id_jabatan == 1 ? Visibility.Visible : Visibility.Hidden;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            lbWelcome.Content = $"Welcome, {manager.nama}";
+            lbWelcome.Content = $"Welcome, {karyawan.nama}";
             conn.Open();
 
             query = $"select kode_absen from absensi where to_char(tgl_absen,'dd-mm-yyyy') = to_char(sysdate,'dd-mm-yyyy')";
@@ -65,7 +66,7 @@ namespace ProjectPCS
             this.Close();
         }
 
-        private void btRegis_Click(object sender, RoutedEventArgs e)
+        private void btKaryawan_Click(object sender, RoutedEventArgs e)
         {
             registerWindow regis = new registerWindow();
             this.Hide();
@@ -89,15 +90,7 @@ namespace ProjectPCS
 
         private void btAbsensi_Click(object sender, RoutedEventArgs e)
         {
-            Window window = null;
-            if (manager.id_jabatan != 1)
-            {
-                window = new absensiWindow();
-            }
-            else
-            {
-                window = new masterAbsensi();
-            }
+            Window window = new masterAbsensi();
             this.Hide();
             window.ShowDialog();
             this.Close();
@@ -161,10 +154,6 @@ namespace ProjectPCS
             return huruf + DateTime.UtcNow.ToString("dd");
         }
 
-        private void btVoucher_Click(object sender, RoutedEventArgs e)
-        {
-        }
-
         private void btCustomer_Click(object sender, RoutedEventArgs e)
         {
             regisCustWindow cust = new regisCustWindow();
@@ -181,10 +170,18 @@ namespace ProjectPCS
             this.Close();
         }
 
-        private void tbLogin_MouseDown(object sender, MouseButtonEventArgs e)
+        private void tbAbsen_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            absensiWindow absen = new absensiWindow(lbKode.Content.ToString());
-            absen.ShowDialog();
+            if (lbKode.Content.ToString().Length <= 0)
+            {
+                MessageBox.Show("Harap menekan tombol Generate untuk kode absensi terlebih dahulu");
+            }
+            else
+            {
+                absensiWindow absen = new absensiWindow(lbKode.Content.ToString());
+                absen.ShowDialog();
+            }
         }
+
     }
 }

@@ -15,7 +15,7 @@
         <Label x:Name="labelDateTime" Content="DateTime" HorizontalAlignment="Left" Margin="60,50,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
         <TextBlock x:Name="dateText" VerticalAlignment="Top" Margin="65,52,65,0"/>
         <Image HorizontalAlignment="Left" Height="100" Margin="135,80,0,0" VerticalAlignment="Top" Width="100" Source="Image/user.png"/>
-        <Label x:Name="lbNama" Content="Nama" HorizontalAlignment="Left" Margin="110,185,0,0" VerticalAlignment="Top" Width="150"/>
+        <Label x:Name="lbNama" Content="Nama" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="110,185,0,0" VerticalAlignment="Top" Width="150" FontWeight="Bold"/>
     </Grid>
 
 </Window>

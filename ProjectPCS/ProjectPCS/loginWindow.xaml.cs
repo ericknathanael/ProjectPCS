@@ -52,7 +52,7 @@ namespace ProjectPCS
                     conn.Open();
                     string query = $"select id from karyawan where username = '{tbUser.Text.ToUpper()}'";
                     cmd = new OracleCommand(query, conn);
-                    dr = cmd.ExecuteReader();                    
+                    dr = cmd.ExecuteReader();
                     if (!dr.HasRows)
                     {
                         MessageBox.Show("username karyawan tidak terdaftar");
@@ -78,27 +78,25 @@ namespace ProjectPCS
                             dr.Close();
                             conn.Close();
                             Window window = null;
-                            if (karyawan.id_jabatan == 1)
+                            if (karyawan.id_jabatan != 4)
                             {
                                 // apabila masuk ke menu manager(Register karyawan, tambah menu, update absensi)
                                 window = new ManagerWindow();
-                                this.Hide();
-                                window.ShowDialog();
-                                this.Close();
                             }
-                            else if (karyawan.id_jabatan == 4)
+                            //else if (karyawan.id_jabatan == 4)
+                            else
                             {
                                 // apabila masuk ke menu kasir(transaksi reservation, print nota)                                
                                 window = new KasirWindow();
-                                this.Hide();
-                                window.ShowDialog();
-                                this.Close();
                             }
-                            else
-                            {
-                                window = new absensiWindow();
-                                window.ShowDialog();
-                            }
+                            this.Hide();
+                            window.ShowDialog();
+                            this.Close();
+                            //else
+                            //{
+                            //    window = new absensiWindow();
+                            //    window.ShowDialog();
+                            //}
                         }
                     }
                 }

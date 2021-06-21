@@ -31,47 +31,49 @@ namespace ProjectPCS
 
         string query;
 
-        public absensiWindow()
-        {
-            InitializeComponent();
-            conn = loginWindow.conn;
-            karyawan = loginWindow.karyawan;
-            displayPage();
-            query = $"select count(*) from karyawan k left join d_absensi da on k.id = da.id_karyawan left join absensi a on da.id_absen = a.id " +
-                $"where to_char(tgl_absen,'mm') = to_char(sysdate,'mm') and k.id = {karyawan.id_karyawan}";
-            conn.Open();
-            cmd = new OracleCommand(query, conn);
-            //lbAbsen.Content += cmd.ExecuteScalar().ToString() + " kali";
-            lbNama.Content = karyawan.nama;
-            conn.Close();
-        }
+        //public absensiWindow()
+        //{
+        //    InitializeComponent();
+        //    conn = loginWindow.conn;
+        //    karyawan = loginWindow.karyawan;
+        //    displayPage();
+        //    //query = $"select count(*) from karyawan k left join d_absensi da on k.id = da.id_karyawan left join absensi a on da.id_absen = a.id " +
+        //    //    $"where to_char(tgl_absen,'mm') = to_char(sysdate,'mm') and k.id = {karyawan.id_karyawan}";
+        //    //conn.Open();
+        //    //cmd = new OracleCommand(query, conn);
+        //    //lbAbsen.Content += cmd.ExecuteScalar().ToString() + " kali";
+        //    lbNama.Content = karyawan.nama;
+        //    //conn.Close();
+        //}
 
         public absensiWindow(string kode)
         {
             InitializeComponent();
             conn = MainWindow.conn;
             karyawan = loginWindow.karyawan;
-            displayPage();
-            query = $"select count(*) from karyawan k left join d_absensi da on k.id = da.id_karyawan left join absensi a on da.id_absen = a.id " +
-                $"where to_char(tgl_absen,'mm') = to_char(sysdate,'mm') and k.id = {karyawan.id_karyawan}";
-            conn.Open();
-            cmd = new OracleCommand(query, conn);
-            //lbAbsen.Content += cmd.ExecuteScalar().ToString() + " kali";
-            lbNama.Content = karyawan.nama;
-            tbKode.Text = kode;
-            conn.Close();
-        }
-
-        private void displayPage()
-        {
             DispatcherTimer dispatcherTimer = new DispatcherTimer();
             dispatcherTimer.Tick += new EventHandler(dispatcherTimer_Tick);
             dispatcherTimer.Start();
+            //query = $"select count(*) from karyawan k left join d_absensi da on k.id = da.id_karyawan left join absensi a on da.id_absen = a.id " +
+            //    $"where to_char(tgl_absen,'mm') = to_char(sysdate,'mm') and k.id = {karyawan.id_karyawan}";
+            //conn.Open();
+            //cmd = new OracleCommand(query, conn);
+            //lbAbsen.Content += cmd.ExecuteScalar().ToString() + " kali";
+            lbNama.Content = karyawan.nama;
+            tbKode.Text = kode;
+            //conn.Close();
         }
+
+        //private void displayPage()
+        //{
+        //    DispatcherTimer dispatcherTimer = new DispatcherTimer();
+        //    dispatcherTimer.Tick += new EventHandler(dispatcherTimer_Tick);
+        //    dispatcherTimer.Start();
+        //}
 
         private void dispatcherTimer_Tick(object sender, EventArgs e)
         {
-            labelDateTime.Content = DateTime.Now.ToString("D", new CultureInfo("id-ID")) + "\t" + DateTime.Now.ToString("T");
+            labelDateTime.Content = $"{DateTime.Now.ToString("D", new CultureInfo("id-ID"))}\t{DateTime.Now.ToString("T")}";
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -100,7 +102,6 @@ namespace ProjectPCS
                 {
                     MessageBox.Show(ex.Message);
                 }
-                
             }
             conn.Close();
         }
@@ -124,7 +125,8 @@ namespace ProjectPCS
             if(tbKode.Text == "")
             {
                 MessageBox.Show("Masukkan Kode Terlebih Dahulu");
-            }else
+            }
+            else
             {
                 query = $"select kode_absen from absensi where to_char(sysdate,'DD-MM-YYYY') =TO_CHAR(tgl_absen,'DD-MM-YYYY')";
                 cmd = new OracleCommand(query, conn);
@@ -157,7 +159,6 @@ namespace ProjectPCS
                             {
                                 MessageBox.Show(ex.Message);
                             }
-                            
                         }
                         else
                         {
@@ -167,16 +168,17 @@ namespace ProjectPCS
                             cmd.ExecuteNonQuery();
                             MessageBox.Show("Selamat beristirahat");
                         }
-
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Kode belum ada, silahkan hubungi Manager");
+                    //MessageBox.Show("Kode belum ada, silahkan hubungi Manager");
+                    MessageBox.Show("Kode belum ada, silahkan melakukan Generate Kode terlebih dahulu");
                 }
                 this.Close();
             }
             conn.Close();
         }
+
     }
 }
