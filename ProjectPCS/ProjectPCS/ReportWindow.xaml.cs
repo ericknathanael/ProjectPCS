@@ -26,7 +26,7 @@ namespace ProjectPCS
 
         private void rbAbsensi_Checked(object sender, RoutedEventArgs e)
         {
-            CrystalReport1 rpt = new CrystalReport1();
+            CrystalReport3 rpt = new CrystalReport3();
             rpt.SetDatabaseLogon(MainWindow.userId, MainWindow.pass, MainWindow.source, "");
             //rpt.SetParameterValue();
             cReport.ViewerCore.ReportSource = rpt;

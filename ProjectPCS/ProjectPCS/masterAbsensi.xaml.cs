@@ -186,6 +186,7 @@ namespace ProjectPCS
                 {
                     cmd.ExecuteNonQuery();
                     trans.Commit();
+                    MessageBox.Show("delete berhasil");
                 }
                 catch (Exception ex)
                 {
@@ -194,6 +195,7 @@ namespace ProjectPCS
                 }
             }
             clearData();
+            ResetDataGrid();
             conn.Close();
         }
 

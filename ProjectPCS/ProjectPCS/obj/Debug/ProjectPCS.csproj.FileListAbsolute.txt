@@ -164,7 +164,6 @@ C:\Users\edyef\Desktop\ProjectPCS\ProjectPCS\ProjectPCS\ProjectPCS\bin\Debug\Fla
 C:\Users\edyef\Desktop\ProjectPCS\ProjectPCS\ProjectPCS\ProjectPCS\bin\Debug\CrystalDecisions.ReportAppServer.CommonControls.dll
 C:\Users\edyef\Desktop\ProjectPCS\ProjectPCS\ProjectPCS\ProjectPCS\bin\Debug\stdole.dll
 C:\Users\edyef\Desktop\ProjectPCS\ProjectPCS\ProjectPCS\ProjectPCS\bin\Debug\ShockwaveFlashObjects.dll
-C:\Users\edyef\Desktop\ProjectPCS\ProjectPCS\ProjectPCS\ProjectPCS\obj\Debug\ProjectPCS.csprojAssemblyReference.cache
 C:\Users\edyef\Desktop\ProjectPCS\ProjectPCS\ProjectPCS\ProjectPCS\obj\Debug\absensiWindow.g.cs
 C:\Users\edyef\Desktop\ProjectPCS\ProjectPCS\ProjectPCS\ProjectPCS\obj\Debug\KasirWindow.g.cs
 C:\Users\edyef\Desktop\ProjectPCS\ProjectPCS\ProjectPCS\ProjectPCS\obj\Debug\LoginWindow.g.cs
@@ -244,3 +243,4 @@ C:\Users\hp\OneDrive\Dokumen\GitHub\ProjectPCS\ProjectPCS\ProjectPCS\obj\Debug\p
 C:\Users\hp\OneDrive\Dokumen\GitHub\ProjectPCS\ProjectPCS\ProjectPCS\obj\Debug\regisCustWindow.baml
 C:\Users\hp\OneDrive\Dokumen\GitHub\ProjectPCS\ProjectPCS\ProjectPCS\obj\Debug\ReportWindow.baml
 C:\Users\hp\OneDrive\Dokumen\GitHub\ProjectPCS\ProjectPCS\ProjectPCS\obj\Debug\ProjectPCS.csproj.CopyComplete
+C:\Users\edyef\Desktop\ProjectPCS\ProjectPCS\ProjectPCS\ProjectPCS\obj\Debug\ProjectPCS.csprojAssemblyReference.cache

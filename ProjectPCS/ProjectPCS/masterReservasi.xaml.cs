@@ -45,7 +45,7 @@ namespace ProjectPCS
                 "TO_CHAR(R.WAKTU_PESAN,'HH24:MI') AS \"Jam Reservasi\", " +
                 "TO_CHAR(R.PERKIRAAN_KELUAR,'HH24:MI') AS \"Jam Keluar\" " +
                 "FROM RESERVATION R, PELANGGAN P " +
-                "WHERE R.ID_PELANGGAN = P.ID ORDER BY R.ID";
+                "WHERE R.ID_PELANGGAN = P.ID ORDER BY 4";
             OracleCommand cmd = new OracleCommand(qry, conn);
             cmd.ExecuteReader();
             OracleDataAdapter da = new OracleDataAdapter(cmd);
@@ -168,19 +168,94 @@ namespace ProjectPCS
                     string qry = "select to_char(waktu_pesan,'HH24:MI:SS'),to_char(perkiraan_keluar,'HH24:MI:SS'),ID_MEJA,TGL_WAKTU_pemesanan from RESERVATION";
                     OracleCommand cmd = new OracleCommand(qry, conn);
                     OracleDataReader dr = cmd.ExecuteReader();
+
                     bool flag = true;
+
+                    int jamPesan = Convert.ToInt32(tbJam.Text);
+                    int jamKeluar = jamPesan + 2;
+
+                    int menitpesan = Convert.ToInt32(tbMnt.Text);
+                    int idMeja = Convert.ToInt32(comboBoxMeja.Text);
+
                     while (dr.Read())
                     {
-                        MessageBox.Show("1. "+dr[0].ToString());
-                        MessageBox.Show("2. "+dr[3].ToString());
-                        string jam = dr[0].ToString().Substring(0,2);
+                        int jamAkhir = Convert.ToInt32(dr.GetValue(1).ToString().Substring(0, 2));
+                        int jamAwal = Convert.ToInt32(dr.GetValue(0).ToString().Substring(0, 2));
+                        int menitAwal = Convert.ToInt32(dr.GetValue(0).ToString().Substring(3,2));
+                        
+                        int menitAkhir = Convert.ToInt32(dr.GetValue(1).ToString().Substring(3,2));
+                        string tanggal = dr.GetValue(3).ToString();
+                        int idMejaDatabase = Convert.ToInt32(dr.GetValue(2));
 
-                        int jam3 = Convert.ToInt32(jam) + 2;
-                        if (dr[2].ToString() == comboBoxMeja.Text && dr[3].ToString() == datePickerTanggal.Text && dr[0].ToString().Substring(11, 2) == tbJam.Text ||
-                            dr[2].ToString() == comboBoxMeja.Text && dr[3].ToString() == datePickerTanggal.Text && jam3.ToString() == tbJam.Text)
+                        string[] tanggalInput = datePickerTanggal.SelectedDate.ToString().Split(' ');
+                        string[] tanggalDatabase = tanggal.Split(' ');
+                        // 21/04/01 24:15:00
+                       /* if ((jamAwal <= jamPesan && jamPesan <= jamAkhir && tanggalInput[0] == tanggalDatabase[0] && idMeja == idMejaDatabase) ||  //jam pesan
+                            (jamAwal <= jamKeluar && jamKeluar <= jamAkhir && tanggalInput[0] == tanggalDatabase[0] && idMeja == idMejaDatabase))
                         {
-                            flag = false;
+                            if (menitAwal <= menitKeluar)
+                            {
+                                flag = false;
+                                break;
+                            }
                         }
+                        else
+                        {
+                            flag = true;
+                        }*/
+
+                        //if(6 <= 7 & 7 != 8)
+                        if(jamAwal == jamPesan && tanggalInput[0] == tanggalDatabase[0] && idMeja == idMejaDatabase) //apabila sama dengan jam awal
+                        {
+                            MessageBox.Show("1");
+                            if(menitAwal <= menitpesan)
+                            {
+                                flag = false;
+                                break;
+                            }
+                        }
+                        else if (jamAwal < jamPesan && jamPesan < jamAkhir && tanggalInput[0] == tanggalDatabase[0] && idMeja == idMejaDatabase) //apabila diantara jam masuk dan keluar
+                        {
+                            MessageBox.Show(jamPesan + " " + jamAkhir);
+                            MessageBox.Show("2");
+                            flag = false;
+                            break;
+
+                        }else if (jamPesan == jamAkhir && tanggalInput[0] == tanggalDatabase[0] && idMeja == idMejaDatabase) //apabila sama dengan jam akhir
+                        {
+                            if(menitAkhir > menitpesan)
+                            {
+                                MessageBox.Show("3");
+                                flag = false;
+                                break;
+                            }
+                        }
+                        else if (jamAwal == jamKeluar && tanggalInput[0] == tanggalDatabase[0] && idMeja == idMejaDatabase) //apabila sama dengan jam awal
+                        {
+                            MessageBox.Show("4");
+                            if (menitAwal <= menitpesan)
+                            {
+                                flag = false;
+                                break;
+                            }
+                        }
+                        else if (jamAwal < jamKeluar && jamKeluar < jamAkhir && tanggalInput[0] == tanggalDatabase[0] && idMeja == idMejaDatabase) //apabila diantara jam masuk dan keluar
+                        {
+                            MessageBox.Show("5");
+                            flag = false;
+                            break;
+
+                        }
+                        else if (jamPesan == jamKeluar && tanggalInput[0] == tanggalDatabase[0] && idMeja == idMejaDatabase) //apabila sama dengan jam akhir
+                        {
+                            if (menitAkhir > menitpesan)
+                            {
+                                MessageBox.Show("6");
+                                flag = false;
+                                break;
+                            }
+                        }
+
                     }
                     if (flag)
                     {
@@ -188,7 +263,6 @@ namespace ProjectPCS
                         cmd = new OracleCommand(qry, conn);
                         int id2 = Convert.ToInt32(cmd.ExecuteScalar().ToString()) + 1;
                         int idPelanggan = comboBoxNamaPelanggan.SelectedIndex + 1;
-                        int idMeja = Convert.ToInt32(comboBoxMeja.Text);
                         string jam = tbJam.Text + ":" + tbMnt.Text;
                         int kira = Convert.ToInt32(tbJam.Text) + 2;
                         string jam2 = kira.ToString() + ":" + tbMnt.Text;
@@ -239,19 +313,35 @@ namespace ProjectPCS
                 OracleCommand cmd = new OracleCommand(qry, conn);
                 OracleDataReader dr = cmd.ExecuteReader();
                 bool flag = true;
+
+                int jamPesan = Convert.ToInt32(tbJam.Text);
+                int jamKeluar = jamPesan + 2;
+
+                int menitpesan = Convert.ToInt32(tbMnt.Text);
+                int menitKeluar = menitpesan + 2;
+                int idMeja = Convert.ToInt32(comboBoxMeja.Text);
+
                 while (dr.Read())
                 {
-                    
                     int jamAkhir = Convert.ToInt32(dr.GetValue(1).ToString().Substring(0, 2));
                     int jamAwal = Convert.ToInt32(dr.GetValue(0).ToString().Substring(0, 2));
+                    int menitAwal = Convert.ToInt32(dr.GetValue(0).ToString().Substring(3, 2));
+
+                    int menitAkhir = Convert.ToInt32(dr.GetValue(1).ToString().Substring(3, 2));
                     string tanggal = dr.GetValue(3).ToString();
-                    int idMeja = Convert.ToInt32(dr.GetValue(2));
+                    int idMejaDatabase = Convert.ToInt32(dr.GetValue(2));
+
                     string[] tanggalInput = datePickerTanggal.SelectedDate.ToString().Split(' ');
+                    string[] tanggalDatabase = tanggal.Split(' ');
                     // 21/04/01 24:15:00
-                    if(jamAwal >= Convert.ToInt32(tbJam.Text) && jamAkhir <= Convert.ToInt32(dr.GetValue(1).ToString().Substring(0, 2))
-                        && tanggal == tanggalInput[0] && idMeja == Convert.ToInt32(comboBoxMeja.Text))
+                    if ((jamAwal <= jamPesan && jamPesan <= jamAkhir && tanggalInput[0] == tanggalDatabase[0] && idMeja == idMejaDatabase) ||  //jam pesan
+                        (jamAwal <= jamKeluar && jamKeluar <= jamAkhir && tanggalInput[0] == tanggalDatabase[0] && idMeja == idMejaDatabase))
                     {
-                        flag = false;
+                        if (menitAwal < menitKeluar)
+                        {
+                            flag = false;
+                            break;
+                        }
                     }
                     else
                     {
@@ -261,7 +351,6 @@ namespace ProjectPCS
                 if (flag)
                 {
                     int idPelanggan = comboBoxNamaPelanggan.SelectedIndex + 1;
-                    int idMeja = Convert.ToInt32(comboBoxMeja.Text);
                     int id = Convert.ToInt32(labelID.Content);
                     string jam = tbJam.Text + ":" + tbMnt.Text;
                     int kira = Convert.ToInt32(tbJam.Text) + 2;

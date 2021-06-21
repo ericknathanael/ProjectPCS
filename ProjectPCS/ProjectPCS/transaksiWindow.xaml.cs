@@ -283,8 +283,11 @@ namespace ProjectPCS
                         pembayaranWindow pw = new pembayaranWindow(setelahDipotong);
                         pw.ShowDialog();
 
+                        MessageBox.Show(pw.hasil.ToString());
                         notaWindow notaPembayaran = new notaWindow(nota,pw.hasil);
                         notaPembayaran.ShowDialog();
+
+
                     }
                     catch (Exception ex)
                     {

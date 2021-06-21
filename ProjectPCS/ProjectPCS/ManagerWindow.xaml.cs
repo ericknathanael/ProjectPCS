@@ -39,6 +39,7 @@ namespace ProjectPCS
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            conn.Close();
             lbWelcome.Content = $"Welcome, {manager.nama}";
             conn.Open();
 
@@ -183,8 +184,15 @@ namespace ProjectPCS
 
         private void tbLogin_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            absensiWindow absen = new absensiWindow(lbKode.Content.ToString());
-            absen.ShowDialog();
+            if(lbKode.Content.ToString() != "")
+            {
+                absensiWindow absen = new absensiWindow(lbKode.Content.ToString());
+                absen.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Kode Belum dibuat");
+            }
         }
     }
 }

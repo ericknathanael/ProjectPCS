@@ -89,21 +89,32 @@ namespace ProjectPCS
 
         private void dgReserve_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
+            
             DataRow dr = dt.NewRow();
             dr = dt.Rows[dgReserve.SelectedIndex];
+
+            conn.Open();
+            id = dr[0].ToString();
+            query = $"select id_pelanggan from reservation where id = {id}";
+            cmd = new OracleCommand(query, conn);
+            id = cmd.ExecuteScalar().ToString();
+            conn.Close();
             lbID.Content = dr[0].ToString();
-            id = lbID.Content.ToString();
+
             lbNama.Content = dr[1].ToString();
             nama = lbNama.Content.ToString();
+            
             lbMeja.Content = dr[2].ToString();
             idMeja = lbMeja.Content.ToString();
+            
             lbTgl.Content = dr[3].ToString();
             tanggal = lbTgl.Content.ToString();
         }
 
         private void btEnter_Click(object sender, RoutedEventArgs e)
         {
-            
+            query = $"select id_pelanggan from reservation where id = {id}";
+            cmd = new OracleCommand(query, conn);
             this.Hide();
             this.IsEnabled = false;
         }
