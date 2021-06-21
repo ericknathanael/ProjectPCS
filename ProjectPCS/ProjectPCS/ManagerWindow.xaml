@@ -8,17 +8,19 @@
         Icon="Image/EPOS-Icon.ico" Title="ManagerWindow" Height="450" Width="800" Loaded="Window_Loaded">
     <Grid>
         <Image HorizontalAlignment="Left" Height="419" VerticalAlignment="Top" Width="240" Source="Image/ManagerMenu.jpg"/>
-        <Button x:Name="btRegis" Content="Master Karyawan" HorizontalAlignment="Left" Margin="286,70,0,0" VerticalAlignment="Top" Width="150" Height="63" Click="btRegis_Click"/>
-        <Button x:Name="btMenu" Content="Master Menu" HorizontalAlignment="Left" Margin="622,70,0,0" VerticalAlignment="Top" Width="150" Height="63" Click="btMenu_Click"/>
-        <Button x:Name="btLaporan" Content="Cetak Laporan" HorizontalAlignment="Left" Margin="622,166,0,0" VerticalAlignment="Top" Width="150" Height="63" Click="btLaporan_Click"/>
-        <Button x:Name="btAbsensi" Content="Master Absensi " HorizontalAlignment="Left" Margin="454,70,0,0" VerticalAlignment="Top" Width="150" Height="63" Click="btAbsensi_Click"/>
         <Label x:Name="lbWelcome" Content="Welcome, " HorizontalAlignment="Left" Margin="260,10,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="30" Width="512"/>
         <Button x:Name="btLogout" Content="Logout" HorizontalAlignment="Left" Margin="692,384,0,0" VerticalAlignment="Top" Width="90" Height="25" Click="btLogout_Click"/>
         <Label Content="Kode Absensi :" HorizontalAlignment="Left" Margin="435,244,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
         <Button x:Name="btGenerate" Content="Generate" HorizontalAlignment="Left" Margin="435,346,0,0" VerticalAlignment="Top" Width="147" Height="34" Click="btGenerate_Click"/>
         <Label x:Name="lbKode" Content="" HorizontalAlignment="Left" Margin="459,286,0,0" VerticalAlignment="Top" FontSize="24" FontWeight="Bold" Width="100"/>
-        <Button x:Name="btCustomer" Content="Master Customer " HorizontalAlignment="Left" Margin="286,166,0,0" VerticalAlignment="Top" Width="150" Height="63" Click="btCustomer_Click"/>
-        <Button x:Name="btReserve" Content="Master Reservasi " HorizontalAlignment="Left" Margin="454,166,0,0" VerticalAlignment="Top" Width="150" Height="63" Click="btReserve_Click"/>
-        <TextBlock x:Name="tbLogin" HorizontalAlignment="Left" Margin="489,385,0,0" TextWrapping="Wrap" Text="Login" VerticalAlignment="Top" Cursor="Hand" TextDecorations="Underline" FontWeight="Bold" Foreground="#FF043DFF" MouseDown="tbLogin_MouseDown"/>
+        <TextBlock x:Name="tbAbsen" HorizontalAlignment="Left" Margin="489,385,0,0" TextWrapping="Wrap" Text="Absen" VerticalAlignment="Top" Cursor="Hand" TextDecorations="Underline" FontWeight="Bold" Foreground="#FF043DFF" MouseDown="tbAbsen_MouseDown"/>
+        <Canvas x:Name="canvasMaster" HorizontalAlignment="Left" Height="179" Margin="260,60,0,0" VerticalAlignment="Top" Width="522">
+            <Button x:Name="btKaryawan" Content="Master Karyawan" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Height="63" Click="btKaryawan_Click" Canvas.Left="27" Canvas.Top="10"/>
+            <Button x:Name="btAbsensi" Content="Master Absensi " HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Height="63" Click="btAbsensi_Click" Canvas.Left="194" Canvas.Top="10"/>
+            <Button x:Name="btMenu" Content="Master Menu" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Height="63" Click="btMenu_Click" Canvas.Left="362" Canvas.Top="10"/>
+            <Button x:Name="btCustomer" Content="Master Customer " HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Height="63" Click="btCustomer_Click" Canvas.Left="27" Canvas.Top="106"/>
+            <Button x:Name="btReserve" Content="Master Reservasi " HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Height="63" Click="btReserve_Click" Canvas.Left="194" Canvas.Top="106"/>
+            <Button x:Name="btLaporan" Content="Cetak Laporan" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Height="63" Click="btLaporan_Click" Canvas.Left="362" Canvas.Top="106"/>
+        </Canvas>
     </Grid>
 </Window>

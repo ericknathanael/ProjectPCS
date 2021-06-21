@@ -13,16 +13,16 @@
         <Label Content="Password :" HorizontalAlignment="Left" Margin="20,342,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="tbNama" HorizontalAlignment="Left" Height="23" Margin="90,283,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="308"/>
         <TextBox x:Name="tbUser" HorizontalAlignment="Left" Height="23" Margin="90,314,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="308"/>
-        <RadioButton x:Name="rbManager" Content="Manager" HorizontalAlignment="Left" Margin="90,379,0,0" VerticalAlignment="Top" Checked="rbManager_Checked"/>
+        <RadioButton x:Name="rbManajer" Content="Manajer" HorizontalAlignment="Left" Margin="90,379,0,0" VerticalAlignment="Top" Checked="rbManajer_Checked"/>
         <RadioButton x:Name="rbKoki" Content="Koki" HorizontalAlignment="Left" Margin="171,379,0,0" VerticalAlignment="Top" Checked="rbKoki_Checked"/>
         <RadioButton x:Name="rbPelayan" Content="Pelayan" HorizontalAlignment="Left" Margin="233,379,0,0" VerticalAlignment="Top" Checked="rbPelayan_Checked"/>
         <RadioButton x:Name="rbKasir" Content="Kasir" HorizontalAlignment="Left" Margin="313,379,0,0" VerticalAlignment="Top" Checked="rbKasir_Checked"/>
         <Label Content="Jabatan :" HorizontalAlignment="Left" Margin="29,373,0,0" VerticalAlignment="Top"/>
-        <DataGrid x:Name="dgKaryawan" ColumnWidth="*" HorizontalAlignment="Left" Height="194" Margin="10,71,0,0" VerticalAlignment="Top" Width="772" MouseDoubleClick="dgKaryawan_MouseDoubleClick"/>
+        <DataGrid x:Name="dgKaryawan" ColumnWidth="*" HorizontalAlignment="Left" Height="194" Margin="10,71,0,0" VerticalAlignment="Top" Width="772" IsReadOnly="True" MouseDoubleClick="dgKaryawan_MouseDoubleClick" AutoGeneratingColumn="DgKaryawan_AutoGeneratingColumn"/>
         <Button x:Name="btRegis" Content="Register" HorizontalAlignment="Left" Margin="672,371,0,0" VerticalAlignment="Top" Width="110" Height="35" Click="btRegis_Click"/>
         <Button x:Name="btDelete" Content="Delete" HorizontalAlignment="Left" Margin="557,370,0,0" VerticalAlignment="Top" Width="110" Height="36" IsEnabled="False" Click="btDelete_Click"/>
         <Button x:Name="btUpdate" Content="Update" HorizontalAlignment="Left" Margin="442,371,0,0" VerticalAlignment="Top" Width="110" Height="36" IsEnabled="False" Click="btUpdate_Click"/>
-        <Image HorizontalAlignment="Left" Height="34" Margin="10,10,0,0" VerticalAlignment="Top" Width="41" Source="Image/home.png" MouseDown="Image_MouseDown"/>
+        <Image HorizontalAlignment="Left" Height="34" Margin="10,10,0,0" VerticalAlignment="Top" Width="41" Source="Image/home.png" MouseDown="Home_MouseDown"/>
         <TextBox x:Name="passBox" HorizontalAlignment="Left" Height="23" Margin="93,346,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="305"/>
 
     </Grid>
